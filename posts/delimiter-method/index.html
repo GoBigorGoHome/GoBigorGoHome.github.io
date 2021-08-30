@@ -6,12 +6,7 @@
     
     <title>隔板法应用一例 | Jiashu Zou&#39;s Notes</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="问题一 \(x_1, x_2, \dots, x_K\) 是正整数，满足 \(x_1 &#43; x_2 &#43; \dots &#43; x_K = N\)。
-求 \(\sum x_1 x_2\dots x_K\)。
-解 答案是 \(N &#43; K - 1 \choose 2K - 1\)。
-考虑 \(\sum x_1 x_2 \dots x_K\) 的组合意义。
-设想有 \(N\) 个球排成一行。“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”的方法数就是 \(\sum x_1 x_2 \dots x_K\)。
-“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”有多少种方法？设想有 \(K - 1\) 个隔板。先用这 \(K - 1\) 个隔板把 \(N\) 个球分成 \(K\) 段，再从每一段里选一个球。此时我们有 \(N\) 个球加 \(K-1\) 个隔板共 \(N &#43; K - 1\) 个东西排成一行。把这 \(N &#43; K - 1\) 个东西从左往右编号，把所放置的 \(K - 1\) 个隔板和所选的 \(K\) 个球的编号依次写下来就得到一个长为 \(2K - 1\) 的的编号序列。下图是 \(N = 6, K= 3\) 的一个例子。绿色竖线代表隔板，红球代表所选的球。">
+    <meta name="description" content="一个简单的组合问题。">
     <meta name="generator" content="Hugo 0.87.0" />
     
     
@@ -32,34 +27,19 @@
     
     
     <meta property="og:title" content="隔板法应用一例" />
-<meta property="og:description" content="问题一 \(x_1, x_2, \dots, x_K\) 是正整数，满足 \(x_1 &#43; x_2 &#43; \dots &#43; x_K = N\)。
-求 \(\sum x_1 x_2\dots x_K\)。
-解 答案是 \(N &#43; K - 1 \choose 2K - 1\)。
-考虑 \(\sum x_1 x_2 \dots x_K\) 的组合意义。
-设想有 \(N\) 个球排成一行。“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”的方法数就是 \(\sum x_1 x_2 \dots x_K\)。
-“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”有多少种方法？设想有 \(K - 1\) 个隔板。先用这 \(K - 1\) 个隔板把 \(N\) 个球分成 \(K\) 段，再从每一段里选一个球。此时我们有 \(N\) 个球加 \(K-1\) 个隔板共 \(N &#43; K - 1\) 个东西排成一行。把这 \(N &#43; K - 1\) 个东西从左往右编号，把所放置的 \(K - 1\) 个隔板和所选的 \(K\) 个球的编号依次写下来就得到一个长为 \(2K - 1\) 的的编号序列。下图是 \(N = 6, K= 3\) 的一个例子。绿色竖线代表隔板，红球代表所选的球。" />
+<meta property="og:description" content="一个简单的组合问题。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/delimiter-method/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-26T18:28:42+08:00" />
 <meta property="article:modified_time" content="2021-08-26T18:28:42+08:00" />
 
 <meta itemprop="name" content="隔板法应用一例">
-<meta itemprop="description" content="问题一 \(x_1, x_2, \dots, x_K\) 是正整数，满足 \(x_1 &#43; x_2 &#43; \dots &#43; x_K = N\)。
-求 \(\sum x_1 x_2\dots x_K\)。
-解 答案是 \(N &#43; K - 1 \choose 2K - 1\)。
-考虑 \(\sum x_1 x_2 \dots x_K\) 的组合意义。
-设想有 \(N\) 个球排成一行。“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”的方法数就是 \(\sum x_1 x_2 \dots x_K\)。
-“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”有多少种方法？设想有 \(K - 1\) 个隔板。先用这 \(K - 1\) 个隔板把 \(N\) 个球分成 \(K\) 段，再从每一段里选一个球。此时我们有 \(N\) 个球加 \(K-1\) 个隔板共 \(N &#43; K - 1\) 个东西排成一行。把这 \(N &#43; K - 1\) 个东西从左往右编号，把所放置的 \(K - 1\) 个隔板和所选的 \(K\) 个球的编号依次写下来就得到一个长为 \(2K - 1\) 的的编号序列。下图是 \(N = 6, K= 3\) 的一个例子。绿色竖线代表隔板，红球代表所选的球。"><meta itemprop="datePublished" content="2021-08-26T18:28:42+08:00" />
+<meta itemprop="description" content="一个简单的组合问题。"><meta itemprop="datePublished" content="2021-08-26T18:28:42+08:00" />
 <meta itemprop="dateModified" content="2021-08-26T18:28:42+08:00" />
 <meta itemprop="wordCount" content="444">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="隔板法应用一例"/>
-<meta name="twitter:description" content="问题一 \(x_1, x_2, \dots, x_K\) 是正整数，满足 \(x_1 &#43; x_2 &#43; \dots &#43; x_K = N\)。
-求 \(\sum x_1 x_2\dots x_K\)。
-解 答案是 \(N &#43; K - 1 \choose 2K - 1\)。
-考虑 \(\sum x_1 x_2 \dots x_K\) 的组合意义。
-设想有 \(N\) 个球排成一行。“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”的方法数就是 \(\sum x_1 x_2 \dots x_K\)。
-“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”有多少种方法？设想有 \(K - 1\) 个隔板。先用这 \(K - 1\) 个隔板把 \(N\) 个球分成 \(K\) 段，再从每一段里选一个球。此时我们有 \(N\) 个球加 \(K-1\) 个隔板共 \(N &#43; K - 1\) 个东西排成一行。把这 \(N &#43; K - 1\) 个东西从左往右编号，把所放置的 \(K - 1\) 个隔板和所选的 \(K\) 个球的编号依次写下来就得到一个长为 \(2K - 1\) 的的编号序列。下图是 \(N = 6, K= 3\) 的一个例子。绿色竖线代表隔板，红球代表所选的球。"/>
+<meta name="twitter:description" content="一个简单的组合问题。"/>
 
 	
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
