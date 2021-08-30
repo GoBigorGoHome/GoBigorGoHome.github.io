@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Jiashu Zou&#39;s Notes</title>
+    <link>gobigorgohome.github.io/posts/</link>
+    <description>Recent content in Posts on Jiashu Zou&#39;s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Aug 2021 18:28:42 +0800</lastBuildDate><atom:link href="gobigorgohome.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>隔板法应用一例</title>
+      <link>gobigorgohome.github.io/posts/delimiter-method/</link>
+      <pubDate>Thu, 26 Aug 2021 18:28:42 +0800</pubDate>
+      
+      <guid>gobigorgohome.github.io/posts/delimiter-method/</guid>
+      <description>问题一 \(x_1, x_2, \dots, x_K\) 是正整数，满足 \(x_1 + x_2 + \dots + x_K = N\)。
+求 \(\sum x_1 x_2\dots x_K\)。
+解 答案是 \(N + K - 1 \choose 2K - 1\)。
+考虑 \(\sum x_1 x_2 \dots x_K\) 的组合意义。
+设想有 \(N\) 个球排成一行。“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”的方法数就是 \(\sum x_1 x_2 \dots x_K\)。
+“先把这 \(N\) 个球分成 \(K\) 段，再从每一段中选一个球”有多少种方法？设想有 \(K - 1\) 个隔板。先用这 \(K - 1\) 个隔板把 \(N\) 个球分成 \(K\) 段，再从每一段里选一个球。此时我们有 \(N\) 个球加 \(K-1\) 个隔板共 \(N + K - 1\) 个东西排成一行。把这 \(N + K - 1\) 个东西从左往右编号，把所放置的 \(K - 1\) 个隔板和所选的 \(K\) 个球的编号依次写下来就得到一个长为 \(2K - 1\) 的的编号序列。下图是 \(N = 6, K= 3\) 的一个例子。绿色竖线代表隔板，红球代表所选的球。</description>
+    </item>
+    
+  </channel>
+</rss>
