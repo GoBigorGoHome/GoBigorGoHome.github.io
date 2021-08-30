@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jiashu Zou&#39;s Notes</title>
-    <link>gobigorgohome.github.io/</link>
+    <link>/</link>
     <description>Recent content on Jiashu Zou&#39;s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Aug 2021 18:28:42 +0800</lastBuildDate><atom:link href="gobigorgohome.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Aug 2021 18:28:42 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>隔板法应用一例</title>
-      <link>gobigorgohome.github.io/posts/delimiter-method/</link>
+      <link>/posts/delimiter-method/</link>
       <pubDate>Thu, 26 Aug 2021 18:28:42 +0800</pubDate>
       
-      <guid>gobigorgohome.github.io/posts/delimiter-method/</guid>
+      <guid>/posts/delimiter-method/</guid>
       <description>问题一 \(x_1, x_2, \dots, x_K\) 是正整数，满足 \(x_1 + x_2 + \dots + x_K = N\)。
 求 \(\sum x_1 x_2\dots x_K\)。
 解 答案是 \(N + K - 1 \choose 2K - 1\)。
