@@ -38,7 +38,7 @@
 <meta itemprop="name" content="Connected Subgraphs Counting">
 <meta itemprop="description" content="一个简单的计数问题。"><meta itemprop="datePublished" content="2021-08-31T00:08:53+08:00" />
 <meta itemprop="dateModified" content="2021-08-31T00:08:53+08:00" />
-<meta itemprop="wordCount" content="125">
+<meta itemprop="wordCount" content="129">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Connected Subgraphs Counting"/>
 <meta name="twitter:description" content="一个简单的计数问题。"/>
@@ -59,6 +59,7 @@
         dsone: "\\unicode{x1D7D9}",
         sub: "\\subset",
         sube: "\\subseteq",
+        subne: "\\subsetneq",
         sse: "\\subseteq",
         spe: "\\supseteq",
         qed: "\\tag*{$\\blacksquare$}",
@@ -189,11 +190,15 @@
 <p>数据范围：<span class="math inline">\(|V| \le 17\)</span>。</p>
 <h1 id="解">解</h1>
 <p>为了方便表述，先介绍几个记号。设 <span class="math inline">\(G = (V, E)\)</span> 是一个图，<span class="math inline">\(G\)</span> 的点数记作 <span class="math inline">\(|G|\)</span>，<span class="math inline">\(G\)</span> 的边数记作 <span class="math inline">\(\|G\|\)</span>。对于 <span class="math inline">\(V&#39;\sube V\)</span>，<span class="math inline">\(V&#39;\)</span> 导出的 <span class="math inline">\(G\)</span> 的子图记作 <span class="math inline">\(G[V&#39;]\)</span>。在描述算法的复杂度时，以 <span class="math inline">\(n\)</span> 表示图的点数，以 <span class="math inline">\(m\)</span> 表示图的边数。若一个图的点集是 <span class="math inline">\(V\)</span> 则可称之为 <span class="math inline">\(V\)</span> 上的图。以下凡言及子图皆指 <span class="math inline">\(G\)</span> 的子图。</p>
-<p><span class="math inline">\(S\)</span> 是 <span class="math inline">\(V\)</span> 是非空子集，定义<br />
+<p><span class="math inline">\(S\)</span> 是 <span class="math inline">\(V\)</span> 的非空子集，定义<br />
 <span class="math inline">\(f(S)\)</span>：<span class="math inline">\(S\)</span> 上的连通子图的个数；<br />
 <span class="math inline">\(g(S)\)</span>：<span class="math inline">\(S\)</span> 上的子图的个数。</p>
 <p>易见 <span class="math inline">\(g(S) = 2^{\|G[S]\|}\)</span>，可以在 <span class="math inline">\(O(m2^n)\)</span> 的时间内算出所有的 <span class="math inline">\(g(S)\)</span>。</p>
-<p>考虑 <span class="math inline">\(S\)</span> 上的<strong>不连通子图</strong>的个数，有 <span class="math display">\[f(S) = g(S) - \text{$S$ 上的不连通子图的个数}\]</span> 如何确定 <span class="math inline">\(S\)</span> 上的不连通子图的个数？有一个的技巧：取 <span class="math inline">\(S\)</span> 里的一个点 <span class="math inline">\(v\)</span>，把 <span class="math inline">\(S\)</span> 上的不连通子图按 <span class="math inline">\(v\)</span> 所在的连通块的点集 <span class="math inline">\(T\)</span> 分类。取定 <span class="math inline">\(v \in S\)</span>，<span class="math inline">\(S\)</span> 上的不连通子图的个数可表为 <span class="math inline">\(\sum_{v \in T\sub S} f(T) g(S - T)\)</span>，从而有 <span class="math display">\[f(S) = g(S) - \sum_{v \in T\sub S} f(T) g(S - T)\]</span> 可以在 <span class="math inline">\(O(3^n)\)</span> 的时间内算出所有的 <span class="math inline">\(f(S)\)</span>。</p>
+<p>考虑 <span class="math inline">\(S\)</span> 上的<strong>不连通子图</strong>的个数，有 <span class="math display">\[
+f(S) = g(S) - \text{$S$ 上的不连通子图的个数}
+\]</span> 如何确定 <span class="math inline">\(S\)</span> 上的不连通子图的个数？有一个的技巧：取 <span class="math inline">\(S\)</span> 里的一个点 <span class="math inline">\(v\)</span>，把 <span class="math inline">\(S\)</span> 上的不连通子图按 <span class="math inline">\(v\)</span> 所在的连通块的点集 <span class="math inline">\(T\)</span> 分类。取定 <span class="math inline">\(v \in S\)</span>，<span class="math inline">\(S\)</span> 上的不连通子图的个数可表为 <span class="math inline">\(\sum_{v \in T\subne S} f(T) g(S - T)\)</span>，从而有 <span class="math display">\[
+f(S) = g(S) - \sum_{v \in T\subne S} f(T) g(S - T)
+\]</span> 可以在 <span class="math inline">\(O(3^n)\)</span> 的时间内算出所有的 <span class="math inline">\(f(S)\)</span>。</p>
 <h1 id="注">注</h1>
 <p>本文是根据 <a href="https://atcoder.jp/contests/abc213/tasks/abc213_g">ABC213G Connectivity 2</a> 的官方<a href="https://atcoder.jp/contests/abc213/editorial/2414">题解</a>写的。官方题解里说 <span class="math inline">\(g(S)\)</span> 和 <span class="math inline">\(f(S)\)</span> 有更快的算法：用快速 Zeta 变换可以在 <span class="math inline">\(O(n2^n)\)</span> 时间内算出所有的 <span class="math inline">\(g(S)\)</span>；可以在 <span class="math inline">\(O(n^22^n)\)</span> 时间内算出所有的 <span class="math inline">\(f(S)\)</span>。</p>
 <ul class="pa0">
