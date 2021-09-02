@@ -6,22 +6,22 @@
     <description>Recent content on Algorithm Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Sep 2021 10:44:01 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>abc214_g Three Permutations</title>
-      <link>/editorials/abc214g-three-permutations/</link>
-      <pubDate>Thu, 02 Sep 2021 10:44:01 +0800</pubDate>
-      
-      <guid>/editorials/abc214g-three-permutations/</guid>
-      <description>一个计数问题。</description>
-    </item>
-    
+    <lastBuildDate>Tue, 31 Aug 2021 00:08:53 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Connected Subgraphs Counting</title>
       <link>/posts/subgraph-counting/</link>
       <pubDate>Tue, 31 Aug 2021 00:08:53 +0800</pubDate>
       
       <guid>/posts/subgraph-counting/</guid>
+      <description>一个简单的计数问题。</description>
+    </item>
+    
+    <item>
+      <title>隔板法应用一例</title>
+      <link>/posts/delimiter-method/</link>
+      <pubDate>Thu, 26 Aug 2021 18:28:42 +0800</pubDate>
+      
+      <guid>/posts/delimiter-method/</guid>
       <description>一个简单的计数问题。</description>
     </item>
     
