@@ -38,7 +38,7 @@
 <meta itemprop="name" content="隔板法应用一例">
 <meta itemprop="description" content="一个简单的计数问题。"><meta itemprop="datePublished" content="2021-08-26T18:28:42+08:00" />
 <meta itemprop="dateModified" content="2021-08-26T18:28:42+08:00" />
-<meta itemprop="wordCount" content="444">
+<meta itemprop="wordCount" content="446">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="隔板法应用一例"/>
 <meta name="twitter:description" content="一个简单的计数问题。"/>
@@ -82,6 +82,7 @@
 </script>
 
 
+
   </head>
 
   <body class="ma0 avenir bg-near-white">
@@ -104,6 +105,12 @@
 
       
         <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/editorials/" title="Editorials page">
+              Editorials
+            </a>
+          </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
             <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
@@ -203,7 +210,7 @@
 <p>设想有 <span class="math inline">\(N\)</span> 个球排成一行。“先把这 <span class="math inline">\(N\)</span> 个球分成 <span class="math inline">\(K + 1\)</span> 段，第 <span class="math inline">\(K+1\)</span> 段可以是空的但前 <span class="math inline">\(K\)</span> 段都是非空的，然后从前 <span class="math inline">\(K\)</span> 段中每一段选一个球”的方法数就是 <span class="math inline">\(\sum x_1 x_2 \dots x_K\)</span>。</p>
 <p>设想先用 <span class="math inline">\(K\)</span> 个隔板把 <span class="math inline">\(N\)</span> 个球分成 <span class="math inline">\(K + 1\)</span> 段，前 <span class="math inline">\(K\)</span> 段非空，第 <span class="math inline">\(K+1\)</span> 段可以是空的；然后从前 <span class="math inline">\(K\)</span> 段中每一段选一个球。此时我们有 <span class="math inline">\(N\)</span> 个球和 <span class="math inline">\(K\)</span> 个隔板排成一行，把这 <span class="math inline">\(N + K\)</span> 个东西从左到右编号，然后把所放置的 <span class="math inline">\(K\)</span> 个隔板和所选的 <span class="math inline">\(K\)</span> 个球的编号依次写下来，得到一个长为 <span class="math inline">\(2K\)</span> 的编号序列。下图是 <span class="math inline">\(N = 6, K = 3\)</span> 时的两种方法和对应的编号序列。</p>
 <p><img src="/images/delimiter-method.assets/image-20210828160039884.png" alt="image-20210828160039884" style="zoom:10%;" /></p>
-<p>“先把 <span class="math inline">\(N\)</span> 个球分成 <span class="math inline">\(K + 1\)</span> 段，第 <span class="math inline">\(K+1\)</span> 段可以是空的但前 <span class="math inline">\(K\)</span> 段都是非空的，再从每一段中选一个球”的方法和 <span class="math inline">\(1, 2, \dots, N + K\)</span> 的长为 <span class="math inline">\(2K\)</span> 的子序列一一对应。</p>
+<p>“先把 <span class="math inline">\(N\)</span> 个球分成 <span class="math inline">\(K + 1\)</span> 段，第 <span class="math inline">\(K+1\)</span> 段可以是空的但前 <span class="math inline">\(K\)</span> 段都是非空的，再从前 <span class="math inline">\(K\)</span> 段每一段选一个球”的方法和 <span class="math inline">\(1, 2, \dots, N + K\)</span> 的长为 <span class="math inline">\(2K\)</span> 的子序列一一对应。</p>
 <h1 id="问题三">问题三</h1>
 <p><span class="math inline">\(x_1, x_2, \dots, x_K\)</span> 是正整数，满足 <span class="math inline">\(x_1 + x_2 + \dots + x_K = N\)</span> 且 <span class="math inline">\(x_1 \ge t\)</span>，<span class="math inline">\(t\)</span> 是正整数。求 <span class="math inline">\(\sum x_1 x_2\dots x_K\)</span>。</p>
 <h1 id="解-2">解</h1>
