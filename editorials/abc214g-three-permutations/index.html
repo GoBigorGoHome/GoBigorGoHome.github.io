@@ -38,7 +38,7 @@
 <meta itemprop="name" content="abc214_g Three Permutations">
 <meta itemprop="description" content="一个计数问题。"><meta itemprop="datePublished" content="2021-09-02T10:44:01+08:00" />
 <meta itemprop="dateModified" content="2021-09-02T10:44:01+08:00" />
-<meta itemprop="wordCount" content="324">
+<meta itemprop="wordCount" content="329">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="abc214_g Three Permutations"/>
 <meta name="twitter:description" content="一个计数问题。"/>
@@ -201,7 +201,7 @@
 <p>数据范围：<span class="math inline">\(1 \le N \le 3000\)</span>。<br />
 时限：2秒。</p>
 <h1 id="思路">思路</h1>
-<p>为了方便表述，引入几个记号。我们把 <span class="math inline">\(\{1, 2, \dots, n\}\)</span> 的一个排列叫做一个 <span class="math inline">\(n\)</span>-排列。</p>
+<p>为了方便表述，引入几个记号。我们把 <span class="math inline">\(\{1, 2, \dots, n\}\)</span> 的一个排列叫做一个 <span class="math inline">\(n\)</span>-排列。设 <span class="math inline">\(G\)</span> 是图，<span class="math inline">\(|G|\)</span> 表示图 <span class="math inline">\(G\)</span> 的点数。</p>
 <p>这个问题是错位排列问题的推广。错位排列问题可以用容斥原理求解。取定 <span class="math inline">\(k\)</span> 个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，满足在这 <span class="math inline">\(k\)</span> 个下标上都有 <span class="math inline">\(p_i = i\)</span> 的 <span class="math inline">\(n\)</span>-排列有 <span class="math inline">\((n - k)!\)</span> 个。把错位 <span class="math inline">\(n\)</span>-排列数记作 <span class="math inline">\(D(n)\)</span>，根据容斥原理 <span class="math display">\[
 D(n) =  \sum_{k = 0}^{n} {n \choose k} (-1)^{n - k} (n - k)!
 \]</span></p>
@@ -220,7 +220,7 @@ D(n) =  \sum_{k = 0}^{n} {n \choose k} (-1)^{n - k} (n - k)!
 <p>现在问题归为：环 <span class="math inline">\(C\)</span> 的每条边都有编号。选择环 <span class="math inline">\(C\)</span> 的 <span class="math inline">\(k\)</span> 条边删掉，就得到 <span class="math inline">\(k\)</span> 条链。我们要求得是每个删边方法所得的 <span class="math inline">\(k\)</span> 条链上的点数的乘积之和。这个和是 <span class="math inline">\(|C| g(|C|, k) / k\)</span>；<span class="math inline">\(g(n, k)\)</span> 是方程 <span class="math inline">\(x_1 + x_2 + \dots + x_k\)</span> 的正整数解的乘积之和，即 <span class="math display">\[
 g(n, k) := \sum_{\substack{x_1 + \dots + x_k = n\\x_1, \dots, x_k \in \Z_{\ge 1}}} x_1 x_2 \dots x_k
 \]</span></p>
-<p>现在来解释 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 这个结果。先删一条边，把环 <span class="math inline">\(C\)</span> 变成一条链，再从这条链中删除 <span class="math inline">\(k - 1\)</span> 条边，把一条链分成 <span class="math inline">\(k\)</span> 条链；如此问题就转化为上述关于方程 <span class="math inline">\(x_1 + \dots + x_k\)</span> 的正整数解的计数问题。不妨先区分删的第一条边是哪一条，得到 <span class="math inline">\(|C| g(|C|, k)\)</span>，其中每个方法都被重复计算了 <span class="math inline">\(k\)</span> 次。</p>
+<p>现在来解释 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 这个结果。先删一条边，把环 <span class="math inline">\(C\)</span> 变成一条链，然后从这条链中删除 <span class="math inline">\(k - 1\)</span> 条边，把这条链分成 <span class="math inline">\(k\)</span> 条链；这样问题就转化为上述关于方程 <span class="math inline">\(x_1 + \dots + x_k\)</span> 的正整数解的计数问题。不妨先区别删的第一条边是哪一条，得到 <span class="math inline">\(|C| g(|C|, k)\)</span>，其中每个方法都被重复计算了 <span class="math inline">\(k\)</span> 次。</p>
 <p>用隔板法可以得出 <span class="math inline">\(g(n, k) = {n + k - 1 \choose 2k - 1}\)</span>，详见<a href="/posts/delimiter-method">隔板法应用一例</a>。</p>
 <ul class="pa0">
   
