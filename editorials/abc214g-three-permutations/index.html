@@ -38,7 +38,7 @@
 <meta itemprop="name" content="abc214_g Three Permutations">
 <meta itemprop="description" content="一个计数问题。"><meta itemprop="datePublished" content="2021-09-02T10:44:01+08:00" />
 <meta itemprop="dateModified" content="2021-09-02T10:44:01+08:00" />
-<meta itemprop="wordCount" content="335">
+<meta itemprop="wordCount" content="339">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="abc214_g Three Permutations"/>
 <meta name="twitter:description" content="一个计数问题。"/>
@@ -217,10 +217,10 @@ D(n) =  \sum_{k = 0}^{n} {n \choose k} (-1)^{n - k} (n - k)!
 <p>现在来计算 <span class="math inline">\(f\)</span>。边界条件： <span class="math inline">\(f(0) = 1\)</span>。若 <span class="math inline">\(|C| = 1\)</span> 则 <span class="math inline">\(f(|C|) = 1\)</span>；若 <span class="math inline">\(|C| \ge 2\)</span> 则 <span class="math inline">\(f(|C|) = 2\)</span>。现在考虑一般情况，从 <span class="math inline">\(C\)</span> 中选择一些边保留，其他边删掉，<span class="math inline">\(C\)</span> 就变成了一些链。根据上面的讨论，给所选的每条边指派一个端点的方法数恰等于每条链上点数的乘积。</p>
 <p><img src="/images/abc214g-three-permutations.assets/image-20210902183336274.png" alt="image-20210902183336274" style="zoom:5%;" /></p>
 <p>上图是从一个五元环里选三条边的情形，黑色的数是环上的点，这些数是排列里的数。黄色的数代表排列里的位置，可以看作边的编号。给这三条边每条边指派一个端点有 <span class="math inline">\(6\)</span> 种方法。</p>
-<p>现在问题归为：环 <span class="math inline">\(C\)</span> 的每条边都有编号。选择环 <span class="math inline">\(C\)</span> 的 <span class="math inline">\(k\)</span> 条边删掉，就得到 <span class="math inline">\(k\)</span> 条链。我们要求得是每个删边方法所得的 <span class="math inline">\(k\)</span> 条链上的点数的乘积之和。这个和是 <span class="math inline">\(|C| g(|C|, k) / k\)</span>；<span class="math inline">\(g(n, k)\)</span> 是方程 <span class="math inline">\(x_1 + x_2 + \dots + x_k\)</span> 的正整数解的乘积之和，即 <span class="math display">\[
+<p>现在问题归为：环 <span class="math inline">\(C\)</span> 的每条边都有编号。选择环 <span class="math inline">\(C\)</span> 的 <span class="math inline">\(k\)</span> 条边删掉，就得到 <span class="math inline">\(k\)</span> 条链。我们要求得是每个删边方法所得的 <span class="math inline">\(k\)</span> 条链上的点数的乘积之和。这个和是 <span class="math inline">\(|C| g(|C|, k) / k\)</span>；<span class="math inline">\(g(n, k)\)</span> 是方程 <span class="math inline">\(x_1 + x_2 + \dots + x_k = |C|\)</span> 的正整数解的乘积之和，即 <span class="math display">\[
 g(n, k) := \sum_{\substack{x_1 + \dots + x_k = n\\x_1, \dots, x_k \in \Z_{\ge 1}}} x_1 x_2 \dots x_k
 \]</span></p>
-<p>现在来解释 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 这个结果。先删一条边，把环 <span class="math inline">\(C\)</span> 变成一条链，然后从这条链中删除 <span class="math inline">\(k - 1\)</span> 条边，把这条链分成 <span class="math inline">\(k\)</span> 条链；这样问题就转化为上述关于方程 <span class="math inline">\(x_1 + \dots + x_k\)</span> 的正整数解的计数问题。不妨先区别删的第一条边是哪一条，得到 <span class="math inline">\(|C| g(|C|, k)\)</span>，其中每个方法都被重复计算了 <span class="math inline">\(k\)</span> 次。</p>
+<p>现在来解释 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 这个结果。先删一条边，把环 <span class="math inline">\(C\)</span> 变成一条链，然后从这条链中删除 <span class="math inline">\(k - 1\)</span> 条边，把这条链分成 <span class="math inline">\(k\)</span> 条链；这样问题就转化为上述关于方程 <span class="math inline">\(x_1 + \dots + x_k = |C|\)</span> 的正整数解的计数问题。不妨先区别删的第一条边是哪一条，得到 <span class="math inline">\(|C| g(|C|, k)\)</span>，其中每个方法都被重复计算了 <span class="math inline">\(k\)</span> 次。</p>
 <p>用隔板法可以得出 <span class="math inline">\(g(n, k) = {n + k - 1 \choose 2k - 1}\)</span>，详见<a href="/posts/delimiter-method">隔板法应用一例</a>。</p>
 <ul class="pa0">
   
