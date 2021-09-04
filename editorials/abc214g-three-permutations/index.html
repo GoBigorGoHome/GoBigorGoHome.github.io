@@ -38,7 +38,7 @@
 <meta itemprop="name" content="abc214_g Three Permutations">
 <meta itemprop="description" content="一个计数问题。"><meta itemprop="datePublished" content="2021-09-02T10:44:01+08:00" />
 <meta itemprop="dateModified" content="2021-09-02T10:44:01+08:00" />
-<meta itemprop="wordCount" content="332">
+<meta itemprop="wordCount" content="335">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="abc214_g Three Permutations"/>
 <meta name="twitter:description" content="一个计数问题。"/>
@@ -201,7 +201,7 @@
 <p>数据范围：<span class="math inline">\(1 \le N \le 3000\)</span>。<br />
 时限：2秒。</p>
 <h1 id="思路">思路</h1>
-<p>为了方便表述，引入几个记号。我们把 <span class="math inline">\(\{1, 2, \dots, n\}\)</span> 的一个排列叫做一个 <span class="math inline">\(n\)</span>-排列。设 <span class="math inline">\(G\)</span> 是图，<span class="math inline">\(|G|\)</span> 表示图 <span class="math inline">\(G\)</span> 的点数。</p>
+<p>为了方便表述，引入几个记号。我们把 <span class="math inline">\(\{1, 2, \dots, n\}\)</span> 的一个排列叫做一个 <span class="math inline">\(n\)</span>-排列。设 <span class="math inline">\(G\)</span> 是图，<span class="math inline">\(|G|\)</span> 表示图 <span class="math inline">\(G\)</span> 的点数。以 <span class="math inline">\(\Z_{\ge 1}\)</span> 表示正整数集。</p>
 <p>这个问题是错位排列问题的推广。错位排列问题可以用容斥原理求解。取定 <span class="math inline">\(k\)</span> 个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，满足在这 <span class="math inline">\(k\)</span> 个下标上都有 <span class="math inline">\(p_i = i\)</span> 的 <span class="math inline">\(n\)</span>-排列有 <span class="math inline">\((n - k)!\)</span> 个。把错位 <span class="math inline">\(n\)</span>-排列数记作 <span class="math inline">\(D(n)\)</span>，根据容斥原理 <span class="math display">\[
 D(n) =  \sum_{k = 0}^{n} {n \choose k} (-1)^{n - k} (n - k)!
 \]</span></p>
