@@ -196,7 +196,7 @@
       
     </header>
     <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>扩展欧几里得算法可以算出方程 <span class="math inline">\(ax + by = \gcd(a, b)\)</span>（<span class="math inline">\(a, b \in \Z\)</span>）的一组整数解。本文假设读者已经知道扩展欧几里得算法的递归实现，下面我们来推导它的非递归实现。</p>
-<p>首先回顾欧几里得算法，典型的实现是递归的</p>
+<p>首先回顾欧几里得算法，常见的实现是递归的</p>
 <pre><code>// precondition: a，b 非负且不全是零。
 int gcd(int a, int b) {
   return b == 0 ? a : gcd(b, a % b);
@@ -207,16 +207,16 @@ int gcd(int a, int b) {
 \end{equation}\]</span> 观察上式，不难看出 <span class="math inline">\(p, q\)</span> 这两个序列是独立的，我们只考虑序列 <span class="math inline">\(p\)</span>。我们的目标是求出 <span class="math inline">\(p_{n - 1}\)</span>。取 <span class="math inline">\(p_1 = 1, p_2 = 0\)</span>。序列 <span class="math inline">\(p\)</span> 满足递推 <span class="math display">\[\begin{equation}
 p_i = p_{i - 2} - \floor{x_{i-2}/x_{i-1}} p_{i-1}。
 \end{equation}\]</span></p>
-<pre><code>std::pair&lt;int, int&gt; ext_gcd(int a, int b) {
+<pre><code>std::pair&lt;int, int&gt; ext_gcd(int x1, int x2) {
   int p1 = 1, p2 = 0;
-  while (b != 0) {
-    int t = a / b;
+  while (x2 != 0) {
+    int t = x1 / x2;
     p1 -= t * p2;
-    a -= t * b;
+    x1 -= t * x2;
     swap(p1, p2);
-    swap(a, b);
+    swap(x1, x2);
   }
-  return {p1, a};
+  return {p1, x1};
 }</code></pre>
 <ul class="pa0">
   
