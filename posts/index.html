@@ -120,6 +120,23 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="/posts/non-recursive-extended-euclid/" class="link black dim">
+        非递归的扩展欧几里得算法
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      扩展欧几里得算法可以算出方程 \(ax + by = \gcd(a, b)\)（\(a, b \in \Z\)）的一组整数解。本文假设读者已经知道扩展欧几里得算法的递归实现，下面我们来推导它的非递归实现。
+首先回顾欧几里得算法，典型的实现是递归的
+// precondition: a，b 非负且不全是零。 int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); } 我们考虑上述 gcd 函数的执行过程，设初次调用 gcd 的两个参数是 \((x_1, x_2)\)。若 \(x_2 \ne 0\) 则第二次调用 gcd 的两个参数是 \((x_2, x_1 \bmod x_2)\)，令 \(x_3 = x_1 \bmod x_2\)。这样，在 gcd 执行的过程中就得到序列 \(x_1, x_2, \dots, x_{n-1} = \gcd(x_1, x_2), x_n = 0\)。第一次调用 gcd 的参数是 \((x_1, x_2)\)，第二次调用 gcd 的参数是 \((x_2, x_3)\)，第 \(n - 1\) 次调用 gcd 的参数是 \((x_{n-1}, x_n)\)。序列 \(x\) 满足 \(x_{i} = x_{i - 2} \bmod x_{i - 1}\)（\(i \ge 3\)）。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="/posts/bitwise-xor-convolution/" class="link black dim">
         Bitwise XOR Convolution
       </a>

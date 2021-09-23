@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2021-09-15T15:52:40+08:00</lastmod>
-  </url><url>
-    <loc>/posts/bitwise-xor-convolution/</loc>
-    <lastmod>2021-09-15T15:52:40+08:00</lastmod>
+    <lastmod>2021-09-22T22:49:26+08:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
+    <lastmod>2021-09-22T22:49:26+08:00</lastmod>
+  </url><url>
+    <loc>/posts/non-recursive-extended-euclid/</loc>
+    <lastmod>2021-09-22T22:49:26+08:00</lastmod>
+  </url><url>
+    <loc>/posts/bitwise-xor-convolution/</loc>
     <lastmod>2021-09-15T15:52:40+08:00</lastmod>
   </url><url>
     <loc>/editorials/abc214g-three-permutations/</loc>
