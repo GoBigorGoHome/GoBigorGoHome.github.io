@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>非递归的扩展欧几里得算法 | Algorithm Notes</title>
+    <title>Basics | Algorithm Notes</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="一个简单的小问题。">
+    <meta name="description" content="Definitions.">
     <meta name="generator" content="Hugo 0.89.0-DEV" />
     
     
@@ -28,20 +28,20 @@
 
     
     
-    <meta property="og:title" content="非递归的扩展欧几里得算法" />
-<meta property="og:description" content="一个简单的小问题。" />
+    <meta property="og:title" content="Basics" />
+<meta property="og:description" content="Definitions." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/non-recursive-extended-euclid/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-09-22T22:49:26+08:00" />
-<meta property="article:modified_time" content="2021-09-22T22:49:26+08:00" />
+<meta property="og:url" content="/gt/basics/" /><meta property="article:section" content="gt" />
+<meta property="article:published_time" content="2021-10-30T12:29:11+08:00" />
+<meta property="article:modified_time" content="2021-10-30T12:29:11+08:00" />
 
-<meta itemprop="name" content="非递归的扩展欧几里得算法">
-<meta itemprop="description" content="一个简单的小问题。"><meta itemprop="datePublished" content="2021-09-22T22:49:26+08:00" />
-<meta itemprop="dateModified" content="2021-09-22T22:49:26+08:00" />
-<meta itemprop="wordCount" content="199">
+<meta itemprop="name" content="Basics">
+<meta itemprop="description" content="Definitions."><meta itemprop="datePublished" content="2021-10-30T12:29:11+08:00" />
+<meta itemprop="dateModified" content="2021-10-30T12:29:11+08:00" />
+<meta itemprop="wordCount" content="453">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="非递归的扩展欧几里得算法"/>
-<meta name="twitter:description" content="一个简单的小问题。"/>
+<meta name="twitter:title" content="Basics"/>
+<meta name="twitter:description" content="Definitions."/>
 
 	
   <script>
@@ -168,7 +168,7 @@
     <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked">
           
-        POSTS
+        GTS
       </aside>
       
 
@@ -178,20 +178,20 @@
   <div id="sharing" class="mt3">
 
     
-    <a href="https://www.facebook.com/sharer.php?u=/posts/non-recursive-extended-euclid/" class="facebook no-underline" aria-label="share on Facebook">
+    <a href="https://www.facebook.com/sharer.php?u=/gt/basics/" class="facebook no-underline" aria-label="share on Facebook">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
 
     </a>
 
     
     
-    <a href="https://twitter.com/share?url=/posts/non-recursive-extended-euclid/&amp;text=%e9%9d%9e%e9%80%92%e5%bd%92%e7%9a%84%e6%89%a9%e5%b1%95%e6%ac%a7%e5%87%a0%e9%87%8c%e5%be%97%e7%ae%97%e6%b3%95" class="twitter no-underline" aria-label="share on Twitter">
+    <a href="https://twitter.com/share?url=/gt/basics/&amp;text=Basics" class="twitter no-underline" aria-label="share on Twitter">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
 
     </a>
 
     
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=/posts/non-recursive-extended-euclid/&amp;title=%e9%9d%9e%e9%80%92%e5%bd%92%e7%9a%84%e6%89%a9%e5%b1%95%e6%ac%a7%e5%87%a0%e9%87%8c%e5%be%97%e7%ae%97%e6%b3%95" class="linkedin no-underline" aria-label="share on LinkedIn">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=/gt/basics/&amp;title=Basics" class="linkedin no-underline" aria-label="share on LinkedIn">
       <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
 </svg>
@@ -200,37 +200,23 @@
   </div>
 
 
-      <h1 class="f1 athelas mt3 mb1">非递归的扩展欧几里得算法</h1>
+      <h1 class="f1 athelas mt3 mb1">Basics</h1>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2021-09-22T22:49:26+08:00">September 22, 2021</time>
+      <time class="f6 mv4 dib tracked" datetime="2021-10-30T12:29:11+08:00">October 30, 2021</time>
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>扩展欧几里得算法可以算出方程 <span class="math inline">\(ax + by = \gcd(a, b)\)</span>（<span class="math inline">\(a, b \in \Z\)</span>）的一组整数解。本文假设读者已经知道扩展欧几里得算法的递归实现，下面我们来推导它的非递归实现。</p>
-<p>首先回顾欧几里得算法，常见的实现是递归的</p>
-<pre><code>// precondition: a，b 非负且不全是零。
-int gcd(int a, int b) {
-  return b == 0 ? a : gcd(b, a % b);
-}</code></pre>
-<p>我们考虑上述 <code>gcd</code> 函数的执行过程，设初次调用 <code>gcd</code> 的两个参数是 <span class="math inline">\((x_1, x_2)\)</span>。若 <span class="math inline">\(x_2 \ne 0\)</span> 则第二次调用 <code>gcd</code> 的两个参数是 <span class="math inline">\((x_2, x_1 \bmod x_2)\)</span>，令 <span class="math inline">\(x_3 = x_1 \bmod x_2\)</span>。这样，在 <code>gcd</code> 执行的过程中就得到序列 <span class="math inline">\(x_1, x_2, \dots, x_{n-1} = \gcd(x_1, x_2), x_n = 0\)</span>。第一次调用 <code>gcd</code> 的参数是 <span class="math inline">\((x_1, x_2)\)</span>，第二次调用 <code>gcd</code> 的参数是 <span class="math inline">\((x_2, x_3)\)</span>，第 <span class="math inline">\(n - 1\)</span> 次调用 <code>gcd</code> 的参数是 <span class="math inline">\((x_{n-1}, x_n)\)</span>。序列 <span class="math inline">\(x\)</span> 满足 <span class="math inline">\(x_{i} = x_{i - 2} \bmod x_{i - 1}\)</span>（<span class="math inline">\(i \ge 3\)</span>）。</p>
-<p>我们采用递推法。设 <span class="math inline">\(x_i = p_ix_1 + q_i x_2\)</span>。我们有 <span class="math inline">\(x_{i} = x_{i - 2} \bmod x_{i - 1}\)</span> 即 <span class="math inline">\(x_{i} = x_{i-2} - \floor{x_{i-2}/x_{i-1}} x_{i-1}\)</span>，从而有 <span class="math display">\[\begin{equation}
-(p_i, q_i) = (p_{i-2}, q_{i-2}) - \floor{x_{i-2}/x_{i-1}}(p_{i-1}, q_{i-1})。
-\end{equation}\]</span> 观察上式，不难看出 <span class="math inline">\(p, q\)</span> 这两个序列是独立的，我们只考虑序列 <span class="math inline">\(p\)</span>。我们的目标是求出 <span class="math inline">\(p_{n - 1}\)</span>。取 <span class="math inline">\(p_1 = 1, p_2 = 0\)</span>。序列 <span class="math inline">\(p\)</span> 满足递推 <span class="math display">\[\begin{equation}
-p_i = p_{i - 2} - \floor{x_{i-2}/x_{i-1}} p_{i-1}。
-\end{equation}\]</span></p>
-<pre><code>std::pair&lt;int, int&gt; ext_gcd(int x1, int x2) {
-  int p1 = 1, p2 = 0;
-  while (x2 != 0) {
-    int t = x1 / x2;
-    p1 -= t * p2;
-    x1 -= t * x2;
-    swap(p1, p2);
-    swap(x1, x2);
-  }
-  return {p1, x1};
-}</code></pre>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>This Chapter gives a introduction to most of the terminology used later in the book.</p>
+<p>By <span class="math inline">\(\N\)</span> we denote the set of natural numbers, including zero. The set <span class="math inline">\(\Z/n\Z\)</span> of integers modulo <span class="math inline">\(n\)</span> is denoted by <span class="math inline">\(\Z_n\)</span>; its elements are written as <span class="math inline">\(\bar i := i + n\Z\)</span>. When we regard <span class="math inline">\(\Z_2 = \set{\bar 0, \bar 1}\)</span> as a field, we also denote it as <span class="math inline">\(\F_2 = \set{0, 1}\)</span>. For a real number <span class="math inline">\(x\)</span> we denote by <span class="math inline">\(\floor{x}\)</span> the greatest integer <span class="math inline">\(\le x\)</span>, and by <span class="math inline">\(\ceil{x}\)</span> the least integer <span class="math inline">\(\ge x\)</span>. Logarithms written as ‘log’ are take at base <span class="math inline">\(2\)</span>; the natural logarithm will be denoted by ‘ln’. The expression <span class="math inline">\(x := y\)</span> and <span class="math inline">\(y =: x\)</span> mean that <span class="math inline">\(x\)</span> is being defined as <span class="math inline">\(y\)</span>.</p>
+<p>A set <span class="math inline">\(\mathcal{A} = \set{A_1, \dots, A_k}\)</span> of disjoint subsets of a set <span class="math inline">\(A\)</span> is a <em>partition</em> of <span class="math inline">\(A\)</span> if the union <span class="math inline">\(\bigcup \mathcal{A}\)</span> of all the sets <span class="math inline">\(A_i\in \mathcal{A}\)</span> is <span class="math inline">\(A\)</span> and <span class="math inline">\(A_i \ne \emptyset\)</span> for every <span class="math inline">\(i\)</span>. Another partition <span class="math inline">\(\set{A_1&#39;, \dots, A_\ell&#39;}\)</span> of <span class="math inline">\(A\)</span> <em>refines</em> the partition <span class="math inline">\(\mathcal{A}\)</span> if each <span class="math inline">\(A&#39;_i\)</span> is contained in some <span class="math inline">\(A_j\)</span>. By <span class="math inline">\([A]^k\)</span> we denote the set of all <span class="math inline">\(k\)</span>-element subsets of <span class="math inline">\(A\)</span>. Sets with <span class="math inline">\(k\)</span> elements will be called <em><span class="math inline">\(k\)</span>-sets</em>; subsets with <span class="math inline">\(k\)</span> elements are <em><span class="math inline">\(k\)</span>-subsets</em>.</p>
+<h1 id="graphs">Graphs</h1>
+<p>A <em>graph</em> is a pair <span class="math inline">\(G = (V, E)\)</span> of sets such that <span class="math inline">\(E \sube [V]^2\)</span>; thus, the elements of <span class="math inline">\(E\)</span> are 2-element subsets of <span class="math inline">\(V\)</span>. To avoid notational ambiguities, we shall always assume tacitly that <span class="math inline">\(V \cap E = \emptyset\)</span>. The elements of <span class="math inline">\(V\)</span> are the <em>vertices</em> (or <em>nodes</em>, or <em>points</em>) of the graph <span class="math inline">\(G\)</span>, the elements of <span class="math inline">\(E\)</span> are its edges (or lines). The usual way to picture a graph is by drawing a dot for each vertex and joining two of these dots by a line if the corresponding two vertices form an edge. Just how these dots and lines are draw is considered irrelevant: all that matters is the information of which pairs of vertices form an edge and which do not.</p>
+<h1 id="connectivity">Connectivity</h1>
+<p>A graph <span class="math inline">\(G\)</span> is called <em>connected</em> if it is non-empty and any two of its vertices are linked by a path in <span class="math inline">\(G\)</span>. If <span class="math inline">\(U \sube V(G)\)</span> and <span class="math inline">\(G[U]\)</span> is connected, we also call <span class="math inline">\(U\)</span> itself connected (in <span class="math inline">\(G\)</span>). Instead of ‘not connected’ we usually say ‘disconnected’.</p>
+<h1 id="some-linear-algebra">Some linear algebra</h1>
+<p>A set <span class="math inline">\(F\)</span> of edges is a <em>cut</em> in <span class="math inline">\(G\)</span> if there exists a partition <span class="math inline">\(\set{V_1, V_2}\)</span> of <span class="math inline">\(V\)</span> such that <span class="math inline">\(F = E(V_1, V2)\)</span>. The edges in <span class="math inline">\(F\)</span> are said to <em>cross</em> this partition. The sets <span class="math inline">\(V_1\)</span>, <span class="math inline">\(V2\)</span> are the <em>sides</em> of the cut. Recall that for <span class="math inline">\(V_1 = \set{v}\)</span> this cut is denoted by <span class="math inline">\(E(v)\)</span>. A minimal non-empty cut in <span class="math inline">\(G\)</span> is a <em>bond</em>.</p>
 <ul class="pa0">
   
 </ul>

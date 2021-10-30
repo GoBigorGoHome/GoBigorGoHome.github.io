@@ -6,7 +6,16 @@
     <description>Recent content on Algorithm Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Sep 2021 18:23:51 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Oct 2021 12:29:11 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basics</title>
+      <link>/gt/basics/</link>
+      <pubDate>Sat, 30 Oct 2021 12:29:11 +0800</pubDate>
+      
+      <guid>/gt/basics/</guid>
+      <description>Definitions.</description>
+    </item>
+    
     <item>
       <title>Calculate Determinant in $O(n^3)$ Time</title>
       <link>/la/calculate-determinant/</link>
