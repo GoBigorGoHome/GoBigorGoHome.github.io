@@ -41,9 +41,10 @@
 	
   <script>
   MathJax = {
+    loader: {load : ['[tex]/physics']},
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      packages: {'[+]': ['xypic']},
+      packages: {'[+]': ['xypic', 'physics']},
       macros: {
         RR: "{\\bf R}",
         bm: ["{\\bf #1}",1],  
@@ -66,7 +67,9 @@
         lcm: ["\\operatorname{lcm}"],
         lpd: ["\\operatorname{lpd}"],
         lpf: ["\\operatorname{lpf}"],
-        rank: ["\\operatorname{rank}"]
+        rank: ["\\operatorname{rank}"],
+        nil: "\\emptyset",
+        iso: "\\simeq"
       },
       tags: 'ams'
     },

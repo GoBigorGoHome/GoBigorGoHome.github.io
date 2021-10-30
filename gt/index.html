@@ -46,9 +46,10 @@
 	
   <script>
   MathJax = {
+    loader: {load : ['[tex]/physics']},
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      packages: {'[+]': ['xypic']},
+      packages: {'[+]': ['xypic', 'physics']},
       macros: {
         RR: "{\\bf R}",
         bm: ["{\\bf #1}",1],  
@@ -71,7 +72,9 @@
         lcm: ["\\operatorname{lcm}"],
         lpd: ["\\operatorname{lpd}"],
         lpf: ["\\operatorname{lpf}"],
-        rank: ["\\operatorname{rank}"]
+        rank: ["\\operatorname{rank}"],
+        nil: "\\emptyset",
+        iso: "\\simeq"
       },
       tags: 'ams'
     },
@@ -175,7 +178,7 @@
     <span class="f6 db">Gt</span>
     <h1 class="f3 near-black">
       <a href="/gt/basics/" class="link black dim">
-        Chapter 1 The Basics
+        Chapter 1. The Basics
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
