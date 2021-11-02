@@ -6,7 +6,16 @@
     <description>Recent content on Algorithm Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Oct 2021 12:29:11 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Nov 2021 18:35:51 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Standard Conversions</title>
+      <link>/cpp/standard_conversions/</link>
+      <pubDate>Tue, 02 Nov 2021 18:35:51 +0800</pubDate>
+      
+      <guid>/cpp/standard_conversions/</guid>
+      <description>C++ 17 Standard draft, Clause 7 Standard Conversions.</description>
+    </item>
+    
     <item>
       <title>Chapter 1. The Basics</title>
       <link>/gt/basics/</link>
