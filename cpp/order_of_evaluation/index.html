@@ -38,7 +38,7 @@
 <meta itemprop="name" content="Order of Evaluation">
 <meta itemprop="description" content="An example of indeterminate order of evaluation."><meta itemprop="datePublished" content="2021-11-02T12:16:57+08:00" />
 <meta itemprop="dateModified" content="2021-11-02T12:16:57+08:00" />
-<meta itemprop="wordCount" content="221">
+<meta itemprop="wordCount" content="253">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Order of Evaluation"/>
 <meta name="twitter:description" content="An example of indeterminate order of evaluation."/>
@@ -218,7 +218,8 @@
       
     </header>
     <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>() {
-  INT(n);
+  <span style="color:#66d9ef">int</span> n;
+  cin <span style="color:#f92672">&gt;&gt;</span> n;
   vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> pr(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), ne(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
   <span style="color:#66d9ef">auto</span> conn <span style="color:#f92672">=</span> [<span style="color:#f92672">&amp;</span>](<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
     pr[y] <span style="color:#f92672">=</span> x;
@@ -236,18 +237,20 @@
       <span style="color:#f92672">++</span>cnt;
       x <span style="color:#f92672">=</span> pr[x];
     }
-    pt(cnt);
+    cout <span style="color:#f92672">&lt;&lt;</span> cnt <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
     <span style="color:#66d9ef">while</span> (x <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
-      pt(x);
+      cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; &#34;</span>;
       x <span style="color:#f92672">=</span> ne[x];
     }
-    NL;
+    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
   };
-  INT(q);
-  rep (q) {
-    INT(t);
+  <span style="color:#66d9ef">int</span> q;
+  cin <span style="color:#f92672">&gt;&gt;</span> q;
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> q; i<span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">int</span> t;
+    cin <span style="color:#f92672">&gt;&gt;</span> t;
     <span style="color:#66d9ef">if</span> (t <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
-      conn(RI,RI);
+      conn(RI, RI);
     } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(t <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>) {
       dis(RI, RI);
     } <span style="color:#66d9ef">else</span> {
