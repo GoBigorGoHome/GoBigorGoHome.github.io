@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Order of Evaluation</title>
+      <link>/cpp/order_of_evaluation/</link>
+      <pubDate>Tue, 02 Nov 2021 12:16:57 +0800</pubDate>
+      
+      <guid>/cpp/order_of_evaluation/</guid>
+      <description>An example of indeterminate order of evaluation.</description>
+    </item>
+    
+    <item>
       <title>Chapter 1. The Basics</title>
       <link>/gt/basics/</link>
       <pubDate>Sat, 30 Oct 2021 12:29:11 +0800</pubDate>
