@@ -3,7 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2021-11-02T18:35:51+08:00</lastmod>
+    <lastmod>2021-11-03T17:23:13+08:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2021-11-03T17:23:13+08:00</lastmod>
+  </url><url>
+    <loc>/posts/strict_weak_ordering/</loc>
+    <lastmod>2021-11-03T17:23:13+08:00</lastmod>
   </url><url>
     <loc>/cpp/</loc>
     <lastmod>2021-11-02T18:35:51+08:00</lastmod>
@@ -25,9 +31,6 @@
   </url><url>
     <loc>/la/</loc>
     <lastmod>2021-09-27T18:23:51+08:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-09-22T22:49:26+08:00</lastmod>
   </url><url>
     <loc>/posts/non-recursive-extended-euclid/</loc>
     <lastmod>2021-09-22T22:49:26+08:00</lastmod>

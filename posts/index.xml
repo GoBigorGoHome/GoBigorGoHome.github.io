@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Algorithm Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Sep 2021 22:49:26 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Nov 2021 17:23:13 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Strict Weak Ordering</title>
+      <link>/posts/strict_weak_ordering/</link>
+      <pubDate>Wed, 03 Nov 2021 17:23:13 +0800</pubDate>
+      
+      <guid>/posts/strict_weak_ordering/</guid>
+      <description>Definition of strict weak ordering, taken from Wikipedia.</description>
+    </item>
+    
     <item>
       <title>非递归的扩展欧几里得算法</title>
       <link>/posts/non-recursive-extended-euclid/</link>
