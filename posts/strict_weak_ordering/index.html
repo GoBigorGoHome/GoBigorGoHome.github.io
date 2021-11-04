@@ -38,7 +38,7 @@
 <meta itemprop="name" content="Strict Weak Ordering">
 <meta itemprop="description" content="Definition of strict weak ordering, taken from Wikipedia."><meta itemprop="datePublished" content="2021-11-03T17:23:13+08:00" />
 <meta itemprop="dateModified" content="2021-11-03T17:23:13+08:00" />
-<meta itemprop="wordCount" content="328">
+<meta itemprop="wordCount" content="325">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Strict Weak Ordering"/>
 <meta name="twitter:description" content="Definition of strict weak ordering, taken from Wikipedia."/>
@@ -87,7 +87,6 @@
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js">
 </script>
-
 
 
   </head>
@@ -212,16 +211,18 @@
       <h1 class="f1 athelas mt3 mb1">Strict Weak Ordering</h1>
       
       
+      
       <time class="f6 mv4 dib tracked" datetime="2021-11-03T17:23:13+08:00">November 3, 2021</time>
+      
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Suppose that <span class="math inline">\(&lt;\)</span> is a homogeneous binary relation on a set <span class="math inline">\(S\)</span> (that is, <span class="math inline">\(&lt;\)</span> is a subset of <span class="math inline">\(S \times S\)</span>) and as usual, write <span class="math inline">\(x &lt; y\)</span> and say that <span class="math inline">\(x &lt; y\)</span> <em>holds</em> or <em>is true</em> if and only if <span class="math inline">\((x, y) \in &lt;\)</span>.</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Suppose that <span class="math inline">\(&lt;\)</span> is a binary relation on a set <span class="math inline">\(S\)</span> (that is, <span class="math inline">\(&lt;\)</span> is a subset of <span class="math inline">\(S \times S\)</span>) and as usual, write <span class="math inline">\(x &lt; y\)</span> and say that <span class="math inline">\(x &lt; y\)</span> <em>holds</em> or <em>is true</em> if and only if <span class="math inline">\((x, y) \in &lt;\)</span>.</p>
 <h1 id="preliminaries-on-incomparability-and-transitivity-of-incomparability">Preliminaries on incomparability and transitivity of incomparability</h1>
-<p>Two elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of <span class="math inline">\(S\)</span> are said to be <strong>incomparable</strong> with respect to <span class="math inline">\(&lt;\)</span> if neither <span class="math inline">\(x &lt; y\)</span> nor <span class="math inline">\(y &lt; x\)</span> is true. Incomparability with respect to <span class="math inline">\(&lt;\)</span> is itself a homogeneous symmetric relation on <span class="math inline">\(S\)</span> that is reflexive if and only if <span class="math inline">\(&lt;\)</span> is irreflexive (meaning that <span class="math inline">\(x &lt; x\)</span> is always false), which may be assumed so that transitivity is the only property this “incomparability relation” needs in order to be an equivalence relation.</p>
+<p>Two elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of <span class="math inline">\(S\)</span> are said to be <strong>incomparable</strong> with respect to <span class="math inline">\(&lt;\)</span> if neither <span class="math inline">\(x &lt; y\)</span> nor <span class="math inline">\(y &lt; x\)</span> is true. Incomparability with respect to <span class="math inline">\(&lt;\)</span> is itself a symmetric relation on <span class="math inline">\(S\)</span> that is reflexive if and only if <span class="math inline">\(&lt;\)</span> is irreflexive (meaning that <span class="math inline">\(x &lt; x\)</span> is always false), which may be assumed so that transitivity is the only property this “incomparability relation” needs in order to be an equivalence relation.</p>
 <h1 id="definition">Definition</h1>
-<p>A <strong>strict weak ordering</strong> on a set <span class="math inline">\(S\)</span> is a strict partial order <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> for which the <em>incomparability relation</em> induced on <span class="math inline">\(S\)</span> by <span class="math inline">\(&lt;\)</span> is a transitive relation. Explicitly, a strict weak order on <span class="math inline">\(S\)</span> is a homogeneous relation <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> that has all four of the following properties:</p>
+<p>A <strong>strict weak ordering</strong> on a set <span class="math inline">\(S\)</span> is a strict partial order <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> for which the <em>incomparability relation</em> induced on <span class="math inline">\(S\)</span> by <span class="math inline">\(&lt;\)</span> is a transitive relation. Explicitly, a strict weak order on <span class="math inline">\(S\)</span> is a relation <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> that has all four of the following properties:</p>
 <ol type="1">
 <li><p>Irreflexivity: For all <span class="math inline">\(x\in S\)</span>, it is not true that <span class="math inline">\(x &lt; x\)</span>.</p></li>
 <li><p>Transitivity: For all <span class="math inline">\(x, y, z \in S\)</span>, if <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(y &lt; z\)</span> then <span class="math inline">\(x &lt; z\)</span>.</p></li>
