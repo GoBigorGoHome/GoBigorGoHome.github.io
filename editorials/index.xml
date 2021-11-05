@@ -6,7 +6,16 @@
     <description>Recent content in Editorials on Algorithm Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Sep 2021 10:44:01 +0800</lastBuildDate><atom:link href="/editorials/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Nov 2021 15:55:24 +0800</lastBuildDate><atom:link href="/editorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>abc225_f String Cards</title>
+      <link>/editorials/abc225_f_string_cards/</link>
+      <pubDate>Thu, 04 Nov 2021 15:55:24 +0800</pubDate>
+      
+      <guid>/editorials/abc225_f_string_cards/</guid>
+      <description>A strict weak ordering on nonempty strings.</description>
+    </item>
+    
     <item>
       <title>abc214_g Three Permutations</title>
       <link>/editorials/abc214g-three-permutations/</link>
