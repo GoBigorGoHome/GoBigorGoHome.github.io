@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/editorials/abc225_f_string_cards/</loc>
-    <lastmod>2021-11-04T15:55:24+08:00</lastmod>
-  </url><url>
     <loc>/</loc>
+    <lastmod>2021-11-09T17:31:22+08:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2021-11-09T17:31:22+08:00</lastmod>
+  </url><url>
+    <loc>/posts/delimiter_method_2/</loc>
+    <lastmod>2021-11-09T17:31:22+08:00</lastmod>
+  </url><url>
+    <loc>/editorials/abc225_f_string_cards/</loc>
     <lastmod>2021-11-04T15:55:24+08:00</lastmod>
   </url><url>
     <loc>/editorials/</loc>
     <lastmod>2021-11-04T15:55:24+08:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-11-03T17:23:13+08:00</lastmod>
   </url><url>
     <loc>/posts/strict_weak_ordering/</loc>
     <lastmod>2021-11-03T17:23:13+08:00</lastmod>
