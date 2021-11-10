@@ -86,16 +86,13 @@ POSTS
 <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
 为前文[《隔板法应用一列》](../delimiter-method)补充一个问题。
 # 问题五
-正整数 $1 \le x_1 < x_2 < \dots < x_m \le n$ 求
-$$
-\sum (x_2 - x_1) (x_3 - x_2) \dots (x_m - x_{m-1}).
-$$
+正整数 $1 \le x_1 < x_2 < \dots < x_m \le n$，求 $\sum (x_2 - x_1) \dots (x_m - x_{m-1})$。
 ## 解说
 考虑 $\sum (x_2 - x_1) \dots (x_m - x_{m-1})$ 的组合意义。设想有 $n$ 个球排成一行。相邻两球之间和最后一个球之后这些位置可以插入一块隔板。先插入 $m$ 块隔板，第 $i$ 块隔板左边的球数就是 $x_i$；然后从每两块相邻的隔板之间任意选择一个球，共选择 $m - 1$ 个球。做这件事的方法数就是 $\sum (x_2 - x_1) \dots (x_m - x_{m-1})$。插入 $m$ 块隔板之后，共有 $n + m$ 个东西排成一行，把这些东西从左到右编号；然后选择 $m - 1$ 个球，把隔板和所选的球的编号从小到大写下来就得到一个长为 $2m - 1$ 的序列。容易验证，这个序列和做“插入隔板然后选球”这件事的方法一一对应。
-![$n = 6, k = 3$的一个例子。竖线代表隔板，被选择的球涂黄色。](/images/delimiter_method_2.assets/2021-11-09-19-06-41.png){width=50%}
+![$n = 6, k = 3$ 的一个例子。竖线代表隔板，被选择的球涂黄色。](/images/delimiter_method_2.assets/2021-11-09-19-06-41.png){width=50%}
 于是问题化为
 :::problem
-有多少个正整数序列 $(a_1, a_2, \dots, a_{2m - 1})$ 满足 $2 \le a_1 < a_2 < \dots < a_{2m - 1} \le n + m$？
+有多少个正整数序列 $(a_1, \dots, a_{2m - 1})$ 满足 $2 \le a_1 < \dots < a_{2m - 1} \le n + m$？
 :::
 答案是 ${n + m - 1 \choose 2m - 1}$。
 <ul class=pa0>
