@@ -1,293 +1,137 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Chapter 1. The Basics | Algorithm Notes</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Definitions.">
-    <meta name="generator" content="Hugo 0.89.1" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-<link rel="shortcut icon" href="/favicon/android-chrome-192x192.png" type="image/x-icon" />
-
-
-    
-
-    
-    
-    <meta property="og:title" content="Chapter 1. The Basics" />
-<meta property="og:description" content="Definitions." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/gt/basics/" /><meta property="article:section" content="gt" />
-<meta property="article:published_time" content="2021-10-30T12:29:11+08:00" />
-<meta property="article:modified_time" content="2021-10-30T12:29:11+08:00" />
-
-<meta itemprop="name" content="Chapter 1. The Basics">
-<meta itemprop="description" content="Definitions."><meta itemprop="datePublished" content="2021-10-30T12:29:11+08:00" />
-<meta itemprop="dateModified" content="2021-10-30T12:29:11+08:00" />
-<meta itemprop="wordCount" content="1450">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Chapter 1. The Basics"/>
-<meta name="twitter:description" content="Definitions."/>
-
-	
-  <script>
-  MathJax = {
-    loader: {load : ['[tex]/physics']},
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      packages: {'[+]': ['xypic', 'physics']},
-      macros: {
-        RR: "{\\bf R}",
-        bm: ["{\\bf #1}",1],  
-        floor: ["\\left \\lfloor #1 \\right \\rfloor", 1],
-        ceil: ["\\left \\lceil #1 \\right \\rceil", 1],
-        dif: "\\mathop{}\\!\\mathrm{d}",
-        mathlarger: ["{\\large \#1}",1],
-        dsone: "\\unicode{x1D7D9}",
-        sub: "\\subset",
-        sube: "\\subseteq",
-        subne: "\\subsetneq",
-        sse: "\\subseteq",
-        spe: "\\supseteq",
-        qed: "\\tag*{$\\blacksquare$}",
-        xor: "\\oplus",
-        Z: "\\mathbb{Z}",
-        N: "\\mathbb{N}",
-        F: "\\mathbb{F}",
-        tran: "^{\\mkern-1.5mu\\mathsf{T}}", 
-        lcm: ["\\operatorname{lcm}"],
-        lpd: ["\\operatorname{lpd}"],
-        lpf: ["\\operatorname{lpf}"],
-        rank: ["\\operatorname{rank}"],
-        init: ["\\operatorname{init}"],
-        ter: ["\\operatorname{ter}"],
-        nil: "\\emptyset",
-        iso: "\\simeq",
-        Bar: "\\overline"
-      },
-      tags: 'ams'
-    },
-    chtml : {
-      mtextInheritFont: true
-    }
-  };
-</script>
-
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js">
-</script>
-
-
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        Algorithm Notes
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-        <ul class="pl0 mr3">
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/cpp/" title="C&#43;&#43; page">
-              C&#43;&#43;
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/editorials/" title="Editorials page">
-              Editorials
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/gt/" title="Graph Theory page">
-              Graph Theory
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/la/" title="Linear Algebra page">
-              Linear Algebra
-            </a>
-          </li>
-          
-          <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
-              Posts
-            </a>
-          </li>
-          
-        </ul>
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Chapter 1. The Basics | Algorithm Notes</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Definitions.">
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/ananke/css/main.min.css>
+<link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
+<meta property="og:title" content="Chapter 1. The Basics">
+<meta property="og:description" content="Definitions.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/gt/basics/"><meta property="article:section" content="gt">
+<meta property="article:published_time" content="2021-10-30T12:29:11+08:00">
+<meta property="article:modified_time" content="2021-10-30T12:29:11+08:00">
+<meta itemprop=name content="Chapter 1. The Basics">
+<meta itemprop=description content="Definitions."><meta itemprop=datePublished content="2021-10-30T12:29:11+08:00">
+<meta itemprop=dateModified content="2021-10-30T12:29:11+08:00">
+<meta itemprop=wordCount content="1454">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Chapter 1. The Basics">
+<meta name=twitter:description content="Definitions.">
+<script>MathJax={loader:{load:['[tex]/physics']},tex:{inlineMath:[['$','$'],['\\(','\\)']],packages:{'[+]':['xypic','physics']},macros:{RR:"{\\bf R}",bm:["{\\bf #1}",1],floor:["\\left \\lfloor #1 \\right \\rfloor",1],ceil:["\\left \\lceil #1 \\right \\rceil",1],dif:"\\mathop{}\\!\\mathrm{d}",mathlarger:["{\\large #1}",1],dsone:"\\unicode{x1D7D9}",sub:"\\subset",sube:"\\subseteq",subne:"\\subsetneq",sse:"\\subseteq",spe:"\\supseteq",qed:"\\tag*{$\\blacksquare$}",xor:"\\oplus",Z:"\\mathbb{Z}",N:"\\mathbb{N}",F:"\\mathbb{F}",tran:"^{\\mkern-1.5mu\\mathsf{T}}",lcm:["\\operatorname{lcm}"],lpd:["\\operatorname{lpd}"],lpf:["\\operatorname{lpf}"],rank:["\\operatorname{rank}"],init:["\\operatorname{init}"],ter:["\\operatorname{ter}"],nil:"\\emptyset",iso:"\\simeq",Bar:"\\overline"},tags:'ams'},chtml:{mtextInheritFont:!0}}</script>
+<script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js></script>
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/ class="f3 fw2 hover-white no-underline white-90 dib">
+Algorithm Notes
+</a>
+<div class="flex-l items-center">
+<ul class="pl0 mr3">
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/cpp/ title="C++ page">
+C++
+</a>
+</li>
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/editorials/ title="Editorials page">
+Editorials
+</a>
+</li>
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/gt/ title="Graph Theory page">
+Graph Theory
+</a>
+</li>
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/la/ title="Linear Algebra page">
+Linear Algebra
+</a>
+</li>
+<li class="list f5 f4-ns fw4 dib pr3">
+<a class="hover-white no-underline white-90" href=/posts/ title="Posts page">
+Posts
+</a>
+</li>
+</ul>
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        GTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=/gt/basics/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=/gt/basics/&amp;text=Chapter%201.%20The%20Basics" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=/gt/basics/&amp;title=Chapter%201.%20The%20Basics" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Chapter 1. The Basics</h1>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2021-10-30T12:29:11+08:00">October 30, 2021</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>This Chapter gives an introduction to most of the terminology used later in the book.</p>
-<p>By <span class="math inline">\(\N\)</span> we denote the set of natural numbers, including zero. The set <span class="math inline">\(\Z/n\Z\)</span> of integers modulo <span class="math inline">\(n\)</span> is denoted by <span class="math inline">\(\Z_n\)</span>; its elements are written as <span class="math inline">\(\bar i := i + n\Z\)</span>. When we regard <span class="math inline">\(\Z_2 = \set{\bar 0, \bar 1}\)</span> as a field, we also denote it as <span class="math inline">\(\F_2 = \set{0, 1}\)</span>. For a real number <span class="math inline">\(x\)</span> we denote by <span class="math inline">\(\floor{x}\)</span> the greatest integer <span class="math inline">\(\le x\)</span>, and by <span class="math inline">\(\ceil{x}\)</span> the least integer <span class="math inline">\(\ge x\)</span>. Logarithms written as ‘log’ are taken at base <span class="math inline">\(2\)</span>; the natural logarithm will be denoted by ‘ln’. The expression <span class="math inline">\(x := y\)</span> and <span class="math inline">\(y =: x\)</span> mean that <span class="math inline">\(x\)</span> is being defined as <span class="math inline">\(y\)</span>.</p>
-<p>A set <span class="math inline">\(\mathcal{A} = \set{A_1, \dots, A_k}\)</span> of disjoint subsets of a set <span class="math inline">\(A\)</span> is a <strong>partition</strong> of <span class="math inline">\(A\)</span> if the union <span class="math inline">\(\bigcup \mathcal{A}\)</span> of all the sets <span class="math inline">\(A_i\in \mathcal{A}\)</span> is <span class="math inline">\(A\)</span> and <span class="math inline">\(A_i \ne \emptyset\)</span> for every <span class="math inline">\(i\)</span>. Another partition <span class="math inline">\(\set{A_1&#39;, \dots, A_\ell&#39;}\)</span> of <span class="math inline">\(A\)</span> <strong>refines</strong> the partition <span class="math inline">\(\mathcal{A}\)</span> if each <span class="math inline">\(A&#39;_i\)</span> is contained in some <span class="math inline">\(A_j\)</span>. By <span class="math inline">\([A]^k\)</span> we denote the set of all <span class="math inline">\(k\)</span>-element subsets of <span class="math inline">\(A\)</span>. Sets with <span class="math inline">\(k\)</span> elements will be called <em><span class="math inline">\(k\)</span>-sets</em>; subsets with <span class="math inline">\(k\)</span> elements are <em><span class="math inline">\(k\)</span>-subsets</em>.</p>
-<h1 id="graphs">Graphs</h1>
-<p>A <strong>graph</strong> is a pair <span class="math inline">\(G = (V, E)\)</span> of sets such that <span class="math inline">\(E \sube [V]^2\)</span>; thus, the elements of <span class="math inline">\(E\)</span> are 2-element subsets of <span class="math inline">\(V\)</span>. To avoid notational ambiguities, we shall always assume tacitly that <span class="math inline">\(V \cap E = \emptyset\)</span>. The elements of <span class="math inline">\(V\)</span> are the <strong>vertices</strong> (or <strong>nodes</strong>, or <strong>points</strong>) of the graph <span class="math inline">\(G\)</span>, the elements of <span class="math inline">\(E\)</span> are its edges (or lines). The usual way to picture a graph is by drawing a dot for each vertex and joining two of these dots by a line if the corresponding two vertices form an edge. Just how these dots and lines are draw is considered irrelevant: all that matters is the information of which pairs of vertices form an edge and which do not.</p>
-<p>A graph with vertex set <span class="math inline">\(V\)</span> is said to be a graph <strong>on</strong> <span class="math inline">\(V\)</span>. The vertex set of a graph <span class="math inline">\(G\)</span> is referred to as <span class="math inline">\(V(G)\)</span>, its edge set as <span class="math inline">\(E(G)\)</span>. These conventions are independent of any actual names of these two sets: the vertex set <span class="math inline">\(W\)</span> of a graph <span class="math inline">\(H = (W, F)\)</span> is still referred to as <span class="math inline">\(V(H)\)</span>, not as <span class="math inline">\(W(H)\)</span>. We shall not always distinguish strictly between a graph and its vertex or edge set. For example, we may speak of a vertex <span class="math inline">\(v\in G\)</span> (rather than <span class="math inline">\(v\in V(G)\)</span>), and edge <span class="math inline">\(e\in G\)</span>, and so on.</p>
-<p>The number of vertices of a graph <span class="math inline">\(G\)</span> is its <strong>order</strong>, written as <span class="math inline">\(|G|\)</span>; its number of edges is denoted as <span class="math inline">\(\norm{G}\)</span>. Graphs are <strong>finite</strong>, <strong>infinite</strong>, <strong>countable</strong> and so on according to their order. Except in Chapter 8, our graphs will be finite unless otherwise stated.</p>
-<p>For the <em>empty graph</em> <span class="math inline">\((\emptyset, \emptyset)\)</span> we simply write <span class="math inline">\(\emptyset\)</span>. A graph of order <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> is called <em>trivial</em>. Sometimes, e.g. to start an induction, trivial graphs can be useful; at other times they form silly counterexamples and become a nuisance. To avoid cluttering the text with non-triviality conditions, we shall mostly treat the trivial graphs, and particularly the empty graph <span class="math inline">\(\emptyset\)</span>, with generous disregard.</p>
-<p>A vertex <span class="math inline">\(v\)</span> is <strong>incident</strong> with an edge <span class="math inline">\(e\)</span> if <span class="math inline">\(v\in e\)</span>; then e is an edge <em>at</em> <span class="math inline">\(v\)</span>. The two vertices incident with an edge are its <strong>endvertices</strong> or ends, and an edge <em>joins</em> its <em>ends</em>. An edge <span class="math inline">\(\set{x, y}\)</span> is usually written as <span class="math inline">\(xy\)</span> (or <span class="math inline">\(yx\)</span>). If <span class="math inline">\(x\in X\)</span> and <span class="math inline">\(y\in Y\)</span>, then <span class="math inline">\(xy\)</span> is an <em><span class="math inline">\(X-Y\)</span> edge</em>. The set of all <span class="math inline">\(X-Y\)</span> edges in a set <span class="math inline">\(E\)</span> is denoted by <span class="math inline">\(E(X, Y)\)</span>; instead of <span class="math inline">\(E(\set{x}, Y)\)</span> and <span class="math inline">\(E(Y, \set{x})\)</span> we simply write <span class="math inline">\(E(x, Y)\)</span> and <span class="math inline">\(E(X, y)\)</span>. The set of all the edges in <span class="math inline">\(E\)</span> at a vertex <span class="math inline">\(v\)</span> is denoted by <span class="math inline">\(E(v)\)</span>.</p>
-<p>Two vertices <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> of <span class="math inline">\(G\)</span> are <strong>adjacent</strong>, or <strong>neighbours</strong>, if <span class="math inline">\(\set{x, y}\)</span> is an edge of <span class="math inline">\(G\)</span>. Two edges <span class="math inline">\(e\ne f\)</span> are <strong>adjacent</strong> if they have an end in common. If all the vertices of <span class="math inline">\(G\)</span> are pairwise adjacent, then <span class="math inline">\(G\)</span> is a <strong>complete</strong>. A complete graph on <span class="math inline">\(n\)</span> vertices is a <span class="math inline">\(K^n\)</span>; a <span class="math inline">\(K^3\)</span> is called a <strong>triangle</strong>.</p>
-<p>A set of vertices or of edges is <strong>independent</strong> if no two of its elements are adjacent. Independent sets of vertices are also called <strong>stable</strong>.</p>
-<p>Let <span class="math inline">\(G = (V, E)\)</span> and <span class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span> be two graphs. A map <span class="math inline">\(\varphi: V \to V&#39;\)</span> is a <em>homomorphism</em> from <span class="math inline">\(G\)</span> to <span class="math inline">\(G&#39;\)</span> if it preserves the adjacency of vertices, that is, if <span class="math inline">\(\set{\varphi(x), \varphi(y)} \in E&#39;\)</span> whenever <span class="math inline">\(\set{x, y} \in E\)</span>. Then, in particular, every vertex <span class="math inline">\(x&#39;\)</span> in the image of <span class="math inline">\(\varphi\)</span> its inverse image <span class="math inline">\(\varphi^{-1}(x&#39;)\)</span> is an independent set of vertices in <span class="math inline">\(G\)</span>. If <span class="math inline">\(\varphi\)</span> is bijective and its inverse <span class="math inline">\(\varphi^{-1}\)</span> is also a homomorphism (so that <span class="math inline">\(xy \in E \iff \varphi(x)\varphi(y) \in E&#39;\)</span> for all <span class="math inline">\(x, y\in V\)</span>), we call <span class="math inline">\(\varphi\)</span> an <em>isomorphism</em>, say that <span class="math inline">\(G\)</span> and <span class="math inline">\(G&#39;\)</span> are <em>isomorphic</em>, and write <span class="math inline">\(G \iso G&#39;\)</span>. An isomorphism form <span class="math inline">\(G\)</span> to itself is an <em>automorphism</em> of <span class="math inline">\(G\)</span>.</p>
-<p>We do not normally distinguish between isomorphic graphs. Thus, we usually write <span class="math inline">\(G = G&#39;\)</span> rather than <span class="math inline">\(G \iso G&#39;\)</span>, speak of <em>the</em> complete graph on 17 vertices, and so on. If we wish to emphasize that we are only interested in the isomorphism type of a give graph, we informally refer to it as an <em>abstract graph</em>.</p>
-<p>A class of graphs that is closed under isomorphism is called a <em>graph property</em>. For example, ‘containing a triangle’ is a graph property: if <span class="math inline">\(G\)</span> contains three pairwise adjacent vertices then so does every graph isomorphic to <span class="math inline">\(G\)</span>. A map taking graphs as arguments is called a <em>graph invariant</em> if it assigns equal values to isomorphic graphs. The number of vertices and the number of edges of a graph are two simple graph invariants; the greatest number of pairwise adjacent vertices is another.</p>
-<p>We set <span class="math inline">\(G \cup G&#39; := (V \cup V&#39;, E \cup E&#39;)\)</span> and <span class="math inline">\(G \cap G&#39; := (V \cap V&#39;, E \cap E&#39;)\)</span>. If <span class="math inline">\(G \cup G&#39; = \nil\)</span>, then <span class="math inline">\(G\)</span> and <span class="math inline">\(G&#39;\)</span> are <em>disjoint</em>. If <span class="math inline">\(V&#39; \sube V\)</span> and <span class="math inline">\(E&#39; \sube E\)</span>, then <span class="math inline">\(G&#39;\)</span> is a <em>subgraph</em> of <span class="math inline">\(G\)</span> (and <span class="math inline">\(G\)</span> a <em>supergraph</em> of <span class="math inline">\(G&#39;\)</span>), written as <span class="math inline">\(G&#39; \sube G\)</span>. Less formally, we say that <span class="math inline">\(G\)</span> <em>contains</em> <span class="math inline">\(G&#39;\)</span>. If <span class="math inline">\(G&#39; \sube G\)</span> and <span class="math inline">\(G&#39; \ne G\)</span>, then <span class="math inline">\(G&#39;\)</span> is a <em>proper subgraph</em> of <span class="math inline">\(G\)</span>.</p>
-<h1 id="connectivity">Connectivity</h1>
-<p>A graph <span class="math inline">\(G\)</span> is called <em>connected</em> if it is non-empty and any two of its vertices are linked by a path in <span class="math inline">\(G\)</span>. If <span class="math inline">\(U \sube V(G)\)</span> and <span class="math inline">\(G[U]\)</span> is connected, we also call <span class="math inline">\(U\)</span> itself connected (in <span class="math inline">\(G\)</span>). Instead of ‘not connected’ we usually say ‘disconnected’.</p>
-<h1 id="some-linear-algebra">Some linear algebra</h1>
-<p>A set <span class="math inline">\(F\)</span> of edges is a <em>cut</em> in <span class="math inline">\(G\)</span> if there exists a partition <span class="math inline">\(\set{V_1, V_2}\)</span> of <span class="math inline">\(V\)</span> such that <span class="math inline">\(F = E(V_1, V2)\)</span>. The edges in <span class="math inline">\(F\)</span> are said to <em>cross</em> this partition. The sets <span class="math inline">\(V_1\)</span>, <span class="math inline">\(V2\)</span> are the <em>sides</em> of the cut. Recall that for <span class="math inline">\(V_1 = \set{v}\)</span> this cut is denoted by <span class="math inline">\(E(v)\)</span>. A minimal non-empty cut in <span class="math inline">\(G\)</span> is a <em>bond</em>.</p>
-<h1 id="other-notions-of-graphs">Other notions of graphs</h1>
-<p>For completeness, we now mention a few other notions of graphs which feature less frequently or not at all in this book.</p>
-<p>A <strong>hypergraph</strong> is a pair <span class="math inline">\((V, E)\)</span> of disjoint sets, where the elements of <span class="math inline">\(E\)</span> are non-empty subsets (of any cardinality) of <span class="math inline">\(V\)</span>. Thus, graphs are special hypergraphs.</p>
-<p>A <strong>directed graph</strong> (or <strong>digraph</strong>) is a pair <span class="math inline">\((V, E)\)</span> of disjoint sets (of <strong>vertices</strong> and <strong>edges</strong>) together with two maps <span class="math inline">\(\init : E \to V\)</span> and <span class="math inline">\(\ter : E \to V\)</span> assigning to every edge <span class="math inline">\(e\)</span> an <strong>initial vertex</strong> <span class="math inline">\(\init(e)\)</span> and a <strong>terminal vertex</strong> <span class="math inline">\(\ter(e)\)</span>. The edge <span class="math inline">\(e\)</span> is said to be <strong>directed from <span class="math inline">\(\init(e)\)</span> to <span class="math inline">\(\ter(e)\)</span></strong>. Note that a directed graph may have several edges between the same two vertices <span class="math inline">\(x, y\)</span>. Such edges are called <strong>multiple edges</strong>; if they have the same direction (say from <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>), they are <strong>parallel</strong>. If <span class="math inline">\(\init(e) = \ter(e)\)</span>, the edge <span class="math inline">\(e\)</span> is called a <strong>loop</strong>.</p>
-<p>A directed graph <span class="math inline">\(D\)</span> is an <strong>orientation</strong> of an (undirected) graph <span class="math inline">\(G\)</span> if <span class="math inline">\(V(D) = V(G)\)</span> and <span class="math inline">\(E(D) = E(G)\)</span>, and if <span class="math inline">\(\set{\init(e), \ter(e)} = \set{x, y}\)</span> for every edge <span class="math inline">\(e = xy\)</span>. Intuitively, such as <strong>oriented graph</strong> arises from an undirected graph simply by directing every edge from one of its ends to the other. Put differently, oriented graphs are directed graphs without loops or multiple edges.</p>
-<p>A <strong>multigraph</strong> is a pair <span class="math inline">\((V, E)\)</span> of disjoint sets (of <strong>vertices</strong> and <strong>edges</strong>) together with a map <span class="math inline">\(E \to V \cup [V]^2\)</span>.</p>
-<ul class="pa0">
-  
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+GTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=/gt/basics/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=/gt/basics/&text=Chapter%201.%20The%20Basics" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=/gt/basics/&title=Chapter%201.%20The%20Basics" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Chapter 1. The Basics</h1>
+<time class="f6 mv4 dib tracked" datetime=2021-10-30T12:29:11+08:00>October 30, 2021</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+This Chapter gives an introduction to most of the terminology used later in the book.
+By $\N$ we denote the set of natural numbers, including zero. The set $\Z/n\Z$ of integers modulo $n$ is denoted by $\Z_n$; its elements are written as $\bar i := i + n\Z$. When we regard $\Z_2 = \set{\bar 0, \bar 1}$ as a field, we also denote it as $\F_2 = \set{0, 1}$. For a real number $x$ we denote by $\floor{x}$ the greatest integer $\le x$, and by $\ceil{x}$ the least integer $\ge x$. Logarithms written as 'log' are taken at base $2$; the natural logarithm will be denoted by 'ln'. The expression $x := y$ and $y =: x$ mean that $x$ is being defined as $y$.
+A set $\mathcal{A} = \set{A_1, \dots, A_k}$ of disjoint subsets of a set $A$ is a **partition** of $A$ if the union $\bigcup \mathcal{A}$ of all the sets $A_i\in \mathcal{A}$ is $A$ and $A_i \ne \emptyset$ for every $i$. Another partition $\set{A_1', \dots, A_\ell'}$ of $A$ **refines** the partition $\mathcal{A}$ if each $A'_i$ is contained in some $A_j$.
+By $[A]^k$ we denote the set of all $k$-element subsets of $A$. Sets with $k$ elements will be called *$k$-sets*; subsets with $k$ elements are *$k$-subsets*.
+# Graphs
+A **graph** is a pair $G = (V, E)$ of sets such that $E \sube [V]^2$; thus, the elements of $E$ are 2-element subsets of $V$. To avoid notational ambiguities, we shall always assume tacitly that $V \cap E = \emptyset$.
+The elements of $V$ are the **vertices** (or **nodes**, or **points**) of the graph $G$, the elements of $E$ are its edges (or lines). The usual way to picture a graph is by drawing a dot for each vertex and joining two of these dots by a line if the corresponding two vertices form an edge. Just how these dots and lines are draw is considered irrelevant: all that matters is the information of which pairs of vertices form an edge and which do not.
+A graph with vertex set $V$ is said to be a graph **on** $V$. The vertex set of a graph $G$ is referred to as $V(G)$, its edge set as $E(G)$. These conventions are independent of any actual names of these two sets: the vertex set $W$ of a graph $H = (W, F)$ is still referred to as $V(H)$, not as $W(H)$. We shall not always distinguish strictly between a graph and its vertex or edge set. For example, we may speak of a vertex $v\in G$ (rather than $v\in V(G)$), and edge $e\in G$, and so on.
+The number of vertices of a graph $G$ is its **order**, written as $|G|$;
+its number of edges is denoted as $\norm{G}$. Graphs are **finite**, **infinite**, **countable** and so on according to their order. Except in Chapter 8, our graphs will be finite unless otherwise stated.
+For the *empty graph* $(\emptyset, \emptyset)$ we simply write $\emptyset$. A graph of order $0$ or $1$ is called *trivial*. Sometimes, e.g. to start an induction, trivial graphs can be useful; at other times they form silly counterexamples and become a nuisance. To avoid cluttering the text with non-triviality conditions, we shall mostly treat the trivial graphs, and particularly the empty graph $\emptyset$, with generous disregard.
+A vertex $v$ is **incident** with an edge $e$ if $v\in e$; then e is an edge *at* $v$.
+The two vertices incident with an edge are its **endvertices** or ends, and an edge *joins* its *ends*. An edge $\set{x, y}$ is usually written as $xy$ (or $yx$). If $x\in X$ and $y\in Y$, then $xy$ is an *$X-Y$ edge*. The set of all $X-Y$ edges in a set $E$ is denoted by $E(X, Y)$; instead of $E(\set{x}, Y)$ and $E(Y, \set{x})$ we simply write $E(x, Y)$ and $E(X, y)$. The set of all the edges in $E$ at a vertex $v$ is denoted by $E(v)$.
+Two vertices $x$, $y$ of $G$ are **adjacent**, or **neighbours**, if $\set{x, y}$ is an edge of $G$. Two edges $e\ne f$ are **adjacent** if they have an end in common. If all the vertices of $G$ are pairwise adjacent, then $G$ is a **complete**. A complete graph on $n$ vertices is a $K^n$; a $K^3$ is called a **triangle**.
+A set of vertices or of edges is **independent** if no two of its elements are adjacent. Independent sets of vertices are also called **stable**.
+Let $G = (V, E)$ and $G'=(V',E')$ be two graphs. A map $\varphi: V \to V'$ is a *homomorphism* from $G$ to $G'$ if it preserves the adjacency of vertices, that is, if $\set{\varphi(x), \varphi(y)} \in E'$ whenever $\set{x, y} \in E$. Then, in particular, every vertex $x'$ in the image of $\varphi$ its inverse image $\varphi^{-1}(x')$ is an independent set of vertices in $G$. If $\varphi$ is bijective and its inverse $\varphi^{-1}$ is also a homomorphism (so that $xy \in E \iff \varphi(x)\varphi(y) \in E'$ for all $x, y\in V$), we call $\varphi$ an *isomorphism*, say that $G$ and $G'$ are *isomorphic*, and write $G \iso G'$. An isomorphism form $G$ to itself is an *automorphism* of $G$.
+We do not normally distinguish between isomorphic graphs. Thus, we usually write $G = G'$ rather than $G \iso G'$, speak of *the* complete graph on 17 vertices, and so on. If we wish to emphasize that we are only interested in the isomorphism type of a give graph, we informally refer to it as an *abstract graph*.
+A class of graphs that is closed under isomorphism is called a *graph property*. For example, 'containing a triangle' is a graph property: if $G$ contains three pairwise adjacent vertices then so does every graph isomorphic to $G$. A map taking graphs as arguments is called a *graph invariant* if it assigns equal values to isomorphic graphs. The number of vertices and the number of edges of a graph are two simple graph invariants; the greatest number of pairwise adjacent vertices is another.
+We set $G \cup G' := (V \cup V', E \cup E')$ and $G \cap G' := (V \cap V', E \cap E')$. If $G \cup G' = \nil$, then $G$ and $G'$ are *disjoint*. If $V' \sube V$ and $E' \sube E$, then $G'$ is a *subgraph* of $G$ (and $G$ a *supergraph* of $G'$), written as $G' \sube G$. Less formally, we say that $G$ *contains* $G'$.
+If $G' \sube G$ and $G' \ne G$, then $G'$ is a *proper subgraph* of $G$.
+# Connectivity
+A graph $G$ is called *connected* if it is non-empty and any two of its vertices are linked by a path in $G$. If $U \sube V(G)$ and $G[U]$ is connected, we also call $U$ itself connected (in $G$). Instead of 'not connected' we usually say 'disconnected'.
+# Some linear algebra
+A set $F$ of edges is a *cut* in $G$ if there exists a partition $\set{V_1, V_2}$ of $V$ such that $F = E(V_1, V2)$. The edges in $F$ are said to *cross* this partition. The sets $V_1$, $V2$ are the *sides* of the cut. Recall that for $V_1 = \set{v}$ this cut is denoted by $E(v)$. A minimal non-empty cut in $G$ is a *bond*.
+# Other notions of graphs
+For completeness, we now mention a few other notions of graphs which feature less frequently or not at all in this book.
+A **hypergraph** is a pair $(V, E)$ of disjoint sets, where the elements of $E$ are non-empty subsets (of any cardinality) of $V$. Thus, graphs are special hypergraphs.
+A **directed graph** (or **digraph**) is a pair $(V, E)$ of disjoint sets (of **vertices** and **edges**) together with two maps $\init : E \to V$ and $\ter : E \to V$ assigning to every edge $e$ an **initial vertex** $\init(e)$ and a **terminal vertex** $\ter(e)$. The edge $e$ is said to be **directed from $\init(e)$ to $\ter(e)$**. Note that a directed graph may have several edges between the same two vertices $x, y$. Such edges are called **multiple edges**; if they have the same direction (say from $x$ to $y$), they are **parallel**.
+If $\init(e) = \ter(e)$, the edge $e$ is called a **loop**.
+A directed graph $D$ is an **orientation** of an (undirected) graph $G$ if $V(D) = V(G)$ and $E(D) = E(G)$, and if $\set{\init(e), \ter(e)} = \set{x, y}$ for every edge $e = xy$. Intuitively, such as **oriented graph** arises from an undirected graph simply by directing every edge from one of its ends to the other. Put differently, oriented graphs are directed graphs without loops or multiple edges.
+A **multigraph** is a pair $(V, E)$ of disjoint sets (of **vertices** and **edges**) together with a map $E \to V \cup [V]^2$.
+<ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
-    &copy;  Algorithm Notes 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href>
+&copy; Algorithm Notes 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>
