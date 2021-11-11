@@ -18,7 +18,7 @@
 <meta itemprop=name content="Bitwise XOR Convolution">
 <meta itemprop=description content="从线性变换的角度推导异或卷积。"><meta itemprop=datePublished content="2021-09-15T15:52:40+08:00">
 <meta itemprop=dateModified content="2021-09-15T15:52:40+08:00">
-<meta itemprop=wordCount content="482">
+<meta itemprop=wordCount content="478">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Bitwise XOR Convolution">
 <meta name=twitter:description content="从线性变换的角度推导异或卷积。">
@@ -83,61 +83,53 @@ POSTS
 <h1 class="f1 athelas mt3 mb1">Bitwise XOR Convolution</h1>
 <time class="f6 mv4 dib tracked" datetime=2021-09-15T15:52:40+08:00>September 15, 2021</time>
 </header>
-<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
-域 $\F$，向量 $A:(a_0, a_1, \dots, a_{n-1})\tran$，$B:(b_0, b_1, \dots, b_{n-1}) \tran$，$A, B \in \F^{n}$，$n$ 是 $2$ 的方幂。$A$ 和 $B$ 的**异或卷积**（bitwise XOR convolution）定义为向量 $C:(c_0, c_1, \dots, c_{n - 1})\tran$，
-$c_i := \sum_{\substack{j \xor k = i \\ 0 \le j, k \le n - 1}} a_j b_k$，符号 $\xor$ 表示异或运算。我们把 $A, B$ 的异或卷积运算记作 $A \circledast B$。
-现在我们来考虑异或卷积的性质。对于 $n \ge 2$，把 $A$ 的前一半记作 $A_0$，后一半记作 $A_1$。我们有
-$$\pmatrix{A_0\\A_1} \circledast \pmatrix{B_0 \\B_1} = \pmatrix{A_0 \circledast B_0 + A_1 \circledast B_1 \\ A_0 \circledast B_1 + A_1 \circledast B_0}。$$
-# 寻找线性变换
-计算异或卷积是否有 FFT 那样的快速算法？我们考虑，能否找到**可逆矩阵** $T$，使得 $(TA) \circ (TB) = T(A\circledast B)$？$\circ$ 表示向量的逐点相乘。[^Hadamard-product]假设存在这样的矩阵 $T$，我们把对应于长度为 $2^m$ 的向量的矩阵记作 $T_m$。设 $X$ 是一个长为 $2^k$ 的向量，把 $T_kX$ 记作 $\widehat{X}$。
-首先，易见 $T_0 = 1$。对于 $m \ge 1$，$T_m$ 满足
-$$
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>域 <span class="math inline">\(\F\)</span>，向量 <span class="math inline">\(A:(a_0, a_1, \dots, a_{n-1})\tran\)</span>，<span class="math inline">\(B:(b_0, b_1, \dots, b_{n-1}) \tran\)</span>，<span class="math inline">\(A, B \in \F^{n}\)</span>，<span class="math inline">\(n\)</span> 是 <span class="math inline">\(2\)</span> 的方幂。<span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 的<strong>异或卷积</strong>（bitwise XOR convolution）定义为向量 <span class="math inline">\(C:(c_0, c_1, \dots, c_{n - 1})\tran\)</span>， <span class="math inline">\(c_i := \sum_{\substack{j \xor k = i \\ 0 \le j, k \le n - 1}} a_j b_k\)</span>，符号 <span class="math inline">\(\xor\)</span> 表示异或运算。我们把 <span class="math inline">\(A, B\)</span> 的异或卷积运算记作 <span class="math inline">\(A \circledast B\)</span>。</p>
+<p>现在我们来考虑异或卷积的性质。对于 <span class="math inline">\(n \ge 2\)</span>，把 <span class="math inline">\(A\)</span> 的前一半记作 <span class="math inline">\(A_0\)</span>，后一半记作 <span class="math inline">\(A_1\)</span>。我们有 <span class="math display">\[\pmatrix{A_0\\A_1} \circledast \pmatrix{B_0 \\B_1} = \pmatrix{A_0 \circledast B_0 + A_1 \circledast B_1 \\ A_0 \circledast B_1 + A_1 \circledast B_0}。\]</span></p>
+<h1 id=寻找线性变换>寻找线性变换</h1>
+<p>计算异或卷积是否有 FFT 那样的快速算法？我们考虑，能否找到<strong>可逆矩阵</strong> <span class="math inline">\(T\)</span>，使得 <span class="math inline">\((TA) \circ (TB) = T(A\circledast B)\)</span>？<span class="math inline">\(\circ\)</span> 表示向量的逐点相乘。<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>假设存在这样的矩阵 <span class="math inline">\(T\)</span>，我们把对应于长度为 <span class="math inline">\(2^m\)</span> 的向量的矩阵记作 <span class="math inline">\(T_m\)</span>。设 <span class="math inline">\(X\)</span> 是一个长为 <span class="math inline">\(2^k\)</span> 的向量，把 <span class="math inline">\(T_kX\)</span> 记作 <span class="math inline">\(\widehat{X}\)</span>。</p>
+<p>首先，易见 <span class="math inline">\(T_0 = 1\)</span>。对于 <span class="math inline">\(m \ge 1\)</span>，<span class="math inline">\(T_m\)</span> 满足 <span class="math display">\[
 T_m \pmatrix{A_0 \circledast B_0 + A_1 \circledast B_1 \\ A_0 \circledast B_1 + A_1 \circledast B_0} = (T_m\pmatrix{A_0\\A_1}) \circ (T_m\pmatrix{B_0 \\ B_1})
-。$$
-设 $T_m = S \pmatrix{T_{m-1} &  \\ & T_{m-1}}$，代入上式，得
-\begin{equation} \label{E:1}
+。\]</span> 设 <span class="math inline">\(T_m = S \pmatrix{T_{m-1} & \\ & T_{m-1}}\)</span>，代入上式，得 <span class="math display">\[\begin{equation} \label{E:1}
 S\pmatrix{\widehat{A_0} \circ \widehat{B_0} + \widehat{A_1} \circ \widehat{B_1}\\ \widehat{A_0} \circ \widehat{B_1} + \widehat{A_1} \circ \widehat{B_0}} = (S\pmatrix{\widehat{A_0} \\ \widehat{A_1}}) \circ (S\pmatrix{\widehat{B_0} \\ \widehat{B_1}})。
-\end{equation}
-为了求出 $S$，我们考虑 $m = 1$ 时的情形。此时 $\widehat{A_0}, \widehat{A_1}, \widehat{B_0}, \widehat{B_1}$ 退化为域 $\F$ 里的元素，并且有 $T_1 = S \pmatrix{1 & \\ & 1} = S$。观察 $\eqref{E:1}$，其中向量之间的运算都是逐点的，因此可以取 $S = T_1 \otimes I_{2^{m-1}}$，$\otimes$ 是 Kronecker 积，于是得 $T_m$ 满足递推
-$$
+\end{equation}\]</span> 为了求出 <span class="math inline">\(S\)</span>，我们考虑 <span class="math inline">\(m = 1\)</span> 时的情形。此时 <span class="math inline">\(\widehat{A_0}, \widehat{A_1}, \widehat{B_0}, \widehat{B_1}\)</span> 退化为域 <span class="math inline">\(\F\)</span> 里的元素，并且有 <span class="math inline">\(T_1 = S \pmatrix{1 & \\ & 1} = S\)</span>。观察 <span class="math inline">\(\eqref{E:1}\)</span>，其中向量之间的运算都是逐点的，因此可以取 <span class="math inline">\(S = T_1 \otimes I_{2^{m-1}}\)</span>，<span class="math inline">\(\otimes\)</span> 是 Kronecker 积，于是得 <span class="math inline">\(T_m\)</span> 满足递推 <span class="math display">\[
 T_m = T_1 \otimes T_{m-1}。
-$$
-[^Hadamard-product]: 这种运算也称为矩阵的 Hadamard 积（Hadamard product）。
-现在来确定 $T_1$。对任意 $A, B \in \F^2$ 需要有
-$$
+\]</span></p>
+现在来确定 <span class="math inline">\(T_1\)</span>。对任意 <span class="math inline">\(A, B \in \F^2\)</span> 需要有 <span class="math display">\[
 (T_1A) \circ (T_1B) = T_1(A \circledast B)。
-$$
-设 $T_1 = \pmatrix{p & q \\ r & s}$，$A = \pmatrix{a_0 \\ a_1}$，$B = \pmatrix{b_0 \\ b_1}$，则 $A \circledast B = \pmatrix{a_0 b_0 + a_1 b_1 \\ a_0 b_1 + a_1 b_0}$，代入上式，得方程组
-\begin{cases}
+\]</span> 设 <span class="math inline">\(T_1 = \pmatrix{p & q \\ r & s}\)</span>，<span class="math inline">\(A = \pmatrix{a_0 \\ a_1}\)</span>，<span class="math inline">\(B = \pmatrix{b_0 \\ b_1}\)</span>，则 <span class="math inline">\(A \circledast B = \pmatrix{a_0 b_0 + a_1 b_1 \\ a_0 b_1 + a_1 b_0}\)</span>，代入上式，得方程组
+<span class="math display">\[\begin{cases}
 (pa_0 + qa_1) (p b_0 + q b_1) = p (a_0 b_0 + a_1 b_1) + q (a_0 b_1 + a_1 b_0) \\
 (ra_0 + sa_1) (r b_0 + s b_1) = r (a_0 b_0 + a_1 b_1) + s (a_0 b_1 + a_1 b_0)
-\end{cases}
-这两个方程实际上是同一个。把第一个方程展开，合并同类项得
-$$
+\end{cases}\]</span>
+这两个方程实际上是同一个。把第一个方程展开，合并同类项得 <span class="math display">\[
 (p^2 - p) a_0 b_0 + (pq - q)a_0 b_1 + (qp - q) a_1 b_0 + (q^2 - p) a_1 b_1 = 0
-$$
-于是有
-\begin{cases}
+\]</span> 于是有
+<span class="math display">\[\begin{cases}
 p(p - 1) = 0 \\
 q(p - 1) = 0 \\
 q^2 - p = 0
-\end{cases}
-因为 $T_1$ 可逆，所以 $p, q$ 不能全为零，从而必有 $p = 1$，从而 $q = \pm 1$。可以取 $T_1 = \pmatrix{1 & 1 \\ 1 & -1}$， 或者取 $T_1 = \pmatrix{1 & -1 \\ 1 & 1}$。我们取
-$$
+\end{cases}\]</span>
+<p>因为 <span class="math inline">\(T_1\)</span> 可逆，所以 <span class="math inline">\(p, q\)</span> 不能全为零，从而必有 <span class="math inline">\(p = 1\)</span>，从而 <span class="math inline">\(q = \pm 1\)</span>。可以取 <span class="math inline">\(T_1 = \pmatrix{1 & 1 \\ 1 & -1}\)</span>， 或者取 <span class="math inline">\(T_1 = \pmatrix{1 & -1 \\ 1 & 1}\)</span>。我们取 <span class="math display">\[
 T_1 = \pmatrix{1 & 1 \\ 1 & -1}，
-$$
-这样就有
-$$
+\]</span> 这样就有 <span class="math display">\[
 \widehat{A} = T_m \pmatrix{A_0 \\ A_1} = (T_1 \otimes T_{m-1}) \pmatrix{A_0 \\ A_1} = \pmatrix{\widehat{A_0} + \widehat{A_1} \\ \widehat{A_0} - \widehat{A_1}}。
-$$
-# 逆变换
-容易验证，$T_1^{-1} = {1\over 2}T_1$。
-​Kronecker 积有一个性质
-> $A\otimes B$ is invertible if and only if both $A$ and $B$ are invertible, in which case the inverse is given by $(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}$.
-于是有 $T_m^{-1} = T_1^{-1} \otimes T_{m-1}^{-1}$。
-# 说明
-本文是我读了 riteme 的文章[位运算卷积与 FWT](https://riteme.site/blog/2016-11-25/fwt.html) 之后所写的，内容基本与 riteme 的文章一致，只是调整了顺序，并对我认为 riteme 的文章讲得比较简略的地方做了补充。
-​
+\]</span></p>
+<h1 id=逆变换>逆变换</h1>
+<p>容易验证，<span class="math inline">\(T_1^{-1} = {1\over 2}T_1\)</span>。</p>
+<p>​Kronecker 积有一个性质</p>
+<blockquote>
+<p><span class="math inline">\(A\otimes B\)</span> is invertible if and only if both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are invertible, in which case the inverse is given by <span class="math inline">\((A \otimes B)^{-1} = A^{-1} \otimes B^{-1}\)</span>.</p>
+</blockquote>
+<p>于是有 <span class="math inline">\(T_m^{-1} = T_1^{-1} \otimes T_{m-1}^{-1}\)</span>。</p>
+<h1 id=说明>说明</h1>
+<p>本文是我读了 riteme 的文章<a href=https://riteme.site/blog/2016-11-25/fwt.html>位运算卷积与 FWT</a> 之后所写的，内容基本与 riteme 的文章一致，只是调整了顺序，并对我认为 riteme 的文章讲得比较简略的地方做了补充。</p>
+<p>​</p>
+<section class="footnotes footnotes-end-of-document" role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn1 role=doc-endnote><p>这种运算也称为矩阵的 Hadamard 积（Hadamard product）。<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li>
+</ol>
+</section>
 <ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">

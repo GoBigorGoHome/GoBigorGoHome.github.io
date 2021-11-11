@@ -18,7 +18,7 @@
 <meta itemprop=name content="abc214_g Three Permutations">
 <meta itemprop=description content="一个计数问题。"><meta itemprop=datePublished content="2021-09-02T10:44:01+08:00">
 <meta itemprop=dateModified content="2021-09-02T10:44:01+08:00">
-<meta itemprop=wordCount content="378">
+<meta itemprop=wordCount content="371">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="abc214_g Three Permutations">
 <meta name=twitter:description content="一个计数问题。">
@@ -83,37 +83,38 @@ EDITORIALS
 <h1 class="f1 athelas mt3 mb1">abc214_g Three Permutations</h1>
 <time class="f6 mv4 dib tracked" datetime=2021-09-02T10:44:01+08:00>September 2, 2021</time>
 </header>
-<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
-# 题意
-给定两个 $(1, \dots, N)$ 的排列：$p = (p_1, \dots, p_N)$ 和 $q = (q_1, \dots, q_N)$。求满足下述条件的 $(1, \dots, N)$ 的排列 $r = (r_1, \dots, r_N)$ 的数目。
-- 对每个 $1\le i \le N$ 有 $r_i \ne p_i$ 且 $r_i \ne q_i$。
-数据范围：$1 \le N \le 3000$。\
-时限：2秒。
-# 解说
-为了方便表述，引入几个记号。我们把 $\{1, 2, \dots, n\}$ 的一个排列叫做一个 $n$-排列。设 $G$ 是图，$|G|$ 表示图 $G$ 的点数。以 $\Z_{\ge 1}$ 表示正整数集。
-这个问题是错位排列问题的推广。错位排列问题可以用容斥原理求解。取定 $k$ 个下标 $i_1, i_2, \dots, i_k$，满足在这 $k$ 个下标上都有 $p_i = i$ 的 $n$-排列有 $(n - k)!$ 个。把错位 $n$-排列数记作 $D(n)$，根据容斥原理
-$$
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id=题意>题意</h1>
+<p>给定两个 <span class="math inline">\((1, \dots, N)\)</span> 的排列：<span class="math inline">\(p = (p_1, \dots, p_N)\)</span> 和 <span class="math inline">\(q = (q_1, \dots, q_N)\)</span>。求满足下述条件的 <span class="math inline">\((1, \dots, N)\)</span> 的排列 <span class="math inline">\(r = (r_1, \dots, r_N)\)</span> 的数目。</p>
+<ul>
+<li>对每个 <span class="math inline">\(1\le i \le N\)</span> 有 <span class="math inline">\(r_i \ne p_i\)</span> 且 <span class="math inline">\(r_i \ne q_i\)</span>。</li>
+</ul>
+<p>数据范围：<span class="math inline">\(1 \le N \le 3000\)</span>。<br>
+时限：2秒。</p>
+<h1 id=解说>解说</h1>
+<p>为了方便表述，引入几个记号。我们把 <span class="math inline">\(\{1, 2, \dots, n\}\)</span> 的一个排列叫做一个 <span class="math inline">\(n\)</span>-排列。设 <span class="math inline">\(G\)</span> 是图，<span class="math inline">\(|G|\)</span> 表示图 <span class="math inline">\(G\)</span> 的点数。以 <span class="math inline">\(\Z_{\ge 1}\)</span> 表示正整数集。</p>
+<p>这个问题是错位排列问题的推广。错位排列问题可以用容斥原理求解。取定 <span class="math inline">\(k\)</span> 个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，满足在这 <span class="math inline">\(k\)</span> 个下标上都有 <span class="math inline">\(p_i = i\)</span> 的 <span class="math inline">\(n\)</span>-排列有 <span class="math inline">\((n - k)!\)</span> 个。把错位 <span class="math inline">\(n\)</span>-排列数记作 <span class="math inline">\(D(n)\)</span>，根据容斥原理 <span class="math display">\[
 D(n) = \sum_{k = 0}^{n} {n \choose k} (-1)^{n - k} (n - k)!
-$$
-考虑照样用容斥原理求解此题。取定下标 $i_1, i_2, \dots, i_k$，有多少个排列 $r$ 满足对每个 $i$ 都有 $r_i = p_i$ 或 $r_i = q_i$？为了便于考虑这个问题，我们用一个无向图表示这个条件。考虑无向图 $G = (V, E)$，$V := \{1, 2, \dots, N\}$，$E: = \{\{p_{i_1}, q_{i_1}\}, \dots, \{p_{i_k}, q_{i_k}\}\}$。图 $G$ 有 $N$ 个点，$k$ 条边。问题化为：给图 $G$ 上的 $k$ 条边每条边**指派**一个端点，一个点最多指派给一条边，有多少种方法。把 $G$ 的每个连通块上的指派方法数相乘就是答案。注意到 $G$ 中的点的度数不超过 $2$，因此 $G$ 的一个连通块有三种情形：
-- 孤立点
-- 链（或者叫路径）
-- 环
-孤立点不用考虑。一条 $n$ 个点的链上有 $n - 1$ 条边，共有 $n$ 种给每条边指派一个端点的方法。如何快速看出这个结论？有 $n - 1$ 条边，$n$ 个点，必有一个点未被指派，而哪一个点未被指派完全决定了指派方法。环的情形比较简单，一个点的环有 $1$ 种指派方法，大于一个点的环有 $2$ 种指派方法。
-注：有的题解里采用另一种建图方式，$V := \{1, 2, \dots, N\}$，$E := \{\{i,j\} : p_i = q_j \}$。这样建图，后面问题就化为选择保留一些点并且保留和这些点相连的边，把其它点和边删除，求把边指派给点的方法数。这样的“图”里有的边只有一个端点，这并不是我们一般认识的图，这样的图考虑起来可能会感到不自然。
-我们考虑如何算出所有可能的 $k$ 个下标 $i_1, i_2, \dots, i_k$ 对应的指派方法的总和，把这个总和记作 $S(k)$。为此我们考虑把全部 $N$ 条边都加上所得的图 $H$： $V(H) = \{1, 2, \dots, N\}$，$E(H) = \{\{p_1, q_1\}, \{p_2, q_2\}, \dots, \{p_N, q_N\}\}$。$H$ 的每个连通块都是一个环。对于 $H$ 的一个连通块 $C$（$C$ 是一个环），定义 $f(t)$ 为从 $C$ 中选则 $t$ 条边并给每条边指派一个端点（一个点最多指派给一条边）的方法数。我们要设法算出 $f(0), f(1), \dots, f(|C|)$。对于每个连通块都算出这样一个数组，然后用类似于背包的动态规划，就可以算出 $S(0), S(1), \dots, S(N)$。
-现在来计算 $f$。边界条件： $f(0) = 1$。若 $|C| = 1$ 则 $f(|C|) = 1$；若 $|C| \ge 2$ 则 $f(|C|) = 2$。现在考虑一般情况，从 $C$ 中选择一些边保留，其他边删掉，$C$ 就变成了一些链。根据上面的讨论，给所选的每条边指派一个端点的方法数恰等于每条链上点数的乘积。
-<img src=/images/abc214g-three-permutations.assets/image-20210902183336274.png alt=image-20210902183336274 style=zoom:5%>
-上图是从一个五元环里选三条边的情形，黑色的数是环上的点，这些数是排列里的数。黄色的数代表排列里的位置，可以看作边的编号。给这三条边每条边指派一个端点有 $6$ 种方法。
-现在问题归为：环 $C$ 的每条边都有编号。选择环 $C$ 的 $k$ 条边删掉，就得到 $k$ 条链。我们要计算的是每个删边方法所得的 $k$ 条链上的点数的乘积之和。这个和是 $|C| g(|C|, k) / k$；$g(n, k)$ 是方程 $x_1 + x_2 + \dots + x_k = n$ 的正整数解的乘积之和，即
-$$
+\]</span></p>
+<p>考虑照样用容斥原理求解此题。取定下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，有多少个排列 <span class="math inline">\(r\)</span> 满足对每个 <span class="math inline">\(i\)</span> 都有 <span class="math inline">\(r_i = p_i\)</span> 或 <span class="math inline">\(r_i = q_i\)</span>？为了便于考虑这个问题，我们用一个无向图表示这个条件。考虑无向图 <span class="math inline">\(G = (V, E)\)</span>，<span class="math inline">\(V := \{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E: = \{\{p_{i_1}, q_{i_1}\}, \dots, \{p_{i_k}, q_{i_k}\}\}\)</span>。图 <span class="math inline">\(G\)</span> 有 <span class="math inline">\(N\)</span> 个点，<span class="math inline">\(k\)</span> 条边。问题化为：给图 <span class="math inline">\(G\)</span> 上的 <span class="math inline">\(k\)</span> 条边每条边<strong>指派</strong>一个端点，一个点最多指派给一条边，有多少种方法。把 <span class="math inline">\(G\)</span> 的每个连通块上的指派方法数相乘就是答案。注意到 <span class="math inline">\(G\)</span> 中的点的度数不超过 <span class="math inline">\(2\)</span>，因此 <span class="math inline">\(G\)</span> 的一个连通块有三种情形：</p>
+<ul>
+<li>孤立点</li>
+<li>链（或者叫路径）</li>
+<li>环</li>
+</ul>
+<p>孤立点不用考虑。一条 <span class="math inline">\(n\)</span> 个点的链上有 <span class="math inline">\(n - 1\)</span> 条边，共有 <span class="math inline">\(n\)</span> 种给每条边指派一个端点的方法。如何快速看出这个结论？有 <span class="math inline">\(n - 1\)</span> 条边，<span class="math inline">\(n\)</span> 个点，必有一个点未被指派，而哪一个点未被指派完全决定了指派方法。环的情形比较简单，一个点的环有 <span class="math inline">\(1\)</span> 种指派方法，大于一个点的环有 <span class="math inline">\(2\)</span> 种指派方法。</p>
+<p>注：有的题解里采用另一种建图方式，<span class="math inline">\(V := \{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E := \{\{i,j\} : p_i = q_j \}\)</span>。这样建图，后面问题就化为选择保留一些点并且保留和这些点相连的边，把其它点和边删除，求把边指派给点的方法数。这样的“图”里有的边只有一个端点，这并不是我们一般认识的图，这样的图考虑起来可能会感到不自然。</p>
+<p>我们考虑如何算出所有可能的 <span class="math inline">\(k\)</span> 个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span> 对应的指派方法的总和，把这个总和记作 <span class="math inline">\(S(k)\)</span>。为此我们考虑把全部 <span class="math inline">\(N\)</span> 条边都加上所得的图 <span class="math inline">\(H\)</span>： <span class="math inline">\(V(H) = \{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E(H) = \{\{p_1, q_1\}, \{p_2, q_2\}, \dots, \{p_N, q_N\}\}\)</span>。<span class="math inline">\(H\)</span> 的每个连通块都是一个环。对于 <span class="math inline">\(H\)</span> 的一个连通块 <span class="math inline">\(C\)</span>（<span class="math inline">\(C\)</span> 是一个环），定义 <span class="math inline">\(f(t)\)</span> 为从 <span class="math inline">\(C\)</span> 中选则 <span class="math inline">\(t\)</span> 条边并给每条边指派一个端点（一个点最多指派给一条边）的方法数。我们要设法算出 <span class="math inline">\(f(0), f(1), \dots, f(|C|)\)</span>。对于每个连通块都算出这样一个数组，然后用类似于背包的动态规划，就可以算出 <span class="math inline">\(S(0), S(1), \dots, S(N)\)</span>。</p>
+<p>现在来计算 <span class="math inline">\(f\)</span>。边界条件： <span class="math inline">\(f(0) = 1\)</span>。若 <span class="math inline">\(|C| = 1\)</span> 则 <span class="math inline">\(f(|C|) = 1\)</span>；若 <span class="math inline">\(|C| \ge 2\)</span> 则 <span class="math inline">\(f(|C|) = 2\)</span>。现在考虑一般情况，从 <span class="math inline">\(C\)</span> 中选择一些边保留，其他边删掉，<span class="math inline">\(C\)</span> 就变成了一些链。根据上面的讨论，给所选的每条边指派一个端点的方法数恰等于每条链上点数的乘积。</p>
+<p><img src=/images/abc214g-three-permutations.assets/image-20210902183336274.png alt=image-20210902183336274 style=zoom:5%></p>
+<p>上图是从一个五元环里选三条边的情形，黑色的数是环上的点，这些数是排列里的数。黄色的数代表排列里的位置，可以看作边的编号。给这三条边每条边指派一个端点有 <span class="math inline">\(6\)</span> 种方法。</p>
+<p>现在问题归为：环 <span class="math inline">\(C\)</span> 的每条边都有编号。选择环 <span class="math inline">\(C\)</span> 的 <span class="math inline">\(k\)</span> 条边删掉，就得到 <span class="math inline">\(k\)</span> 条链。我们要计算的是每个删边方法所得的 <span class="math inline">\(k\)</span> 条链上的点数的乘积之和。这个和是 <span class="math inline">\(|C| g(|C|, k) / k\)</span>；<span class="math inline">\(g(n, k)\)</span> 是方程 <span class="math inline">\(x_1 + x_2 + \dots + x_k = n\)</span> 的正整数解的乘积之和，即 <span class="math display">\[
 g(n, k) := \sum_{\substack{x_1 + \dots + x_k = n\\x_1, \dots, x_k \in \Z_{\ge 1}}} x_1 x_2 \dots x_k
-$$
-现在来解释 $|C| g(|C|, k) / k$ 这个结果。先删一条边，把环 $C$ 变成一条链，然后从这条链中删除 $k - 1$ 条边，把这条链分成 $k$ 条链；这样问题就转化为上述关于方程 $x_1 + \dots + x_k = |C|$ 的正整数解的计数问题。不妨先区别删的第一条边是哪一条，得到 $|C| g(|C|, k)$，其中每个方法都被重复计算了 $k$ 次。
-用隔板法可以得出 $g(n, k) = {n + k - 1 \choose 2k - 1}$，详见[隔板法应用一例](/posts/delimiter-method)。
-于是我们得到 $f(t) = |C| g(|C|, |C| - t) / (|C| - t) = |C| {2|C| - t - 1 \choose t} / (|C| - t)$。
-# 注
-这篇题解是按[官方题解](https://atcoder.jp/contests/abc214/editorial/2448)写的，最后的 $|C| g(|C|, k) / k$ 是我自己想出的。
+\]</span></p>
+<p>现在来解释 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 这个结果。先删一条边，把环 <span class="math inline">\(C\)</span> 变成一条链，然后从这条链中删除 <span class="math inline">\(k - 1\)</span> 条边，把这条链分成 <span class="math inline">\(k\)</span> 条链；这样问题就转化为上述关于方程 <span class="math inline">\(x_1 + \dots + x_k = |C|\)</span> 的正整数解的计数问题。不妨先区别删的第一条边是哪一条，得到 <span class="math inline">\(|C| g(|C|, k)\)</span>，其中每个方法都被重复计算了 <span class="math inline">\(k\)</span> 次。</p>
+<p>用隔板法可以得出 <span class="math inline">\(g(n, k) = {n + k - 1 \choose 2k - 1}\)</span>，详见<a href=/posts/delimiter-method>隔板法应用一例</a>。</p>
+<p>于是我们得到 <span class="math inline">\(f(t) = |C| g(|C|, |C| - t) / (|C| - t) = |C| {2|C| - t - 1 \choose t} / (|C| - t)\)</span>。</p>
+<h1 id=注>注</h1>
+<p>这篇题解是按<a href=https://atcoder.jp/contests/abc214/editorial/2448>官方题解</a>写的，最后的 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 是我自己想出的。</p>
 <ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
