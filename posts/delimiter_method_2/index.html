@@ -18,7 +18,7 @@
 <meta itemprop=name content="挡板法应用一例（续）">
 <meta itemprop=description content="一个简单的计数问题。"><meta itemprop=datePublished content="2021-11-09T17:31:22+08:00">
 <meta itemprop=dateModified content="2021-11-09T17:31:22+08:00">
-<meta itemprop=wordCount content="107">
+<meta itemprop=wordCount content="108">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="挡板法应用一例（续）">
 <meta name=twitter:description content="一个简单的计数问题。">
@@ -87,7 +87,7 @@ POSTS
 <h1 id=问题五>问题五</h1>
 <p>正整数 <span class="math inline">\(1 \le x_1 &lt; x_2 &lt; \dots &lt; x_m \le n\)</span>，求 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span>。</p>
 <h2 id=解说>解说</h2>
-<p>考虑 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span> 的组合意义。设想有 <span class="math inline">\(n\)</span> 个球排成一行。相邻两球之间和最后一个球之后这些位置可以插入一块隔板。先插入 <span class="math inline">\(m\)</span> 块隔板，第 <span class="math inline">\(i\)</span> 块隔板左边的球数就是 <span class="math inline">\(x_i\)</span>；然后从每两块相邻的隔板之间任选一个球，有 $(x_2 - x_1) <span class="math inline">\((x_m - x_{m-1}\)</span> 种方法。做“插入隔板然后选球”这件事的方法数就是 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span>。插入 <span class="math inline">\(m\)</span> 块隔板之后，共有 <span class="math inline">\(n + m\)</span> 个东西排成一行，把这些东西从左到右编号；然后选择 <span class="math inline">\(m - 1\)</span> 个球，把隔板和所选的球的编号从小到大写下来就得到一个长为 <span class="math inline">\(2m - 1\)</span> 的序列。容易验证，这个序列和做“插入隔板然后选球”这件事的方法一一对应。</p>
+<p>考虑 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span> 的组合意义。设想有 <span class="math inline">\(n\)</span> 个球排成一行。相邻两球之间和最后一个球之后这些位置可以插入一块隔板。先插入 <span class="math inline">\(m\)</span> 块隔板，第 <span class="math inline">\(i\)</span> 块隔板左边的球数就是 <span class="math inline">\(x_i\)</span>；然后从每两块相邻的隔板之间任选一个球，有 <span class="math inline">\((x_2 - x_1) \dots (x_m - x_{m-1}\)</span> 种方法。做“插入隔板然后选球”这件事的方法数就是 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span>。插入 <span class="math inline">\(m\)</span> 块隔板之后，共有 <span class="math inline">\(n + m\)</span> 个东西排成一行，把这些东西从左到右编号；然后选择 <span class="math inline">\(m - 1\)</span> 个球，把隔板和所选的球的编号从小到大写下来就得到一个长为 <span class="math inline">\(2m - 1\)</span> 的序列。容易验证，这个序列和做“插入隔板然后选球”这件事的方法一一对应。</p>
 <figure>
 <img src=/images/delimiter_method_2.assets/2021-11-09-19-06-41.png style=width:50% alt="n = 6, k = 3 的一个例子。竖线代表隔板，被选择的球涂黄色。"><figcaption aria-hidden=true><span class="math inline">\(n = 6, k = 3\)</span> 的一个例子。竖线代表隔板，被选择的球涂黄色。</figcaption>
 </figure>
