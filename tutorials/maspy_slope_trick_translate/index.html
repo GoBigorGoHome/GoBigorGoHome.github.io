@@ -184,7 +184,7 @@ f(x) = \text{min}_{f} + \sum_{l\in L} (l-x)_{+} + \sum_{r \in R} (x-r)_{+}
 <p>We can replace <span class="math inline">\(L\)</span> with the empty set.</p>
 <h1 id=extensions>Extensions</h1>
 <p>If we add additional information to the data structure, we can perform more operations. Specifically, in addition to <span class="math inline">\(\min_f\)</span>, <span class="math inline">\(L\)</span>, and <span class="math inline">\(R\)</span>, we will add <span class="math inline">\(\mathrm{add}_L\)</span> to the left side, and <span class="math inline">\(\mathrm{add}_R\)</span> to the right side.</p>
-<p>When inserting or extracting, take care of the difference between the actual values and the values you are putting in <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span>. By doing so, we can perform addition to the entire left and right sets in O(1) time.</p>
+<p>When inserting or extracting, take care of the difference between the actual values and the values you are putting in <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span>. By doing so, we can perform addition to the entire left and right sets in <span class="math inline">\(O(1)\)</span> time.</p>
 <p>Let’s see how the operation can be done.</p>
 <h2 id=horizontal-shift-o1-time>Horizontal shift: <span class="math inline">\(O(1)\)</span> time</h2>
 <p>Given a piecewise linear convex function <span class="math inline">\(f(x)\)</span>, we consider finding a function <span class="math inline">\(g\)</span> such that <span class="math inline">\(g(x)=f(x-a)\)</span>.</p>
