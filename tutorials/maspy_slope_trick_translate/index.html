@@ -99,10 +99,10 @@ TUTORIALS
 <blockquote>
 <p>The graph of <span class="math inline">\(f\)</span> is a polyline joining line segments with slopes <span class="math inline">\(l, l + 1, \dots, r - 1, r\)</span> in this order from left to right.</p>
 </blockquote>
-<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope1-1.png alt=img style=zoom:33%></p>
+<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope1-1.png style=width:50%></p>
 <p>It is like this. This is a line segment with slopes of <span class="math inline">\(-2, -1,0, 1, 2, 3\)</span>. It is called a line segment, although both ends are half line.</p>
 <p>For convenience, we will also consider a line segment of length 0.</p>
-<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope2-1.png alt=img style=zoom:33%></p>
+<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope2-1.png style=width:50%></p>
 <p>In the above figure,</p>
 <ul>
 <li>in <span class="math inline">\((-\infty, a]\)</span> the slope is <span class="math inline">\(-2\)</span></li>
@@ -121,13 +121,13 @@ TUTORIALS
 <li><span class="math inline">\(f(x) = \max(0, a - x)\)</span>. Hereinafter referred to as <span class="math inline">\((a - x)_{+}\)</span>.</li>
 </ul>
 <p>We will visualize the last two functions, which are particularly important. These are the left and right halves of <span class="math inline">\(|x - a|\)</span>, for which we have <span class="math inline">\(|x - a| = (x - a)_{+} + (a - x)_{+}\)</span>.</p>
-<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope_3-2.png alt=img style=zoom:50%></p>
+<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope_3-2.png style=width:60%></p>
 <p>We also see that the sum of some piecewise linear convex functions is a piecewise linear convex function. Thus, for example, a function such as <span class="math inline">\(f(x)= \sum_i|x-a_i|\)</span> is a piecewise linear convex function.</p>
 <h1 id=how-to-hold-the-data>How to hold the data</h1>
 <p>The slope trick is to manage piecewise linear convex functions by replacing them with <strong>a multiset of slope change points</strong>, so that certain function operations can be performed concisely.</p>
 <p>There seem to be a number of possible patterns in the details of the data. For example, in https://codeforces.com/blog/entry/77298 you can see some attempts to describe functions in terms of change points and how they look in <span class="math inline">\(x \to \infty\)</span>. In this article, I will introduce what I consider to be an easy way to handle the data.</p>
 <h2 id=data-representation>Data representation</h2>
-<p><img src=https://maspypy.com/wp-content/uploads/2021/03/a.png alt=img style=zoom:33%></p>
+<p><img src=https://maspypy.com/wp-content/uploads/2021/03/a.png style=width:60%></p>
 <p>For a piecewise linear convex function, we have the following three pieces of information</p>
 <ul>
 <li><span class="math inline">\(\min_f\)</span>: the minimum value of <span class="math inline">\(f\)</span></li>
@@ -136,7 +136,7 @@ TUTORIALS
 </ul>
 <p>In the following, we always write <span class="math inline">\(l_0\)</span> to indicate the maximum value of <span class="math inline">\(L\)</span>, and <span class="math inline">\(r_0\)</span> to indicate the minimum value of <span class="math inline">\(R\)</span>. Also, if <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span> is empty, set <span class="math inline">\(l_0=-\infty\)</span> or <span class="math inline">\(r_0=\infty\)</span>, respectively. The way to represent a “multiset” is to use a <strong>priority queue</strong> so that <span class="math inline">\(l_0\)</span> and <span class="math inline">\(r_0\)</span> are always available.</p>
 <p>This is an example of where the slope changes by more than <span class="math inline">\(1\)</span> at a point.</p>
-<p><img src=https://maspypy.com/wp-content/uploads/2021/03/b.png alt=img style=zoom:33%></p>
+<p><img src=https://maspypy.com/wp-content/uploads/2021/03/b.png style=width:60%></p>
 <h2 id=restoration>Restoration</h2>
 <p>With the above way of holding data, <span class="math inline">\(f(x)\)</span> can be expressed as follows: <span class="math display">\[
 f(x) = \text{min}_{f} + \sum_{l\in L} (l-x)_{+} + \sum_{r \in R} (x-r)_{+}
@@ -176,11 +176,11 @@ f(x) = \text{min}_{f} + \sum_{l\in L} (l-x)_{+} + \sum_{r \in R} (x-r)_{+}
 <p><span class="math inline">\(|x-a|=(x-a)_+ + (a-x)_+\)</span>, so we can do both of the above operations in any order we like.</p>
 <h2 id=cumulative-min-o1-time>Cumulative min: <span class="math inline">\(O(1)\)</span> time</h2>
 <p>In other words, it is an operation to replace <span class="math inline">\(f\)</span> with <span class="math inline">\(g\)</span> as <span class="math inline">\(g(x):=\min_{y≤x} f(y)\)</span>.</p>
-<p><img src=https://maspypy.com/wp-content/uploads/2021/03/left_min.png alt=img style=zoom:33%></p>
+<p><img src=https://maspypy.com/wp-content/uploads/2021/03/left_min.png style=width:60%></p>
 <p>We can replace <span class="math inline">\(R\)</span> with the empty set.</p>
 <h2 id=cumulative-sum-from-right>Cumulative sum from right</h2>
 <p><span class="math inline">\(g(x):=\min_{y≥x} f(y)\)</span>, this operation replaces <span class="math inline">\(f\)</span> with <span class="math inline">\(g\)</span>.</p>
-<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope_trick-1.png alt=img style=zoom:33%></p>
+<p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope_trick-1.png style=width:60%></p>
 <p>We can replace <span class="math inline">\(L\)</span> with the empty set.</p>
 <h1 id=extensions>Extensions</h1>
 <p>If we add additional information to the data structure, we can perform more operations. Specifically, in addition to <span class="math inline">\(\min_f\)</span>, <span class="math inline">\(L\)</span>, and <span class="math inline">\(R\)</span>, we will add <span class="math inline">\(\mathrm{add}_L\)</span> to the left side, and <span class="math inline">\(\mathrm{add}_R\)</span> to the right side.</p>
@@ -188,13 +188,13 @@ f(x) = \text{min}_{f} + \sum_{l\in L} (l-x)_{+} + \sum_{r \in R} (x-r)_{+}
 <p>Let’s see how the operation can be done.</p>
 <h2 id=horizontal-shift-o1-time>Horizontal shift: <span class="math inline">\(O(1)\)</span> time</h2>
 <p>Given a piecewise linear convex function <span class="math inline">\(f(x)\)</span>, we consider finding a function <span class="math inline">\(g\)</span> such that <span class="math inline">\(g(x)=f(x-a)\)</span>.</p>
-<p><img src=/images/maspy_slope_trick_translate.assets/translation-1.png alt=translation-1 style=zoom:33%></p>
+<p><img src=/images/maspy_slope_trick_translate.assets/translation-1.png style=width:60%></p>
 <p>We can add <span class="math inline">\(a\)</span> to the sets <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> all at once.</p>
 <h2 id=sliding-window-minimum-o1-time>Sliding window minimum: <span class="math inline">\(O(1)\)</span> time</h2>
 <p>This operation takes the sliding window minimum.</p>
 <p>For <span class="math inline">\(a≤b\)</span>, compute <span class="math inline">\(g\)</span> determined by <span class="math inline">\(g(x)=\min_{y \in [x-b,x-a]}f(y)\)</span>.</p>
 <p>This actually corresponds to translating the left and right sets, respectively.</p>
-<p><img src=/images/maspy_slope_trick_translate.assets/range_translation-2.png alt=range_translation-2 style=zoom:10%></p>
+<p><img src=/images/maspy_slope_trick_translate.assets/range_translation-2.png style=width:60%></p>
 <p>I think it makes sense from a graphical point of view to take min for all the translations between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Just to be sure, let’s understand it in terms of equations.</p>
 <ul>
 <li>If <span class="math inline">\(x≤l_0+a\)</span>, then <span class="math inline">\(f\)</span> is monotonically decreasing in <span class="math inline">\([x-b,x-a]\)</span> from <span class="math inline">\(x-a \le l_0\)</span>. Therefore <span class="math inline">\(g(x)=\min_{y \in [x-b,x-a]} f(y) = f(x-a)\)</span>.</li>
