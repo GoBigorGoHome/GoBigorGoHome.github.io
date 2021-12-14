@@ -113,9 +113,9 @@ POSTS
 <p>根据取整函数的性质，有 <span class="math inline">\(N_i = \ceil{N/2^i}\)</span>。从而知 <span class="math inline">\(K = \ceil{\log N}\)</span>。</p>
 <p>第一轮是不超过 <span class="math inline">\(N_1\)</span> 对次数不超过 <span class="math inline">\(1\)</span> 的多项式相乘，第二轮是不超过 <span class="math inline">\(N_2\)</span> 对次数不超过 <span class="math inline">\(2\)</span> 的多项式相乘，第三轮是不超过 <span class="math inline">\(N_3\)</span> 对次数不超过 <span class="math inline">\(4\)</span> 的多项式相乘，以此类推。</p>
 <p>我们知道 FFT 算法可以在 <span class="math inline">\(O(n \log n)\)</span> 的时间内算出两个次数不超过 <span class="math inline">\(n\)</span> 的多项式的乘积。</p>
-<p>因此上述算法的时间复杂度可表为 <span class="math display">\[
+<p>因此上述算法的时间复杂度可表为 <span class="math display">\[\begin{equation}
 \sum_{1 \le i \le K} \ceil{N/2^i} 2^{i - 1}(i - 1) \label{1}
-\]</span></p>
+\end{equation}\]</span></p>
 <p><span class="math inline">\(\eqref{1} &lt; \sum_{1 \le i \le K} (N/2^i + 1) 2^ii &lt; N(1 + K)K + K 2^{K + 1} = O(N(\log N)^2)\)</span>。</p>
 <ul class=pa0>
 </ul>
