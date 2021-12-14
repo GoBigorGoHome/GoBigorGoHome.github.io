@@ -18,7 +18,7 @@
 <meta itemprop=name content="abc321_g Balls in Boxes bonus question">
 <meta itemprop=description content="A simple case of time complexity analysis."><meta itemprop=datePublished content="2021-12-14T02:44:49+08:00">
 <meta itemprop=dateModified content="2021-12-14T02:44:49+08:00">
-<meta itemprop=wordCount content="203">
+<meta itemprop=wordCount content="202">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="abc321_g Balls in Boxes bonus question">
 <meta name=twitter:description content="A simple case of time complexity analysis.">
@@ -101,20 +101,20 @@ POSTS
 </ul>
 <p>对任意整数 <span class="math inline">\(n\)</span> 和任意正整数 <span class="math inline">\(a, b\)</span> 都有</p>
 <ul>
-<li><span class="math inline">\(\ceil{\ceil{n/a}/b} = \ceil{n /(ab)}\)</span>。</li>
-<li><span class="math inline">\(\floor{\floor{n/a} / b} = \floor{n/(ab)}\)</span>。</li>
+<li><span class="math inline">\(\ceil{\ceil{n/a}/b} = \ceil{n /(ab)}\)</span></li>
+<li><span class="math inline">\(\floor{\floor{n/a} / b} = \floor{n/(ab)}\)</span></li>
 </ul>
 <p>证明：若 <span class="math inline">\(a\)</span> 能整除 <span class="math inline">\(n\)</span> 结论显然成立。假设 <span class="math inline">\(a\)</span> 不能整除 <span class="math inline">\(n\)</span>，则 <span class="math inline">\(n\)</span> 可表为 <span class="math inline">\(qa + r\)</span>，其中 <span class="math inline">\(1 \le r &lt; a\)</span>。可知 <span class="math inline">\(\ceil{n / a} = q+1\)</span>，左边等于 <span class="math inline">\(\ceil{(q+1)/b}\)</span>。右边等于 <span class="math inline">\(\ceil{(qa + r) /(ab)} = \ceil{q/b + r/(ab)}\)</span>。<span class="math inline">\(r/(ab) &lt; 1/b\)</span>，所以 <span class="math inline">\(\ceil{q/b + r/(ab)} = \ceil{(q+ 1) /b}\)</span>。同理可证第二个等式。</p>
 <h1 id=bonus-question>Bonus question</h1>
 <p>在 <span class="math inline">\(O(N(\log N)^2)\)</span> 时间内计算多项式乘积 <span class="math inline">\(\prod_{1 \le i \le N} (A_i x + 1)\)</span>。</p>
-<p>做法是弄一个队列。最初把乘积的每一项 <span class="math inline">\((A_i x + 1)\)</span> 都放到队列里。然后不断从队首取出两项相乘，把乘积从队尾加进队列；直到队列里只剩一个多项式，就是结果。</p>
+<p>做法：弄一个队列。最初把乘积的每一项 <span class="math inline">\((A_i x + 1)\)</span> 都放到队列里。然后不断从队首取出两项相乘，把乘积从队尾加进队列；直到队列里只剩一个多项式，就是结果。</p>
 <p>下面来证明这个做法的时间复杂度是 <span class="math inline">\(O(N (\log N)^2)\)</span>。</p>
 <p>考虑数列 <span class="math inline">\(N_0 = N, N_1 = \ceil{N/2}, N_2 = \ceil{N_1 / 2}, N_3 = \ceil{N_2 / 2}, \dots, N_K = 1\)</span>。</p>
 <p>根据取整函数的性质，有 <span class="math inline">\(N_i = \ceil{N/2^i}\)</span>。从而知 <span class="math inline">\(K = \ceil{\log N}\)</span>。</p>
 <p>第一轮是不超过 <span class="math inline">\(N_1\)</span> 对次数不超过 <span class="math inline">\(1\)</span> 的多项式相乘，第二轮是不超过 <span class="math inline">\(N_2\)</span> 对次数不超过 <span class="math inline">\(2\)</span> 的多项式相乘，第三轮是不超过 <span class="math inline">\(N_3\)</span> 对次数不超过 <span class="math inline">\(4\)</span> 的多项式相乘，以此类推。</p>
 <p>我们知道 FFT 算法可以在 <span class="math inline">\(O(n \log n)\)</span> 的时间内算出两个次数不超过 <span class="math inline">\(n\)</span> 的多项式的乘积。</p>
 <p>因此上述算法的时间复杂度可表为 <span class="math display">\[
-\sum_{1 \le i \le K} \ceil{N/2^i} 2^{i - 1}(i - 1) \label{1} \tag{*}
+\sum_{1 \le i \le K} \ceil{N/2^i} 2^{i - 1}(i - 1) \label{1}
 \]</span></p>
 <p><span class="math inline">\(\eqref{1} &lt; \sum_{1 \le i \le K} (N/2^i + 1) 2^ii &lt; N(1 + K)K + K 2^{K + 1} = O(N(\log N)^2)\)</span>。</p>
 <ul class=pa0>
