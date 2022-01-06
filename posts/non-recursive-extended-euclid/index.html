@@ -103,7 +103,7 @@ int gcd(int a, int b) {
 \end{equation}\]</span> 观察上式，不难看出 <span class="math inline">\(p, q\)</span> 这两个序列是独立的，我们只考虑序列 <span class="math inline">\(p\)</span>。我们的目标是求出 <span class="math inline">\(p_{n - 1}\)</span>。取 <span class="math inline">\(p_1 = 1, p_2 = 0\)</span>。序列 <span class="math inline">\(p\)</span> 满足递推 <span class="math display">\[\begin{equation}
 p_i = p_{i - 2} - \floor{x_{i-2}/x_{i-1}} p_{i-1}。
 \end{equation}\]</span></p>
-<pre><code>std::pair&lt;int, int&gt; ext_gcd(int x1, int x2) {
+<pre class=cpp><code>std::pair&lt;int, int&gt; ext_gcd(int x1, int x2) {
   int p1 = 1, p2 = 0;
   while (x2 != 0) {
     int t = x1 / x2;
@@ -126,7 +126,7 @@ p_i = p_{i - 2} - \floor{x_{i-2}/x_{i-1}} p_{i-1}。
 <footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
 <div class="flex justify-between">
 <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href>
-&copy; Algorithm Notes 2021
+&copy; Algorithm Notes 2022
 </a>
 <div>
 </div>
