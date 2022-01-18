@@ -8,6 +8,7 @@
 <meta name=generator content="Hugo 0.92.0">
 <meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel=stylesheet href=/ananke/css/main.min.css>
+<link rel=stylesheet href=/css/custom.css>
 <link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
 <meta property="og:title" content="abc235_g Painting Weighted Graph">
 <meta property="og:description" content="A typical instance of tree DP of merge.">
@@ -18,7 +19,7 @@
 <meta itemprop=name content="abc235_g Painting Weighted Graph">
 <meta itemprop=description content="A typical instance of tree DP of merge."><meta itemprop=datePublished content="2022-01-18T15:15:18+08:00">
 <meta itemprop=dateModified content="2022-01-18T15:15:18+08:00">
-<meta itemprop=wordCount content="370">
+<meta itemprop=wordCount content="507">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="abc235_g Painting Weighted Graph">
 <meta name=twitter:description content="A typical instance of tree DP of merge.">
@@ -27,6 +28,7 @@
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js></script>
 <script>hljs.highlightAll()</script>
+<link rel=stylesheet href=css/custom.css>
 </head>
 <body class="ma0 avenir bg-near-white">
 <header>
@@ -116,7 +118,7 @@ p(C') - x^2 + x\)</span>. (why?)</p>
 <li><span class="math inline">\(\delta_C(V(C)) = 1\)</span>.</li>
 <li><span class="math inline">\(\delta_{C'}(V(C)) = 2\)</span>.</li>
 </ul>
-<h2 id=analysis-of-time-complexity>Analysis of time complexity</h2>
+<h1 id=analysis-of-time-complexity>Analysis of time complexity</h1>
 <p>Consider connecting two connected components <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>, depending on their number of
 vertices are less than <span class="math inline">\(K\)</span> or
 not:</p>
@@ -139,6 +141,56 @@ and occurs at most once for a connected component with size less than
 once in the smaller part of such merges). So it costs a total of <span class="math inline">\(O(NK)\)</span> time.</li>
 </ul>
 <p>Therefore, the overall time complexity is <span class="math inline">\(O(NK)\)</span>.</p>
+<h1 id=code>Code</h1>
+<pre class=cpp><code>#include &lt;utils.hpp&gt;
+#include &lt;dsu.hpp&gt;
+#include &lt;m3.hpp&gt;
+#include &lt;poly.hpp&gt;
+
+void solve() {
+  INT(N, M, K);
+  UnionFind dsu(N + 1);
+  using poly = Poly&lt;mint&gt;;
+  map&lt;int, vii&gt; e;
+  rep (M) {
+    INT(a, b, c);
+    e[c].pb(a, b);
+  }
+  vector&lt;poly&gt; p(N + 1, {1, 1});
+  FOR (c, ab, e) {
+    vi old_roots;
+    FOR (a, b, ab) {
+      if (not dsu.same(a, b)) {
+        old_roots.pb(dsu.root(b));
+        dsu.unite(a, b);
+      }
+    }
+    map&lt;int, int&gt; cnt;
+    FOR (u, old_roots) {
+      int r = dsu.root(u);
+      cnt[r]++;
+      p[r] *= p[u];
+      if (SZ(p[r]) &gt; K + 1)
+        p[r].resize(K + 1);
+    }
+
+    FOR (root, C, cnt) {
+      p[root][1] += 1;
+      if (C + 1 &lt;= K) {
+        p[root][C + 1] -= 1;
+      }
+    }
+  }
+
+  poly prod = {1};
+  up (i, 1, N)
+    if (dsu.is_root(i)) {
+      prod *= p[i];
+      if (SZ(prod) &gt; K + 1)
+        prod.resize(K + 1);
+    }
+  pl(acc&lt;mint&gt;(prod));
+}</code></pre>
 <ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
