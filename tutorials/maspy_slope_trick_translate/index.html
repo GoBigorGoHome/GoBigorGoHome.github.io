@@ -5,7 +5,7 @@
 <title>Translation of maspy's Slope Trick | Algorithm Notes</title>
 <meta name=viewport content="width=device-width,minimum-scale=1">
 <meta name=description content="Translation of maspy’s Slope Trick with aid of deepl.">
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel=stylesheet href=/ananke/css/main.min.css>
 <link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
@@ -91,118 +91,228 @@ TUTORIALS
 <h1 class="f1 athelas mt3 mb1">Translation of maspy's Slope Trick</h1>
 <time class="f6 mv4 dib tracked" datetime=2021-09-02T10:44:01+08:00>September 2, 2021</time>
 </header>
-<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Note: this is a translation of maspy’s article <em>Slope Trick</em>. The translation is done with the aid of <a href=https://www.deepl.com/translator>deepl</a> and is known to be incomplet and incorrekt.</p>
-<p><a href=https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8>Original article (in Japanese)</a> by maspy.</p>
-<h1 id=piecewise-linear-convex-functions>Piecewise linear convex functions</h1>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Note: this is a translation of maspy’s article <em>Slope Trick</em>.
+The translation is done with the aid of <a href=https://www.deepl.com/translator>deepl</a> and is known to be
+incomplet and incorrekt.</p>
+<p><a href=https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8>Original
+article (in Japanese)</a> by maspy.</p>
+<h1 id=piecewise-linear-convex-functions>Piecewise linear convex
+functions</h1>
 <h2 id=definition>Definition</h2>
-<p>The slope trick is a technique to manage a continuous function <span class="math inline">\(f\colon \R \to \R\)</span> which satisfies the following condition.</p>
+<p>The slope trick is a technique to manage a continuous function <span class="math inline">\(f\colon \R \to \R\)</span> which satisfies the
+following condition.</p>
 <blockquote>
-<p>The graph of <span class="math inline">\(f\)</span> is a polyline joining line segments with slopes <span class="math inline">\(l, l + 1, \dots, r - 1, r\)</span> in this order from left to right.</p>
+<p>The graph of <span class="math inline">\(f\)</span> is a polyline
+joining line segments with slopes <span class="math inline">\(l, l + 1,
+\dots, r - 1, r\)</span> in this order from left to right.</p>
 </blockquote>
 <p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope1-1.png style=width:50%></p>
-<p>It is like this. This is a line segment with slopes of <span class="math inline">\(-2, -1,0, 1, 2, 3\)</span>. It is called a line segment, although both ends are half line.</p>
+<p>It is like this. This is a line segment with slopes of <span class="math inline">\(-2, -1,0, 1, 2, 3\)</span>. It is called a line
+segment, although both ends are half line.</p>
 <p>For convenience, we will also consider a line segment of length <span class="math inline">\(0\)</span>.</p>
 <p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope2-1.png style=width:50%></p>
 <p>In the above figure,</p>
 <ul>
-<li>in <span class="math inline">\((-\infty, a]\)</span> the slope is <span class="math inline">\(-2\)</span></li>
+<li>in <span class="math inline">\((-\infty, a]\)</span> the slope is
+<span class="math inline">\(-2\)</span></li>
 <li>in <span class="math inline">\([a, b]\)</span> the slope is <span class="math inline">\(-1\)</span></li>
 <li>in <span class="math inline">\([b, b]\)</span> the slope is <span class="math inline">\(0\)</span></li>
 <li>in <span class="math inline">\([b, c]\)</span> the slope is 1</li>
 <li>in <span class="math inline">\([c, c]\)</span> the slope is <span class="math inline">\(2\)</span></li>
-<li>in <span class="math inline">\([c, \infty)\)</span> the slope is <span class="math inline">\(3\)</span></li>
+<li>in <span class="math inline">\([c, \infty)\)</span> the slope is
+<span class="math inline">\(3\)</span></li>
 </ul>
-<p>Hereafter, we will refer to such functions as piecewise linear convex functions. Strictly speaking, segmented linear convexity alone is insufficient, since we require the slope to be integer, but we don’t think there will be any confusion in this article. Please understand.</p>
+<p>Hereafter, we will refer to such functions as piecewise linear convex
+functions. Strictly speaking, segmented linear convexity alone is
+insufficient, since we require the slope to be integer, but we don’t
+think there will be any confusion in this article. Please
+understand.</p>
 <h2 id=examples>Examples</h2>
-<p>The following are some examples of piecewise linear convex function.</p>
+<p>The following are some examples of piecewise linear convex
+function.</p>
 <ul>
 <li><span class="math inline">\(f(x) = |x - a|\)</span></li>
-<li><span class="math inline">\(f(x) = \max(0, x - a)\)</span>. Hereinafter referred to as <span class="math inline">\((x - a)_+\)</span>.</li>
-<li><span class="math inline">\(f(x) = \max(0, a - x)\)</span>. Hereinafter referred to as <span class="math inline">\((a - x)_{+}\)</span>.</li>
+<li><span class="math inline">\(f(x) = \max(0, x - a)\)</span>.
+Hereinafter referred to as <span class="math inline">\((x -
+a)_+\)</span>.</li>
+<li><span class="math inline">\(f(x) = \max(0, a - x)\)</span>.
+Hereinafter referred to as <span class="math inline">\((a -
+x)_{+}\)</span>.</li>
 </ul>
-<p>We will visualize the last two functions, which are particularly important. These are the left and right halves of <span class="math inline">\(|x - a|\)</span>, for which we have <span class="math inline">\(|x - a| = (x - a)_{+} + (a - x)_{+}\)</span>.</p>
+<p>We will visualize the last two functions, which are particularly
+important. These are the left and right halves of <span class="math inline">\(|x - a|\)</span>, for which we have <span class="math inline">\(|x - a| = (x - a)_{+} + (a - x)_{+}\)</span>.</p>
 <p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope_3-2.png style=width:60%></p>
-<p>We also see that the sum of some piecewise linear convex functions is a piecewise linear convex function. Thus, for example, a function such as <span class="math inline">\(f(x)= \sum_i|x-a_i|\)</span> is a piecewise linear convex function.</p>
+<p>We also see that the sum of some piecewise linear convex functions is
+a piecewise linear convex function. Thus, for example, a function such
+as <span class="math inline">\(f(x)= \sum_i|x-a_i|\)</span> is a
+piecewise linear convex function.</p>
 <h1 id=how-to-hold-the-data>How to hold the data</h1>
-<p>The slope trick is to manage piecewise linear convex functions by replacing them with <strong>a multiset of slope change points</strong>, so that certain function operations can be performed concisely.</p>
-<p>There seem to be a number of possible patterns in the details of the data. For example, in https://codeforces.com/blog/entry/77298 you can see some attempts to describe functions in terms of change points and how they look in <span class="math inline">\(x \to \infty\)</span>. In this article, I will introduce what I consider to be an easy way to handle the data.</p>
+<p>The slope trick is to manage piecewise linear convex functions by
+replacing them with <strong>a multiset of slope change points</strong>,
+so that certain function operations can be performed concisely.</p>
+<p>There seem to be a number of possible patterns in the details of the
+data. For example, in https://codeforces.com/blog/entry/77298 you can
+see some attempts to describe functions in terms of change points and
+how they look in <span class="math inline">\(x \to \infty\)</span>. In
+this article, I will introduce what I consider to be an easy way to
+handle the data.</p>
 <h2 id=data-representation>Data representation</h2>
 <p><img src=https://maspypy.com/wp-content/uploads/2021/03/a.png style=width:60%></p>
-<p>For a piecewise linear convex function, we have the following three pieces of information</p>
+<p>For a piecewise linear convex function, we have the following three
+pieces of information</p>
 <ul>
-<li><span class="math inline">\(\min_f\)</span>: the minimum value of <span class="math inline">\(f\)</span></li>
-<li><span class="math inline">\(L\)</span>: a multiset of all points of change in slope, for the part with slope <span class="math inline">\(\le 0\)</span>.</li>
-<li><span class="math inline">\(R\)</span>: a multiset of all points of change in slope, for the part with slope <span class="math inline">\(\ge 0\)</span>.</li>
+<li><span class="math inline">\(\min_f\)</span>: the minimum value of
+<span class="math inline">\(f\)</span></li>
+<li><span class="math inline">\(L\)</span>: a multiset of all points of
+change in slope, for the part with slope <span class="math inline">\(\le
+0\)</span>.</li>
+<li><span class="math inline">\(R\)</span>: a multiset of all points of
+change in slope, for the part with slope <span class="math inline">\(\ge
+0\)</span>.</li>
 </ul>
-<p>In the following, we always write <span class="math inline">\(l_0\)</span> to indicate the maximum value of <span class="math inline">\(L\)</span>, and <span class="math inline">\(r_0\)</span> to indicate the minimum value of <span class="math inline">\(R\)</span>. Also, if <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span> is empty, set <span class="math inline">\(l_0=-\infty\)</span> or <span class="math inline">\(r_0=\infty\)</span>, respectively. The way to represent a “multiset” is to use a <strong>priority queue</strong> so that <span class="math inline">\(l_0\)</span> and <span class="math inline">\(r_0\)</span> are always available.</p>
+<p>In the following, we always write <span class="math inline">\(l_0\)</span> to indicate the maximum value of
+<span class="math inline">\(L\)</span>, and <span class="math inline">\(r_0\)</span> to indicate the minimum value of
+<span class="math inline">\(R\)</span>. Also, if <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span> is empty, set <span class="math inline">\(l_0=-\infty\)</span> or <span class="math inline">\(r_0=\infty\)</span>, respectively. The way to
+represent a “multiset” is to use a <strong>priority queue</strong> so
+that <span class="math inline">\(l_0\)</span> and <span class="math inline">\(r_0\)</span> are always available.</p>
 <p>This is an example of where the slope changes by more than <span class="math inline">\(1\)</span> at a point.</p>
 <p><img src=https://maspypy.com/wp-content/uploads/2021/03/b.png style=width:60%></p>
 <h2 id=restoration>Restoration</h2>
 <p>With the above way of holding data, <span class="math inline">\(f(x)\)</span> can be expressed as follows: <span class="math display">\[
-f(x) = \text{min}_{f} + \sum_{l\in L} (l-x)_{+} + \sum_{r \in R} (x-r)_{+}
+f(x) = \text{min}_{f} + \sum_{l\in L} (l-x)_{+} + \sum_{r \in R}
+(x-r)_{+}
 \]</span> In fact, on the left and right sides</p>
 <ul>
 <li><p>the slopes are equal everywhere</p></li>
-<li><p>the values are equal at <span class="math inline">\(x\in [l_0,r_0]\)</span></p></li>
+<li><p>the values are equal at <span class="math inline">\(x\in
+[l_0,r_0]\)</span></p></li>
 </ul>
 <p>Both are easy to verify.</p>
 <h1 id=possible-operations>Possible operations</h1>
-<p>Let <span class="math inline">\(N=|L|+|R|\)</span>. In this case, the following operations and computational complexity can be achieved.</p>
+<p>Let <span class="math inline">\(N=|L|+|R|\)</span>. In this case, the
+following operations and computational complexity can be achieved.</p>
 <h2 id=obtain-minimum-value-o1-time>Obtain minimum value: <span class="math inline">\(O(1)\)</span> time</h2>
-<p><span class="math inline">\(\min_{x\in\R} f(x)\)</span> and other such questions about <span class="math inline">\(x\)</span> can be answered in <span class="math inline">\(O(1)\)</span> time. （这句翻译不通，原文“<span class="math inline">\(\min_{x∈\R}f(x)\)</span> および、それを実現するような <span class="math inline">\(x\)</span> を答えることが、<span class="math inline">\(O(1)\)</span> 時間で行えます。”）Since we were talking about managing <span class="math inline">\(\min_f\)</span> in the first place, we will just return the minimum value. The range of <span class="math inline">\(x\)</span> that takes the minimum value is the interval <span class="math inline">\([l_0,r_0]\)</span> with slope <span class="math inline">\(0\)</span>, which can be obtained in <span class="math inline">\(O(1)\)</span> time since it only reads the top of the priority queue.</p>
+<p><span class="math inline">\(\min_{x\in\R} f(x)\)</span> and other
+such questions about <span class="math inline">\(x\)</span> can be
+answered in <span class="math inline">\(O(1)\)</span> time.
+（这句翻译不通，原文“<span class="math inline">\(\min_{x∈\R}f(x)\)</span>
+および、それを実現するような <span class="math inline">\(x\)</span>
+を答えることが、<span class="math inline">\(O(1)\)</span>
+時間で行えます。”）Since we were talking about managing <span class="math inline">\(\min_f\)</span> in the first place, we will just
+return the minimum value. The range of <span class="math inline">\(x\)</span> that takes the minimum value is the
+interval <span class="math inline">\([l_0,r_0]\)</span> with slope <span class="math inline">\(0\)</span>, which can be obtained in <span class="math inline">\(O(1)\)</span> time since it only reads the top of
+the priority queue.</p>
 <h2 id=add-a-constant-a-o1-time>Add a constant <span class="math inline">\(a\)</span>: <span class="math inline">\(O(1)\)</span> time</h2>
 <p>Just add <span class="math inline">\(a\)</span> to <span class="math inline">\(\min_f\)</span>. It’s a no-brainer.</p>
-<h2 id=add-x---a_-olog-n-time>Add <span class="math inline">\((x - a)_{+}\)</span>: <span class="math inline">\(O(\log N)\)</span> time</h2>
-<p>If we add this, <span class="math inline">\(a\)</span> is added to the set of points where the slope changes. Also, since the minimum value of the slope does not change and the maximum value changes by <span class="math inline">\(+1\)</span>, the size of <span class="math inline">\(L\)</span> remains the same, while the size of <span class="math inline">\(R\)</span> increases by <span class="math inline">\(1\)</span>. (Denote the size of <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> before the operation as <span class="math inline">\(N_L\)</span> and <span class="math inline">\(N_R\)</span> respectively.) Therefore, we can cut the multiset <span class="math inline">\(L∪R∪{a}\)</span> into two parts, starting from the smallest one, (the <span class="math inline">\(N_L\)</span> smallest points forms the new <span class="math inline">\(L\)</span> the remaining <span class="math inline">\(N_R + 1\)</span> points forms the new <span class="math inline">\(R\)</span>) and denote them as <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> again. For example, it can be updated by the following procedure.</p>
+<h2 id=add-x---a_-olog-n-time>Add <span class="math inline">\((x -
+a)_{+}\)</span>: <span class="math inline">\(O(\log N)\)</span>
+time</h2>
+<p>If we add this, <span class="math inline">\(a\)</span> is added to
+the set of points where the slope changes. Also, since the minimum value
+of the slope does not change and the maximum value changes by <span class="math inline">\(+1\)</span>, the size of <span class="math inline">\(L\)</span> remains the same, while the size of
+<span class="math inline">\(R\)</span> increases by <span class="math inline">\(1\)</span>. (Denote the size of <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> before the operation as <span class="math inline">\(N_L\)</span> and <span class="math inline">\(N_R\)</span> respectively.) Therefore, we can cut
+the multiset <span class="math inline">\(L∪R∪{a}\)</span> into two
+parts, starting from the smallest one, (the <span class="math inline">\(N_L\)</span> smallest points forms the new <span class="math inline">\(L\)</span> the remaining <span class="math inline">\(N_R + 1\)</span> points forms the new <span class="math inline">\(R\)</span>) and denote them as <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> again. For example, it can be updated
+by the following procedure.</p>
 <ul>
 <li>Push <span class="math inline">\(a\)</span> to <span class="math inline">\(L\)</span>.</li>
-<li>Pop a value from <span class="math inline">\(L\)</span> and push it to <span class="math inline">\(R\)</span>.</li>
+<li>Pop a value from <span class="math inline">\(L\)</span> and push it
+to <span class="math inline">\(R\)</span>.</li>
 </ul>
-<p>If <span class="math inline">\(a \ge l_0\)</span>, the first push is useless, so you can divide the case by the relationship between <span class="math inline">\(a\)</span> and <span class="math inline">\(l_0\)</span>. Alternatively, if you have a method that does push/pop together as a priority queue operation, there is almost no waste even when <span class="math inline">\(a \ge l_0\)</span>. For example, the standard python library heapq can be implemented by calling heappushpop / heappush one at a time. (原文：例えば python の標準ライブラリ heapq であれば、heappushpop / heappush を一度ずつ呼ぶ形で実装できます。)</p>
-<p>Now that we know how to update <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span>, let’s consider updating <span class="math inline">\(\min_f\)</span>. Although it may seem troublesome to separate cases based on the position of <span class="math inline">\(a\)</span>, it is actually quite simple. We will focus on (the value of) <span class="math inline">\(f\)</span> at the maximum value of <span class="math inline">\(L\)</span> before the update, <span class="math inline">\(l_0\)</span>.</p>
-<p>Actually, even after the update, <span class="math inline">\(l_0\)</span> is the point that gives the minimum value. In fact, with the insertion of <span class="math inline">\(a\)</span>, the slope before and after <span class="math inline">\(l_0\)</span> changes by either <span class="math inline">\(+0\)</span> or <span class="math inline">\(+1\)</span>. Since <span class="math inline">\(l_0\)</span> was the boundary point with slope <span class="math inline">\(-1,0\)</span> before the update, it will be the boundary point with slope <span class="math inline">\(-1,0\)</span> or <span class="math inline">\(0,1\)</span> after the update. Therefore, the change in <span class="math inline">\(\min_f\)</span> is equal to the change in <span class="math inline">\(f(l_0)\)</span>, and</p>
+<p>If <span class="math inline">\(a \ge l_0\)</span>, the first push is
+useless, so you can divide the case by the relationship between <span class="math inline">\(a\)</span> and <span class="math inline">\(l_0\)</span>. Alternatively, if you have a method
+that does push/pop together as a priority queue operation, there is
+almost no waste even when <span class="math inline">\(a \ge
+l_0\)</span>. For example, the standard python library heapq can be
+implemented by calling heappushpop / heappush one at a time.
+(原文：例えば python の標準ライブラリ heapq であれば、heappushpop /
+heappush を一度ずつ呼ぶ形で実装できます。)</p>
+<p>Now that we know how to update <span class="math inline">\(L\)</span>
+and <span class="math inline">\(R\)</span>, let’s consider updating
+<span class="math inline">\(\min_f\)</span>. Although it may seem
+troublesome to separate cases based on the position of <span class="math inline">\(a\)</span>, it is actually quite simple. We will
+focus on (the value of) <span class="math inline">\(f\)</span> at the
+maximum value of <span class="math inline">\(L\)</span> before the
+update, <span class="math inline">\(l_0\)</span>.</p>
+<p>Actually, even after the update, <span class="math inline">\(l_0\)</span> is the point that gives the minimum
+value. In fact, with the insertion of <span class="math inline">\(a\)</span>, the slope before and after <span class="math inline">\(l_0\)</span> changes by either <span class="math inline">\(+0\)</span> or <span class="math inline">\(+1\)</span>. Since <span class="math inline">\(l_0\)</span> was the boundary point with slope
+<span class="math inline">\(-1,0\)</span> before the update, it will be
+the boundary point with slope <span class="math inline">\(-1,0\)</span>
+or <span class="math inline">\(0,1\)</span> after the update. Therefore,
+the change in <span class="math inline">\(\min_f\)</span> is equal to
+the change in <span class="math inline">\(f(l_0)\)</span>, and</p>
 <ul>
-<li><span class="math inline">\(\min_f \gets \min_f+(l_0−a)_+\)</span></li>
+<li><span class="math inline">\(\min_f \gets
+\min_f+(l_0−a)_+\)</span></li>
 </ul>
 <p>and the update of the minimum value is complete.</p>
-<h2 id=add-a---x_-olog-n-time>Add <span class="math inline">\((a - x)_{+}\)</span>: <span class="math inline">\(O(\log N)\)</span> time</h2>
+<h2 id=add-a---x_-olog-n-time>Add <span class="math inline">\((a -
+x)_{+}\)</span>: <span class="math inline">\(O(\log N)\)</span>
+time</h2>
 <p>It’s the same.</p>
 <ul>
-<li><span class="math inline">\(\min_f \gets \min_f+(a-r_0)_{+}\)</span></li>
+<li><span class="math inline">\(\min_f \gets
+\min_f+(a-r_0)_{+}\)</span></li>
 <li>push <span class="math inline">\(a\)</span> to <span class="math inline">\(R\)</span></li>
-<li>pop one value from <span class="math inline">\(R\)</span> and push it to <span class="math inline">\(L\)</span></li>
+<li>pop one value from <span class="math inline">\(R\)</span> and push
+it to <span class="math inline">\(L\)</span></li>
 </ul>
-<h2 id=add-x---a-olog-n-time>Add <span class="math inline">\(|x - a|\)</span>: <span class="math inline">\(O(\log N)\)</span> time</h2>
-<p><span class="math inline">\(|x-a|=(x-a)_+ + (a-x)_+\)</span>, so we can do both of the above operations in any order we like.</p>
+<h2 id=add-x---a-olog-n-time>Add <span class="math inline">\(|x -
+a|\)</span>: <span class="math inline">\(O(\log N)\)</span> time</h2>
+<p><span class="math inline">\(|x-a|=(x-a)_+ + (a-x)_+\)</span>, so we
+can do both of the above operations in any order we like.</p>
 <h2 id=cumulative-min-o1-time>Cumulative min: <span class="math inline">\(O(1)\)</span> time</h2>
 <p>In other words, it is an operation to replace <span class="math inline">\(f\)</span> with <span class="math inline">\(g\)</span> as <span class="math inline">\(g(x):=\min_{y≤x} f(y)\)</span>.</p>
 <p><img src=https://maspypy.com/wp-content/uploads/2021/03/left_min.png style=width:60%></p>
-<p>We can replace <span class="math inline">\(R\)</span> with the empty set.</p>
+<p>We can replace <span class="math inline">\(R\)</span> with the empty
+set.</p>
 <h2 id=cumulative-min-from-right>Cumulative min from right</h2>
-<p><span class="math inline">\(g(x):=\min_{y≥x} f(y)\)</span>, this operation replaces <span class="math inline">\(f\)</span> with <span class="math inline">\(g\)</span>.</p>
+<p><span class="math inline">\(g(x):=\min_{y≥x} f(y)\)</span>, this
+operation replaces <span class="math inline">\(f\)</span> with <span class="math inline">\(g\)</span>.</p>
 <p><img src=https://maspypy.com/wp-content/uploads/2021/03/slope_trick-1.png style=width:60%></p>
-<p>We can replace <span class="math inline">\(L\)</span> with the empty set.</p>
+<p>We can replace <span class="math inline">\(L\)</span> with the empty
+set.</p>
 <h1 id=extensions>Extensions</h1>
-<p>If we add additional information to the data structure, we can perform more operations. Specifically, in addition to <span class="math inline">\(\min_f\)</span>, <span class="math inline">\(L\)</span>, and <span class="math inline">\(R\)</span>, we will add <span class="math inline">\(\mathrm{add}_L\)</span> to the left side, and <span class="math inline">\(\mathrm{add}_R\)</span> to the right side.</p>
-<p>When inserting or extracting, take care of the difference between the actual values and the values you are putting in <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span>. By doing so, we can perform addition to the entire left and right sets in <span class="math inline">\(O(1)\)</span> time.</p>
+<p>If we add additional information to the data structure, we can
+perform more operations. Specifically, in addition to <span class="math inline">\(\min_f\)</span>, <span class="math inline">\(L\)</span>, and <span class="math inline">\(R\)</span>, we will add <span class="math inline">\(\mathrm{add}_L\)</span> to the left side, and
+<span class="math inline">\(\mathrm{add}_R\)</span> to the right
+side.</p>
+<p>When inserting or extracting, take care of the difference between the
+actual values and the values you are putting in <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span>. By doing so, we can perform addition
+to the entire left and right sets in <span class="math inline">\(O(1)\)</span> time.</p>
 <p>Let’s see how the operation can be done.</p>
 <h2 id=horizontal-shift-o1-time>Horizontal shift: <span class="math inline">\(O(1)\)</span> time</h2>
-<p>Given a piecewise linear convex function <span class="math inline">\(f(x)\)</span>, we consider finding a function <span class="math inline">\(g\)</span> such that <span class="math inline">\(g(x)=f(x-a)\)</span>.</p>
+<p>Given a piecewise linear convex function <span class="math inline">\(f(x)\)</span>, we consider finding a function
+<span class="math inline">\(g\)</span> such that <span class="math inline">\(g(x)=f(x-a)\)</span>.</p>
 <p><img src=/images/maspy_slope_trick_translate.assets/translation-1.png style=width:60%></p>
 <p>We can add <span class="math inline">\(a\)</span> to the sets <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> all at once.</p>
 <h2 id=sliding-window-minimum-o1-time>Sliding window minimum: <span class="math inline">\(O(1)\)</span> time</h2>
 <p>This operation takes the sliding window minimum.</p>
 <p>For <span class="math inline">\(a≤b\)</span>, compute <span class="math inline">\(g\)</span> determined by <span class="math inline">\(g(x)=\min_{y \in [x-b,x-a]}f(y)\)</span>.</p>
-<p>This actually corresponds to translating the left and right sets, respectively.</p>
+<p>This actually corresponds to translating the left and right sets,
+respectively.</p>
 <p><img src=/images/maspy_slope_trick_translate.assets/range_translation-2.png style=width:60%></p>
-<p>I think it makes sense from a graphical point of view to take min for all the translations between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Just to be sure, let’s understand it in terms of equations.</p>
+<p>I think it makes sense from a graphical point of view to take min for
+all the translations between <span class="math inline">\(a\)</span> and
+<span class="math inline">\(b\)</span>. Just to be sure, let’s
+understand it in terms of equations.</p>
 <ul>
-<li>If <span class="math inline">\(x≤l_0+a\)</span>, then <span class="math inline">\(f\)</span> is monotonically decreasing in <span class="math inline">\([x-b,x-a]\)</span> from <span class="math inline">\(x-a \le l_0\)</span>. Therefore <span class="math inline">\(g(x)=\min_{y \in [x-b,x-a]} f(y) = f(x-a)\)</span>.</li>
-<li>If <span class="math inline">\(x≥r_0+b\)</span>, then <span class="math inline">\(x-b≥r_0\)</span> and <span class="math inline">\(f\)</span> is monotonically increasing in <span class="math inline">\([x-b,x-a]\)</span>. Thus <span class="math inline">\(g(x) = \min_{y \in [x-b,x-a]} f(y) = f(x-b)\)</span>.</li>
-<li>If <span class="math inline">\(l_0 + a \le x \le r_0 + b\)</span>, then <span class="math inline">\([x-b,x-a] \cap [l_0,r_0] \ne \O\)</span>, so <span class="math inline">\(g(x) = \min_f\)</span>.</li>
+<li>If <span class="math inline">\(x≤l_0+a\)</span>, then <span class="math inline">\(f\)</span> is monotonically decreasing in <span class="math inline">\([x-b,x-a]\)</span> from <span class="math inline">\(x-a \le l_0\)</span>. Therefore <span class="math inline">\(g(x)=\min_{y \in [x-b,x-a]} f(y) =
+f(x-a)\)</span>.</li>
+<li>If <span class="math inline">\(x≥r_0+b\)</span>, then <span class="math inline">\(x-b≥r_0\)</span> and <span class="math inline">\(f\)</span> is monotonically increasing in <span class="math inline">\([x-b,x-a]\)</span>. Thus <span class="math inline">\(g(x) = \min_{y \in [x-b,x-a]} f(y) =
+f(x-b)\)</span>.</li>
+<li>If <span class="math inline">\(l_0 + a \le x \le r_0 + b\)</span>,
+then <span class="math inline">\([x-b,x-a] \cap [l_0,r_0] \ne
+\O\)</span>, so <span class="math inline">\(g(x) = \min_f\)</span>.</li>
 </ul>
 <p>In addition, horizontal shift can be regarded as the <span class="math inline">\(a=b\)</span> case of this.</p>
-<p>Also, the operation of taking cumulative min can be regarded as the case where <span class="math inline">\(b = \infty\)</span>. However, adding or subtracting <span class="math inline">\(\infty\)</span> many times will make the operation suspicious, and replacing <span class="math inline">\(\infty\)</span> with a sufficiently large constant will cause concerns about overflow and calculation errors, so I think it is better to simply implement <span class="math inline">\(R\)</span> to be empty.</p>
+<p>Also, the operation of taking cumulative min can be regarded as the
+case where <span class="math inline">\(b = \infty\)</span>. However,
+adding or subtracting <span class="math inline">\(\infty\)</span> many
+times will make the operation suspicious, and replacing <span class="math inline">\(\infty\)</span> with a sufficiently large constant
+will cause concerns about overflow and calculation errors, so I think it
+is better to simply implement <span class="math inline">\(R\)</span> to
+be empty.</p>
 <ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">

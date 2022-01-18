@@ -5,7 +5,7 @@
 <title>Strict Weak Ordering | Algorithm Notes</title>
 <meta name=viewport content="width=device-width,minimum-scale=1">
 <meta name=description content="Definition of strict weak ordering, taken from Wikipedia.">
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel=stylesheet href=/ananke/css/main.min.css>
 <link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
@@ -91,20 +91,49 @@ POSTS
 <h1 class="f1 athelas mt3 mb1">Strict Weak Ordering</h1>
 <time class="f6 mv4 dib tracked" datetime=2021-11-03T17:23:13+08:00>November 3, 2021</time>
 </header>
-<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Suppose that <span class="math inline">\(&lt;\)</span> is a binary relation on a set <span class="math inline">\(S\)</span> (that is, <span class="math inline">\(&lt;\)</span> is a subset of <span class="math inline">\(S \times S\)</span>) and as usual, write <span class="math inline">\(x &lt; y\)</span> and say that <span class="math inline">\(x &lt; y\)</span> <em>holds</em> or <em>is true</em> if and only if <span class="math inline">\((x, y) \in &lt;\)</span>.</p>
-<h1 id=preliminaries-on-incomparability-and-transitivity-of-incomparability>Preliminaries on incomparability and transitivity of incomparability</h1>
-<p>Two elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of <span class="math inline">\(S\)</span> are said to be <strong>incomparable</strong> with respect to <span class="math inline">\(&lt;\)</span> if neither <span class="math inline">\(x &lt; y\)</span> nor <span class="math inline">\(y &lt; x\)</span> is true. Incomparability with respect to <span class="math inline">\(&lt;\)</span> is itself a symmetric relation on <span class="math inline">\(S\)</span> that is reflexive if and only if <span class="math inline">\(&lt;\)</span> is irreflexive (meaning that <span class="math inline">\(x &lt; x\)</span> is always false), which may be assumed so that transitivity is the only property this “incomparability relation” needs in order to be an equivalence relation. Define also an induced relation <span class="math inline">\(\le\)</span> on <span class="math inline">\(S\)</span> by declaring that <span class="math display">\[
-x \le y \text{ is true} \quad \text{if and only if} \quad y &lt; x \text{ is false}
-\]</span> where importantly, this definition is <em>not</em> necessarily the same as: <span class="math inline">\(x \le y\)</span> if and only if <span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(x = y\)</span>.</p>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Suppose that <span class="math inline">\(&lt;\)</span> is a binary
+relation on a set <span class="math inline">\(S\)</span> (that is, <span class="math inline">\(&lt;\)</span> is a subset of <span class="math inline">\(S \times S\)</span>) and as usual, write <span class="math inline">\(x &lt; y\)</span> and say that <span class="math inline">\(x &lt; y\)</span> <em>holds</em> or <em>is
+true</em> if and only if <span class="math inline">\((x, y) \in
+&lt;\)</span>.</p>
+<h1 id=preliminaries-on-incomparability-and-transitivity-of-incomparability>Preliminaries
+on incomparability and transitivity of incomparability</h1>
+<p>Two elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> of <span class="math inline">\(S\)</span> are said to be
+<strong>incomparable</strong> with respect to <span class="math inline">\(&lt;\)</span> if neither <span class="math inline">\(x &lt; y\)</span> nor <span class="math inline">\(y &lt; x\)</span> is true. Incomparability with
+respect to <span class="math inline">\(&lt;\)</span> is itself a
+symmetric relation on <span class="math inline">\(S\)</span> that is
+reflexive if and only if <span class="math inline">\(&lt;\)</span> is
+irreflexive (meaning that <span class="math inline">\(x &lt; x\)</span>
+is always false), which may be assumed so that transitivity is the only
+property this “incomparability relation” needs in order to be an
+equivalence relation. Define also an induced relation <span class="math inline">\(\le\)</span> on <span class="math inline">\(S\)</span> by declaring that <span class="math display">\[
+x \le y \text{ is true} \quad \text{if and only if} \quad y &lt; x
+\text{ is false}
+\]</span> where importantly, this definition is <em>not</em> necessarily
+the same as: <span class="math inline">\(x \le y\)</span> if and only if
+<span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(x = y\)</span>.</p>
 <h1 id=definition>Definition</h1>
-<p>A <strong>strict weak ordering</strong> on a set <span class="math inline">\(S\)</span> is a strict partial order <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> for which the <em>incomparability relation</em> induced on <span class="math inline">\(S\)</span> by <span class="math inline">\(&lt;\)</span> is a transitive relation. Explicitly, a strict weak order on <span class="math inline">\(S\)</span> is a relation <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> that has all four of the following properties:</p>
+<p>A <strong>strict weak ordering</strong> on a set <span class="math inline">\(S\)</span> is a strict partial order <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> for which the <em>incomparability
+relation</em> induced on <span class="math inline">\(S\)</span> by <span class="math inline">\(&lt;\)</span> is a transitive relation.
+Explicitly, a strict weak order on <span class="math inline">\(S\)</span> is a relation <span class="math inline">\(&lt;\)</span> on <span class="math inline">\(S\)</span> that has all four of the following
+properties:</p>
 <ol type=1>
-<li><p>Irreflexivity: For all <span class="math inline">\(x\in S\)</span>, it is not true that <span class="math inline">\(x &lt; x\)</span>.</p></li>
-<li><p>Transitivity: For all <span class="math inline">\(x, y, z \in S\)</span>, if <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(y &lt; z\)</span> then <span class="math inline">\(x &lt; z\)</span>.</p></li>
-<li><p>Asymmetry: For all <span class="math inline">\(x, y \in S\)</span>, if <span class="math inline">\(x &lt; y\)</span> is true then <span class="math inline">\(y &lt; x\)</span> is false.</p></li>
+<li><p>Irreflexivity: For all <span class="math inline">\(x\in
+S\)</span>, it is not true that <span class="math inline">\(x &lt;
+x\)</span>.</p></li>
+<li><p>Transitivity: For all <span class="math inline">\(x, y, z \in
+S\)</span>, if <span class="math inline">\(x &lt; y\)</span> and <span class="math inline">\(y &lt; z\)</span> then <span class="math inline">\(x &lt; z\)</span>.</p></li>
+<li><p>Asymmetry: For all <span class="math inline">\(x, y \in
+S\)</span>, if <span class="math inline">\(x &lt; y\)</span> is true
+then <span class="math inline">\(y &lt; x\)</span> is false.</p></li>
 <li><p>Transitivity of incomparability: For all <span class="math inline">\(x, y, z \in S\)</span>, if <span class="math inline">\(x\)</span> is incomparable with <span class="math inline">\(y\)</span> and if <span class="math inline">\(y\)</span> is incomparable with <span class="math inline">\(z\)</span>, then <span class="math inline">\(x\)</span> is incomparable with <span class="math inline">\(z\)</span>.</p></li>
 </ol>
-<p>Properties (1), (2), and (3) are the defining properties of a strict partial order, although this list of these three properties is somewhat redundant in that asymmetry implies irreflexivity, and in that irreflexivity and transitivity together imply asymmetry. A strict partial order <span class="math inline">\(&lt;\)</span> is a strict weak order if and only if its induced incomparability relation is an equivalence relation.</p>
+<p>Properties (1), (2), and (3) are the defining properties of a strict
+partial order, although this list of these three properties is somewhat
+redundant in that asymmetry implies irreflexivity, and in that
+irreflexivity and transitivity together imply asymmetry. A strict
+partial order <span class="math inline">\(&lt;\)</span> is a strict weak
+order if and only if its induced incomparability relation is an
+equivalence relation.</p>
 <ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">

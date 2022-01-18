@@ -5,7 +5,7 @@
 <title>abc227_g Divisors of Binomial Coefficient | Algorithm Notes</title>
 <meta name=viewport content="width=device-width,minimum-scale=1">
 <meta name=description content="Factorize factorial.">
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel=stylesheet href=/ananke/css/main.min.css>
 <link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
@@ -99,16 +99,22 @@ EDITORIALS
 <li><span class="math inline">\(0 \le K \le \min(10^6, N)\)</span></li>
 </ul>
 <h1 id=editorial>Editorial</h1>
-<p>For brevity, denote <span class="math inline">\(N (N - 1) \dots (N - K + 1)\)</span> as <span class="math inline">\(\ffact{N}{K}\)</span>.<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a></p>
+<p>For brevity, denote <span class="math inline">\(N (N - 1) \dots (N -
+K + 1)\)</span> as <span class="math inline">\(\ffact{N}{K}\)</span>.<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a></p>
 <p>The problem boils down to factorizing <span class="math inline">\(K!\)</span> and <span class="math inline">\(\ffact{N}{K}\)</span>.</p>
 <h2 id=factorize-k>Factorize <span class="math inline">\(K!\)</span></h2>
 <p>Some quick observations:</p>
 <ul>
-<li>Prime factors of <span class="math inline">\(K!\)</span> are not greater than <span class="math inline">\(K\)</span>.</li>
-<li>素数 <span class="math inline">\(p\)</span> 在 <span class="math inline">\(K!\)</span> 里的次数可表为 <span class="math inline">\(\floor{K / p} + \floor{K / p^2} + \dots\)</span>。</li>
-<li>For any positive integers <span class="math inline">\(a, b, c\)</span>, <span class="math inline">\(\floor{a \over bc} = \floor{\floor{a\over b} \over c}\)</span>.</li>
+<li>Prime factors of <span class="math inline">\(K!\)</span> are not
+greater than <span class="math inline">\(K\)</span>.</li>
+<li>素数 <span class="math inline">\(p\)</span> 在 <span class="math inline">\(K!\)</span> 里的次数可表为 <span class="math inline">\(\floor{K / p} + \floor{K / p^2} +
+\dots\)</span>。</li>
+<li>For any positive integers <span class="math inline">\(a, b,
+c\)</span>, <span class="math inline">\(\floor{a \over bc} =
+\floor{\floor{a\over b} \over c}\)</span>.</li>
 </ul>
-<p>Therefore, factorizing <span class="math inline">\(K!\)</span> can be implemented as</p>
+<p>Therefore, factorizing <span class="math inline">\(K!\)</span> can be
+implemented as</p>
 <pre class=cpp><code>std::vector&lt;int&gt; get_primes(int n); // returns primes not greater than n
 auto primes = get_primes(K);
 std::vector&lt;int&gt; e(K + 1);
@@ -119,19 +125,32 @@ for (int p : primes) {
   }
 }  </code></pre>
 <h2 id=factorize-ffactnk>Factorize <span class="math inline">\(\ffact{N}{K}\)</span></h2>
-<p><span class="math inline">\(\ffact{N}{K}\)</span> can be factorized via the sieve of Eratosthenes。</p>
-<p>把 <span class="math inline">\(N \dots (N - K + 1)\)</span> 的素因子分成两类：大于 <span class="math inline">\(\sqrt{N}\)</span> 的和不大于 <span class="math inline">\(\sqrt{N}\)</span> 的。一个不大于 <span class="math inline">\(N\)</span> 的正整数至多有一个大于 <span class="math inline">\(\sqrt{N}\)</span> 的素因子。</p>
-<div class=line-block>Let <span class="math inline">\(q\)</span> be an array of length <span class="math inline">\(K\)</span>, indexed from <span class="math inline">\(0\)</span>, with <span class="math inline">\(q[i] \gets i + N - K + 1\)</span>.<br>
-for each prime <span class="math inline">\(p\)</span> not greater than <span class="math inline">\(\sqrt{N}\)</span>:<br>
-  for each integer <span class="math inline">\(j \in [N - K + 1, N]\)</span> that is a multiple of <span class="math inline">\(p\)</span><br>
-    while <span class="math inline">\(q[j - (N - K + 1)]\)</span> is a multiple of <span class="math inline">\(p\)</span>:<br>
-      <span class="math inline">\(q[j -(N - K + 1)] \gets q[j -(N - K + 1)] / p\)</span><br>
-Now each item of <span class="math inline">\(q\)</span> that is greater than <span class="math inline">\(1\)</span> is a prime factor of <span class="math inline">\(\ffact{N}{K}\)</span>.<br>
+<p><span class="math inline">\(\ffact{N}{K}\)</span> can be factorized
+via the sieve of Eratosthenes。</p>
+<p>把 <span class="math inline">\(N \dots (N - K + 1)\)</span>
+的素因子分成两类：大于 <span class="math inline">\(\sqrt{N}\)</span>
+的和不大于 <span class="math inline">\(\sqrt{N}\)</span> 的。一个不大于
+<span class="math inline">\(N\)</span> 的正整数至多有一个大于 <span class="math inline">\(\sqrt{N}\)</span> 的素因子。</p>
+<div class=line-block>Let <span class="math inline">\(q\)</span> be an
+array of length <span class="math inline">\(K\)</span>, indexed from
+<span class="math inline">\(0\)</span>, with <span class="math inline">\(q[i] \gets i + N - K + 1\)</span>.<br>
+for each prime <span class="math inline">\(p\)</span> not greater than
+<span class="math inline">\(\sqrt{N}\)</span>:<br>
+  for each integer <span class="math inline">\(j \in [N - K + 1,
+N]\)</span> that is a multiple of <span class="math inline">\(p\)</span><br>
+    while <span class="math inline">\(q[j - (N - K + 1)]\)</span> is a
+multiple of <span class="math inline">\(p\)</span>:<br>
+      <span class="math inline">\(q[j -(N - K + 1)] \gets q[j -(N - K +
+1)] / p\)</span><br>
+Now each item of <span class="math inline">\(q\)</span> that is greater
+than <span class="math inline">\(1\)</span> is a prime factor of <span class="math inline">\(\ffact{N}{K}\)</span>.<br>
 </div>
 <section class="footnotes footnotes-end-of-document" role=doc-endnotes>
 <hr>
 <ol>
-<li id=fn1 role=doc-endnote><p>The term <span class="math inline">\(\ffact{N}{K}\)</span> is often called a falling factorial (pronounced “<span class="math inline">\(N\)</span> to the falling <span class="math inline">\(K\)</span>”).<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li>
+<li id=fn1 role=doc-endnote><p>The term <span class="math inline">\(\ffact{N}{K}\)</span> is often called a falling
+factorial (pronounced “<span class="math inline">\(N\)</span> to the
+falling <span class="math inline">\(K\)</span>”).<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li>
 </ol>
 </section>
 <ul class=pa0>

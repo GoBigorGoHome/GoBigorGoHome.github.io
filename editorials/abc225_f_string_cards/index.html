@@ -5,7 +5,7 @@
 <title>abc225_f String Cards | Algorithm Notes</title>
 <meta name=viewport content="width=device-width,minimum-scale=1">
 <meta name=description content="A strict weak ordering on nonempty strings.">
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel=stylesheet href=/ananke/css/main.min.css>
 <link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
@@ -93,7 +93,8 @@ EDITORIALS
 </header>
 <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>https://atcoder.jp/contests/abc225/tasks/abc225_f</p>
 <h1 id=题目大意>题目大意</h1>
-<p>有 <span class="math inline">\(N\)</span> 张卡片。第 <span class="math inline">\(i\)</span> 张卡片上写了一个字符串 <span class="math inline">\(S_i\)</span>。今要从中选择 <span class="math inline">\(K\)</span> 张卡片，把上面的字符串以任意顺序拼接。试求所能得到的字典序最小的字符串。</p>
+<p>有 <span class="math inline">\(N\)</span> 张卡片。第 <span class="math inline">\(i\)</span> 张卡片上写了一个字符串 <span class="math inline">\(S_i\)</span>。今要从中选择 <span class="math inline">\(K\)</span>
+张卡片，把上面的字符串以任意顺序拼接。试求所能得到的字典序最小的字符串。</p>
 <h1 id=constraints>Constraints</h1>
 <ul>
 <li><span class="math inline">\(1 \le K \le N \le 50\)</span></li>
@@ -101,26 +102,46 @@ EDITORIALS
 <li><span class="math inline">\(S_i\)</span> 由小写英文字母构成。</li>
 </ul>
 <h1 id=解说>解说</h1>
-<p>用符号 <span class="math inline">\(\oplus\)</span> 表示字符串的拼接运算。</p>
-<p>取定 <span class="math inline">\(K\)</span> 个字符串。设 <span class="math inline">\(S_{i_1}, \dots, S_{i_K}\)</span> 是这 <span class="math inline">\(K\)</span> 个字符串的字典序最小的拼接方案。这个拼接方案需要满足的必要条件是，交换任意两个相邻的字符串，整个字符串的字典序不会变小。换言之，对每个 <span class="math inline">\(1 \le j \le K - 1\)</span> 有 <span class="math inline">\(S_{i_j} \oplus S_{i_{j + 1}} \le S_{i_{j + 1}} \oplus S_{i_{j}}\)</span>。</p>
-设 <span class="math inline">\(a, b\)</span> 是两个非空的由小写英文字母构成的字符串。现在我们来考察 <span class="math inline">\(a \oplus b &lt; b \oplus a\)</span> 这个二元关系，把这个二元关系记作 <span class="math inline">\(a \prec b\)</span>。首先注意到，若 <span class="math inline">\(a, b\)</span> 长度相等，则 <span class="math inline">\(a &lt; b\)</span> 当且仅当 <span class="math inline">\(\Bar a &lt; \Bar b\)</span>。<span class="math inline">\(\Bar a\)</span> 表示 <span class="math inline">\(a\)</span> 所表示的 26 进制整数。因此
+<p>用符号 <span class="math inline">\(\oplus\)</span>
+表示字符串的拼接运算。</p>
+<p>取定 <span class="math inline">\(K\)</span> 个字符串。设 <span class="math inline">\(S_{i_1}, \dots, S_{i_K}\)</span> 是这 <span class="math inline">\(K\)</span>
+个字符串的字典序最小的拼接方案。这个拼接方案需要满足的必要条件是，交换任意两个相邻的字符串，整个字符串的字典序不会变小。换言之，对每个
+<span class="math inline">\(1 \le j \le K - 1\)</span> 有 <span class="math inline">\(S_{i_j} \oplus S_{i_{j + 1}} \le S_{i_{j + 1}}
+\oplus S_{i_{j}}\)</span>。</p>
+设 <span class="math inline">\(a, b\)</span>
+是两个非空的由小写英文字母构成的字符串。现在我们来考察 <span class="math inline">\(a \oplus b &lt; b \oplus a\)</span>
+这个二元关系，把这个二元关系记作 <span class="math inline">\(a \prec
+b\)</span>。首先注意到，若 <span class="math inline">\(a, b\)</span>
+长度相等，则 <span class="math inline">\(a &lt; b\)</span> 当且仅当
+<span class="math inline">\(\Bar a &lt; \Bar b\)</span>。<span class="math inline">\(\Bar a\)</span> 表示 <span class="math inline">\(a\)</span> 所表示的 26 进制整数。因此
 <span class="math display">\[\begin{split}
 a \oplus b &lt; b \oplus a \iff \Bar{a \oplus b} &lt; \Bar{b \oplus a}
 \end{split}\]</span>
-注意，上式左边的 <span class="math inline">\(&lt;\)</span> 表示字符串的字典序，右边的 <span class="math inline">\(&lt;\)</span> 是比较整数的大小。把上式右边改写为
+注意，上式左边的 <span class="math inline">\(&lt;\)</span>
+表示字符串的字典序，右边的 <span class="math inline">\(&lt;\)</span>
+是比较整数的大小。把上式右边改写为
 <span class="math display">\[\begin{split}
-\Bar{a} \times 26^{|b|} + \Bar{b} &lt; \Bar{b} \times 26^{|a|} + \Bar{a} \iff \Bar{a} \times (26^{|b|} - 1) &lt; \Bar{b} \times (26^{|a|} - 1) \\
+\Bar{a} \times 26^{|b|} + \Bar{b} &lt; \Bar{b} \times 26^{|a|} + \Bar{a}
+\iff \Bar{a} \times (26^{|b|} - 1) &lt; \Bar{b} \times (26^{|a|} - 1) \\
 \iff {\Bar a \over 26^{|a|} - 1} &lt; {\Bar b \over 26^{|b|} - 1}
 \end{split}\]</span>
 <p>可见</p>
 <ul>
-<li><span class="math inline">\(\prec\)</span> 是非空字符串集合上的一个 strict weak ordering。</li>
+<li><span class="math inline">\(\prec\)</span> 是非空字符串集合上的一个
+strict weak ordering。</li>
 <li><span class="math inline">\(\prec\)</span> 所导出的等价类在 <span class="math inline">\(\oplus\)</span> 运算下封闭。</li>
 <li>字典序最小的拼接方案一定符合这个 strict weak ordering。</li>
 </ul>
-<p>分析至此，我们就得到一个解法：把输入的 <span class="math inline">\(N\)</span> 个字符串按 <span class="math inline">\(a \prec b\)</span> 排序，逆着 <span class="math inline">\(\prec\)</span> 的顺序进行类似01背包的DP。注意：不能顺着 <span class="math inline">\(\prec\)</span> 的顺序进行状态转移。因为，任取字符串 <span class="math inline">\(a\)</span>， <span class="math inline">\(x \mapsto a \oplus x\)</span> 是保序映射，而 <span class="math inline">\(x \mapsto x \oplus a\)</span> 不保序。例子：<span class="math inline">\(\texttt{a} &lt; \texttt{aa}\)</span> 而 <span class="math inline">\(\texttt{ab} > \texttt{aab}\)</span>。</p>
+<p>分析至此，我们就得到一个解法：把输入的 <span class="math inline">\(N\)</span> 个字符串按 <span class="math inline">\(a \prec b\)</span> 排序，逆着 <span class="math inline">\(\prec\)</span>
+的顺序进行类似01背包的DP。注意：不能顺着 <span class="math inline">\(\prec\)</span>
+的顺序进行状态转移。因为，任取字符串 <span class="math inline">\(a\)</span>， <span class="math inline">\(x \mapsto
+a \oplus x\)</span> 是保序映射，而 <span class="math inline">\(x \mapsto
+x \oplus a\)</span> 不保序。例子：<span class="math inline">\(\texttt{a}
+&lt; \texttt{aa}\)</span> 而 <span class="math inline">\(\texttt{ab}
+> \texttt{aab}\)</span>。</p>
 <h1 id=注>注</h1>
-<p>这篇题解是根据<a href=https://atcoder.jp/contests/abc225/editorial/2850>官方题解</a>写的。我想说明“如何想到这个解法？”。在理解官方题解的过程中，我认识到 strict weak ordering 和保序映射这两个概念。</p>
+<p>这篇题解是根据<a href=https://atcoder.jp/contests/abc225/editorial/2850>官方题解</a>写的。我想说明“如何想到这个解法？”。在理解官方题解的过程中，我认识到
+strict weak ordering 和保序映射这两个概念。</p>
 <ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">

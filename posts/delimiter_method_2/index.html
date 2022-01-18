@@ -5,7 +5,7 @@
 <title>挡板法应用一例（续） | Algorithm Notes</title>
 <meta name=viewport content="width=device-width,minimum-scale=1">
 <meta name=description content="一个简单的计数问题。">
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <meta name=ROBOTS content="NOINDEX, NOFOLLOW">
 <link rel=stylesheet href=/ananke/css/main.min.css>
 <link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
@@ -93,17 +93,34 @@ POSTS
 </header>
 <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>为前文<a href=../delimiter-method>《隔板法应用一列》</a>补充一个问题。</p>
 <h1 id=问题五>问题五</h1>
-<p>正整数 <span class="math inline">\(1 \le x_1 &lt; x_2 &lt; \dots &lt; x_m \le n\)</span>，求 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span>。</p>
+<p>正整数 <span class="math inline">\(1 \le x_1 &lt; x_2 &lt; \dots &lt;
+x_m \le n\)</span>，求 <span class="math inline">\(\sum (x_2 - x_1)
+\dots (x_m - x_{m-1})\)</span>。</p>
 <h2 id=解说>解说</h2>
-<p>考虑 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span> 的组合意义。设想有 <span class="math inline">\(n\)</span> 个球排成一行。相邻两球之间和最后一个球之后这些位置可以插入一块隔板。先插入 <span class="math inline">\(m\)</span> 块隔板，第 <span class="math inline">\(i\)</span> 块隔板左边的球数就是 <span class="math inline">\(x_i\)</span>；然后从每两块相邻的隔板之间任选一个球，有 <span class="math inline">\((x_2 - x_1) \dots (x_m - x_{m-1})\)</span> 种方法。做“插入隔板然后选球”这件事的方法数就是 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m - x_{m-1})\)</span>。插入 <span class="math inline">\(m\)</span> 块隔板之后，共有 <span class="math inline">\(n + m\)</span> 个东西排成一行，把这些东西从左到右编号；然后选择 <span class="math inline">\(m - 1\)</span> 个球，把隔板和所选的球的编号从小到大写下来就得到一个长为 <span class="math inline">\(2m - 1\)</span> 的序列。容易验证，这个序列和做“插入隔板然后选球”这件事的方法一一对应。</p>
+<p>考虑 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m -
+x_{m-1})\)</span> 的组合意义。设想有 <span class="math inline">\(n\)</span>
+个球排成一行。相邻两球之间和最后一个球之后这些位置可以插入一块隔板。先插入
+<span class="math inline">\(m\)</span> 块隔板，第 <span class="math inline">\(i\)</span> 块隔板左边的球数就是 <span class="math inline">\(x_i\)</span>；然后从每两块相邻的隔板之间任选一个球，有
+<span class="math inline">\((x_2 - x_1) \dots (x_m - x_{m-1})\)</span>
+种方法。做“插入隔板然后选球”这件事的方法数就是 <span class="math inline">\(\sum (x_2 - x_1) \dots (x_m -
+x_{m-1})\)</span>。插入 <span class="math inline">\(m\)</span>
+块隔板之后，共有 <span class="math inline">\(n + m\)</span>
+个东西排成一行，把这些东西从左到右编号；然后选择 <span class="math inline">\(m - 1\)</span>
+个球，把隔板和所选的球的编号从小到大写下来就得到一个长为 <span class="math inline">\(2m - 1\)</span>
+的序列。容易验证，这个序列和做“插入隔板然后选球”这件事的方法一一对应。</p>
 <figure>
-<img src=/images/delimiter_method_2.assets/2021-11-09-19-06-41.png style=width:50% alt="n = 6, k = 3 的一个例子。竖线代表隔板，被选择的球涂黄色。"><figcaption aria-hidden=true><span class="math inline">\(n = 6, k = 3\)</span> 的一个例子。竖线代表隔板，被选择的球涂黄色。</figcaption>
+<img src=/images/delimiter_method_2.assets/2021-11-09-19-06-41.png style=width:50% alt="n = 6, k = 3 的一个例子。竖线代表隔板，被选择的球涂黄色。">
+<figcaption aria-hidden=true><span class="math inline">\(n = 6, k =
+3\)</span> 的一个例子。竖线代表隔板，被选择的球涂黄色。</figcaption>
 </figure>
 <p>于是问题化为</p>
 <div class=problem>
-<p>有多少个正整数序列 <span class="math inline">\((a_1, \dots, a_{2m - 1})\)</span> 满足 <span class="math inline">\(2 \le a_1 &lt; \dots &lt; a_{2m - 1} \le n + m\)</span>？</p>
+<p>有多少个正整数序列 <span class="math inline">\((a_1, \dots, a_{2m -
+1})\)</span> 满足 <span class="math inline">\(2 \le a_1 &lt; \dots &lt;
+a_{2m - 1} \le n + m\)</span>？</p>
 </div>
-<p>答案是 <span class="math inline">\({n + m - 1 \choose 2m - 1}\)</span>。</p>
+<p>答案是 <span class="math inline">\({n + m - 1 \choose 2m -
+1}\)</span>。</p>
 <ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
