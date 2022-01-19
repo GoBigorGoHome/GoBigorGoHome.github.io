@@ -19,7 +19,7 @@
 <meta itemprop=name content="abc235_g Painting Weighted Graph">
 <meta itemprop=description content="A typical instance of tree DP of merge."><meta itemprop=datePublished content="2022-01-18T15:15:18+08:00">
 <meta itemprop=dateModified content="2022-01-18T15:15:18+08:00">
-<meta itemprop=wordCount content="507">
+<meta itemprop=wordCount content="508">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="abc235_g Painting Weighted Graph">
 <meta name=twitter:description content="A typical instance of tree DP of merge.">
@@ -119,12 +119,12 @@ p(C') - x^2 + x\)</span>. (why?)</p>
 <li><span class="math inline">\(\delta_{C'}(V(C)) = 2\)</span>.</li>
 </ul>
 <h1 id=analysis-of-time-complexity>Analysis of time complexity</h1>
-<p>Consider connecting two connected components <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>, depending on their number of
+<p>Consider connecting two connected components <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>, depending on whether their number of
 vertices are less than <span class="math inline">\(K\)</span> or
 not:</p>
 <ul>
 <li>If both of them has <span class="math inline">\(K\)</span> or more
-vertices. Such merge will occur no more than <span class="math inline">\(N/K\)</span> time, and each of them can be
+vertices. Such merge will occur no more than <span class="math inline">\(N/K\)</span> times, and each of them can be
 computed in $O(K^2) $time, so it costs a total of <span class="math inline">\(O(NK)\)</span> time.</li>
 <li>If both of them has less than <span class="math inline">\(K\)</span>
 vertices. Suppose that all cost required so far is considered when the
