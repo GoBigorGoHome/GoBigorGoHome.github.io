@@ -1,195 +1,298 @@
-<!doctype html><html lang=en-us>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>abc214_g Three Permutations | Algorithm Notes</title>
-<meta name=viewport content="width=device-width,minimum-scale=1">
-<meta name=description content="一个计数问题。">
-<meta name=generator content="Hugo 0.92.0">
-<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
-<link rel=stylesheet href=/ananke/css/main.min.css>
-<link rel=stylesheet href=/css/custom.css>
-<link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon>
-<meta property="og:title" content="abc214_g Three Permutations">
-<meta property="og:description" content="一个计数问题。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="/editorials/abc214g-three-permutations/"><meta property="article:section" content="editorials">
-<meta property="article:published_time" content="2021-09-02T10:44:01+08:00">
-<meta property="article:modified_time" content="2021-09-02T10:44:01+08:00">
-<meta itemprop=name content="abc214_g Three Permutations">
-<meta itemprop=description content="一个计数问题。"><meta itemprop=datePublished content="2021-09-02T10:44:01+08:00">
-<meta itemprop=dateModified content="2021-09-02T10:44:01+08:00">
-<meta itemprop=wordCount content="371">
-<meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="abc214_g Three Permutations">
-<meta name=twitter:description content="一个计数问题。">
-<script>MathJax={loader:{load:['[tex]/physics']},tex:{inlineMath:[['$','$'],['\\(','\\)']],packages:{'[+]':['xypic','physics']},macros:{RR:"{\\bf R}",bm:["{\\bf #1}",1],floor:["\\left \\lfloor #1 \\right \\rfloor",1],ceil:["\\left \\lceil #1 \\right \\rceil",1],dif:"\\mathop{}\\!\\mathrm{d}",mathlarger:["{\\large #1}",1],dsone:"\\unicode{x1D7D9}",sub:"\\subset",sube:"\\subseteq",subne:"\\subsetneq",sse:"\\subseteq",spe:"\\supseteq",qed:"\\tag*{$\\blacksquare$}",xor:"\\oplus",Z:"\\mathbb{Z}",N:"\\mathbb{N}",F:"\\mathbb{F}",tran:"^{\\mkern-1.5mu\\mathsf{T}}",lcm:["\\operatorname{lcm}"],lpd:["\\operatorname{lpd}"],lpf:["\\operatorname{lpf}"],rank:["\\operatorname{rank}"],init:["\\operatorname{init}"],ter:["\\operatorname{ter}"],nil:"\\emptyset",iso:"\\simeq",Bar:"\\overline",ffact:["{#1}^{\\underline{#2}}",2],R:"\\mathbb{R}",O:"\\emptyset"},tags:'ams'},chtml:{mtextInheritFont:!0}}</script>
-<script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js></script>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js></script>
-<script>hljs.highlightAll()</script>
-</head>
-<body class="ma0 avenir bg-near-white">
-<header>
-<div class=bg-black>
-<nav class="pv3 ph3 ph4-ns" role=navigation>
-<div class="flex-l justify-between items-center center">
-<a href=/ class="f3 fw2 hover-white no-underline white-90 dib">
-Algorithm Notes
-</a>
-<div class="flex-l items-center">
-<ul class="pl0 mr3">
-<li class="list f5 f4-ns fw4 dib pr3">
-<a class="hover-white no-underline white-90" href=/cpp/ title="C++ page">
-C++
-</a>
-</li>
-<li class="list f5 f4-ns fw4 dib pr3">
-<a class="hover-white no-underline white-90" href=/editorials/ title="Editorials page">
-Editorials
-</a>
-</li>
-<li class="list f5 f4-ns fw4 dib pr3">
-<a class="hover-white no-underline white-90" href=/gt/ title="Graph Theory page">
-Graph Theory
-</a>
-</li>
-<li class="list f5 f4-ns fw4 dib pr3">
-<a class="hover-white no-underline white-90" href=/la/ title="Linear Algebra page">
-Linear Algebra
-</a>
-</li>
-<li class="list f5 f4-ns fw4 dib pr3">
-<a class="hover-white no-underline white-90" href=/posts/ title="Posts page">
-Posts
-</a>
-</li>
-<li class="list f5 f4-ns fw4 dib pr3">
-<a class="hover-white no-underline white-90" href=/tutorials/ title="Tutorials page">
-Tutorials
-</a>
-</li>
-</ul>
-<div class=ananke-socials>
-</div>
-</div>
-</div>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>abc214_g Three Permutations | Algorithm Notes</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="一个计数问题。">
+    <meta name="generator" content="Hugo 0.89.0-DEV" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+<link rel="shortcut icon" href="/favicon/android-chrome-192x192.png" type="image/x-icon" />
+
+
+    
+
+    
+    
+    <meta property="og:title" content="abc214_g Three Permutations" />
+<meta property="og:description" content="一个计数问题。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/editorials/abc214g-three-permutations/" /><meta property="article:section" content="editorials" />
+<meta property="article:published_time" content="2021-09-02T10:44:01+08:00" />
+<meta property="article:modified_time" content="2021-09-02T10:44:01+08:00" />
+
+<meta itemprop="name" content="abc214_g Three Permutations">
+<meta itemprop="description" content="一个计数问题。"><meta itemprop="datePublished" content="2021-09-02T10:44:01+08:00" />
+<meta itemprop="dateModified" content="2021-09-02T10:44:01+08:00" />
+<meta itemprop="wordCount" content="371">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="abc214_g Three Permutations"/>
+<meta name="twitter:description" content="一个计数问题。"/>
+
+	
+  <script>
+  MathJax = {
+    loader: {load : ['[tex]/physics']},
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      packages: {'[+]': ['xypic', 'physics']},
+      macros: {
+        RR: "{\\bf R}",
+        bm: ["{\\bf #1}",1],  
+        floor: ["\\left \\lfloor #1 \\right \\rfloor", 1],
+        ceil: ["\\left \\lceil #1 \\right \\rceil", 1],
+        dif: "\\mathop{}\\!\\mathrm{d}",
+        mathlarger: ["{\\large \#1}",1],
+        dsone: "\\unicode{x1D7D9}",
+        sub: "\\subset",
+        sube: "\\subseteq",
+        subne: "\\subsetneq",
+        sse: "\\subseteq",
+        spe: "\\supseteq",
+        qed: "\\tag*{$\\blacksquare$}",
+        xor: "\\oplus",
+        Z: "\\mathbb{Z}",
+        N: "\\mathbb{N}",
+        F: "\\mathbb{F}",
+        tran: "^{\\mkern-1.5mu\\mathsf{T}}", 
+        lcm: ["\\operatorname{lcm}"],
+        lpd: ["\\operatorname{lpd}"],
+        lpf: ["\\operatorname{lpf}"],
+        rank: ["\\operatorname{rank}"],
+        nil: "\\emptyset",
+        iso: "\\simeq",
+        Bar: "\\overline"
+      },
+      tags: 'ams'
+    },
+    chtml : {
+      mtextInheritFont: true
+    }
+  };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js">
+</script>
+
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Algorithm Notes
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/cpp/" title="C&#43;&#43; page">
+              C&#43;&#43;
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/editorials/" title="Editorials page">
+              Editorials
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/gt/" title="Graph Theory page">
+              Graph Theory
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/la/" title="Linear Algebra page">
+              Linear Algebra
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
 </nav>
-</div>
-</header>
-<main class=pb7 role=main>
-<article class="flex-l flex-wrap justify-between mw8 center ph3">
-<header class="mt4 w-100">
-<aside class="instapaper_ignoref b helvetica tracked">
-EDITORIALS
-</aside>
-<div id=sharing class="mt3 ananke-socials">
-</div>
-<h1 class="f1 athelas mt3 mb1">abc214_g Three Permutations</h1>
-<time class="f6 mv4 dib tracked" datetime=2021-09-02T10:44:01+08:00>September 2, 2021</time>
-</header>
-<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id=题意>题意</h1>
-<p>给定两个 <span class="math inline">\((1, \dots, N)\)</span>
-的排列：<span class="math inline">\(p = (p_1, \dots, p_N)\)</span> 和
-<span class="math inline">\(q = (q_1, \dots,
-q_N)\)</span>。求满足下述条件的 <span class="math inline">\((1, \dots,
-N)\)</span> 的排列 <span class="math inline">\(r = (r_1, \dots,
-r_N)\)</span> 的数目。</p>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        EDITORIALS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=/editorials/abc214g-three-permutations/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=/editorials/abc214g-three-permutations/&amp;text=abc214_g%20Three%20Permutations" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=/editorials/abc214g-three-permutations/&amp;title=abc214_g%20Three%20Permutations" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">abc214_g Three Permutations</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-09-02T10:44:01+08:00">September 2, 2021</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="题意">题意</h1>
+<p>给定两个 <span class="math inline">\((1, \dots, N)\)</span> 的排列：<span class="math inline">\(p = (p_1, \dots, p_N)\)</span> 和 <span class="math inline">\(q = (q_1, \dots, q_N)\)</span>。求满足下述条件的 <span class="math inline">\((1, \dots, N)\)</span> 的排列 <span class="math inline">\(r = (r_1, \dots, r_N)\)</span> 的数目。</p>
 <ul>
 <li>对每个 <span class="math inline">\(1\le i \le N\)</span> 有 <span class="math inline">\(r_i \ne p_i\)</span> 且 <span class="math inline">\(r_i \ne q_i\)</span>。</li>
 </ul>
-<p>数据范围：<span class="math inline">\(1 \le N \le
-3000\)</span>。<br>
+<p>数据范围：<span class="math inline">\(1 \le N \le 3000\)</span>。<br />
 时限：2秒。</p>
-<h1 id=解说>解说</h1>
-<p>为了方便表述，引入几个记号。我们把 <span class="math inline">\(\{1,
-2, \dots, n\}\)</span> 的一个排列叫做一个 <span class="math inline">\(n\)</span>-排列。设 <span class="math inline">\(G\)</span> 是图，<span class="math inline">\(|G|\)</span> 表示图 <span class="math inline">\(G\)</span> 的点数。以 <span class="math inline">\(\Z_{\ge 1}\)</span> 表示正整数集。</p>
-<p>这个问题是错位排列问题的推广。错位排列问题可以用容斥原理求解。取定
-<span class="math inline">\(k\)</span> 个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，满足在这 <span class="math inline">\(k\)</span> 个下标上都有 <span class="math inline">\(p_i = i\)</span> 的 <span class="math inline">\(n\)</span>-排列有 <span class="math inline">\((n -
-k)!\)</span> 个。把错位 <span class="math inline">\(n\)</span>-排列数记作 <span class="math inline">\(D(n)\)</span>，根据容斥原理 <span class="math display">\[
-D(n) = \sum_{k = 0}^{n} {n \choose k} (-1)^{n - k} (n - k)!
+<h1 id="解说">解说</h1>
+<p>为了方便表述，引入几个记号。我们把 <span class="math inline">\(\{1, 2, \dots, n\}\)</span> 的一个排列叫做一个 <span class="math inline">\(n\)</span>-排列。设 <span class="math inline">\(G\)</span> 是图，<span class="math inline">\(|G|\)</span> 表示图 <span class="math inline">\(G\)</span> 的点数。以 <span class="math inline">\(\Z_{\ge 1}\)</span> 表示正整数集。</p>
+<p>这个问题是错位排列问题的推广。错位排列问题可以用容斥原理求解。取定 <span class="math inline">\(k\)</span> 个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，满足在这 <span class="math inline">\(k\)</span> 个下标上都有 <span class="math inline">\(p_i = i\)</span> 的 <span class="math inline">\(n\)</span>-排列有 <span class="math inline">\((n - k)!\)</span> 个。把错位 <span class="math inline">\(n\)</span>-排列数记作 <span class="math inline">\(D(n)\)</span>，根据容斥原理 <span class="math display">\[
+D(n) =  \sum_{k = 0}^{n} {n \choose k} (-1)^{n - k} (n - k)!
 \]</span></p>
-<p>考虑照样用容斥原理求解此题。取定下标 <span class="math inline">\(i_1,
-i_2, \dots, i_k\)</span>，有多少个排列 <span class="math inline">\(r\)</span> 满足对每个 <span class="math inline">\(i\)</span> 都有 <span class="math inline">\(r_i =
-p_i\)</span> 或 <span class="math inline">\(r_i =
-q_i\)</span>？为了便于考虑这个问题，我们用一个无向图表示这个条件。考虑无向图
-<span class="math inline">\(G = (V, E)\)</span>，<span class="math inline">\(V := \{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E: = \{\{p_{i_1}, q_{i_1}\}, \dots, \{p_{i_k},
-q_{i_k}\}\}\)</span>。图 <span class="math inline">\(G\)</span> 有 <span class="math inline">\(N\)</span> 个点，<span class="math inline">\(k\)</span> 条边。问题化为：给图 <span class="math inline">\(G\)</span> 上的 <span class="math inline">\(k\)</span>
-条边每条边<strong>指派</strong>一个端点，一个点最多指派给一条边，有多少种方法。把
-<span class="math inline">\(G\)</span>
-的每个连通块上的指派方法数相乘就是答案。注意到 <span class="math inline">\(G\)</span> 中的点的度数不超过 <span class="math inline">\(2\)</span>，因此 <span class="math inline">\(G\)</span> 的一个连通块有三种情形：</p>
+<p>考虑照样用容斥原理求解此题。取定下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>，有多少个排列 <span class="math inline">\(r\)</span> 满足对每个 <span class="math inline">\(i\)</span> 都有 <span class="math inline">\(r_i = p_i\)</span> 或 <span class="math inline">\(r_i = q_i\)</span>？为了便于考虑这个问题，我们用一个无向图表示这个条件。考虑无向图 <span class="math inline">\(G = (V, E)\)</span>，<span class="math inline">\(V := \{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E: = \{\{p_{i_1}, q_{i_1}\}, \dots, \{p_{i_k}, q_{i_k}\}\}\)</span>。图 <span class="math inline">\(G\)</span> 有 <span class="math inline">\(N\)</span> 个点，<span class="math inline">\(k\)</span> 条边。问题化为：给图 <span class="math inline">\(G\)</span> 上的 <span class="math inline">\(k\)</span> 条边每条边<strong>指派</strong>一个端点，一个点最多指派给一条边，有多少种方法。把 <span class="math inline">\(G\)</span> 的每个连通块上的指派方法数相乘就是答案。注意到 <span class="math inline">\(G\)</span> 中的点的度数不超过 <span class="math inline">\(2\)</span>，因此 <span class="math inline">\(G\)</span> 的一个连通块有三种情形：</p>
 <ul>
 <li>孤立点</li>
 <li>链（或者叫路径）</li>
 <li>环</li>
 </ul>
-<p>孤立点不用考虑。一条 <span class="math inline">\(n\)</span>
-个点的链上有 <span class="math inline">\(n - 1\)</span> 条边，共有 <span class="math inline">\(n\)</span>
-种给每条边指派一个端点的方法。如何快速看出这个结论？有 <span class="math inline">\(n - 1\)</span> 条边，<span class="math inline">\(n\)</span>
-个点，必有一个点未被指派，而哪一个点未被指派完全决定了指派方法。环的情形比较简单，一个点的环有
-<span class="math inline">\(1\)</span> 种指派方法，大于一个点的环有
-<span class="math inline">\(2\)</span> 种指派方法。</p>
-<p>注：有的题解里采用另一种建图方式，<span class="math inline">\(V :=
-\{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E := \{\{i,j\}
-: p_i = q_j
-\}\)</span>。这样建图，后面问题就化为选择保留一些点并且保留和这些点相连的边，把其它点和边删除，求把边指派给点的方法数。这样的“图”里有的边只有一个端点，这并不是我们一般认识的图，这样的图考虑起来可能会感到不自然。</p>
-<p>我们考虑如何算出所有可能的 <span class="math inline">\(k\)</span>
-个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span>
-对应的指派方法的总和，把这个总和记作 <span class="math inline">\(S(k)\)</span>。为此我们考虑把全部 <span class="math inline">\(N\)</span> 条边都加上所得的图 <span class="math inline">\(H\)</span>： <span class="math inline">\(V(H) =
-\{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E(H) = \{\{p_1,
-q_1\}, \{p_2, q_2\}, \dots, \{p_N, q_N\}\}\)</span>。<span class="math inline">\(H\)</span> 的每个连通块都是一个环。对于 <span class="math inline">\(H\)</span> 的一个连通块 <span class="math inline">\(C\)</span>（<span class="math inline">\(C\)</span>
-是一个环），定义 <span class="math inline">\(f(t)\)</span> 为从 <span class="math inline">\(C\)</span> 中选则 <span class="math inline">\(t\)</span>
-条边并给每条边指派一个端点（一个点最多指派给一条边）的方法数。我们要设法算出
-<span class="math inline">\(f(0), f(1), \dots,
-f(|C|)\)</span>。对于每个连通块都算出这样一个数组，然后用类似于背包的动态规划，就可以算出
-<span class="math inline">\(S(0), S(1), \dots, S(N)\)</span>。</p>
-<p>现在来计算 <span class="math inline">\(f\)</span>。边界条件： <span class="math inline">\(f(0) = 1\)</span>。若 <span class="math inline">\(|C| = 1\)</span> 则 <span class="math inline">\(f(|C|) = 1\)</span>；若 <span class="math inline">\(|C| \ge 2\)</span> 则 <span class="math inline">\(f(|C|) = 2\)</span>。现在考虑一般情况，从 <span class="math inline">\(C\)</span> 中选择一些边保留，其他边删掉，<span class="math inline">\(C\)</span>
-就变成了一些链。根据上面的讨论，给所选的每条边指派一个端点的方法数恰等于每条链上点数的乘积。</p>
-<p><img src=/images/abc214g-three-permutations.assets/image-20210902183336274.png alt=image-20210902183336274 style=zoom:5%></p>
-<p>上图是从一个五元环里选三条边的情形，黑色的数是环上的点，这些数是排列里的数。黄色的数代表排列里的位置，可以看作边的编号。给这三条边每条边指派一个端点有
-<span class="math inline">\(6\)</span> 种方法。</p>
-<p>现在问题归为：环 <span class="math inline">\(C\)</span>
-的每条边都有编号。选择环 <span class="math inline">\(C\)</span> 的 <span class="math inline">\(k\)</span> 条边删掉，就得到 <span class="math inline">\(k\)</span> 条链。我们要计算的是每个删边方法所得的
-<span class="math inline">\(k\)</span> 条链上的点数的乘积之和。这个和是
-<span class="math inline">\(|C| g(|C|, k) / k\)</span>；<span class="math inline">\(g(n, k)\)</span> 是方程 <span class="math inline">\(x_1 + x_2 + \dots + x_k = n\)</span>
-的正整数解的乘积之和，即 <span class="math display">\[
-g(n, k) := \sum_{\substack{x_1 + \dots + x_k = n\\x_1, \dots, x_k \in
-\Z_{\ge 1}}} x_1 x_2 \dots x_k
+<p>孤立点不用考虑。一条 <span class="math inline">\(n\)</span> 个点的链上有 <span class="math inline">\(n - 1\)</span> 条边，共有 <span class="math inline">\(n\)</span> 种给每条边指派一个端点的方法。如何快速看出这个结论？有 <span class="math inline">\(n - 1\)</span> 条边，<span class="math inline">\(n\)</span> 个点，必有一个点未被指派，而哪一个点未被指派完全决定了指派方法。环的情形比较简单，一个点的环有 <span class="math inline">\(1\)</span> 种指派方法，大于一个点的环有 <span class="math inline">\(2\)</span> 种指派方法。</p>
+<p>注：有的题解里采用另一种建图方式，<span class="math inline">\(V := \{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E := \{\{i,j\} : p_i = q_j \}\)</span>。这样建图，后面问题就化为选择保留一些点并且保留和这些点相连的边，把其它点和边删除，求把边指派给点的方法数。这样的“图”里有的边只有一个端点，这并不是我们一般认识的图，这样的图考虑起来可能会感到不自然。</p>
+<p>我们考虑如何算出所有可能的 <span class="math inline">\(k\)</span> 个下标 <span class="math inline">\(i_1, i_2, \dots, i_k\)</span> 对应的指派方法的总和，把这个总和记作 <span class="math inline">\(S(k)\)</span>。为此我们考虑把全部 <span class="math inline">\(N\)</span> 条边都加上所得的图 <span class="math inline">\(H\)</span>： <span class="math inline">\(V(H) = \{1, 2, \dots, N\}\)</span>，<span class="math inline">\(E(H) = \{\{p_1, q_1\}, \{p_2, q_2\}, \dots, \{p_N, q_N\}\}\)</span>。<span class="math inline">\(H\)</span> 的每个连通块都是一个环。对于 <span class="math inline">\(H\)</span> 的一个连通块 <span class="math inline">\(C\)</span>（<span class="math inline">\(C\)</span> 是一个环），定义 <span class="math inline">\(f(t)\)</span> 为从 <span class="math inline">\(C\)</span> 中选则 <span class="math inline">\(t\)</span> 条边并给每条边指派一个端点（一个点最多指派给一条边）的方法数。我们要设法算出 <span class="math inline">\(f(0), f(1), \dots, f(|C|)\)</span>。对于每个连通块都算出这样一个数组，然后用类似于背包的动态规划，就可以算出 <span class="math inline">\(S(0), S(1), \dots, S(N)\)</span>。</p>
+<p>现在来计算 <span class="math inline">\(f\)</span>。边界条件： <span class="math inline">\(f(0) = 1\)</span>。若 <span class="math inline">\(|C| = 1\)</span> 则 <span class="math inline">\(f(|C|) = 1\)</span>；若 <span class="math inline">\(|C| \ge 2\)</span> 则 <span class="math inline">\(f(|C|) = 2\)</span>。现在考虑一般情况，从 <span class="math inline">\(C\)</span> 中选择一些边保留，其他边删掉，<span class="math inline">\(C\)</span> 就变成了一些链。根据上面的讨论，给所选的每条边指派一个端点的方法数恰等于每条链上点数的乘积。</p>
+<p><img src="/images/abc214g-three-permutations.assets/image-20210902183336274.png" alt="image-20210902183336274" style="zoom:5%;" /></p>
+<p>上图是从一个五元环里选三条边的情形，黑色的数是环上的点，这些数是排列里的数。黄色的数代表排列里的位置，可以看作边的编号。给这三条边每条边指派一个端点有 <span class="math inline">\(6\)</span> 种方法。</p>
+<p>现在问题归为：环 <span class="math inline">\(C\)</span> 的每条边都有编号。选择环 <span class="math inline">\(C\)</span> 的 <span class="math inline">\(k\)</span> 条边删掉，就得到 <span class="math inline">\(k\)</span> 条链。我们要计算的是每个删边方法所得的 <span class="math inline">\(k\)</span> 条链上的点数的乘积之和。这个和是 <span class="math inline">\(|C| g(|C|, k) / k\)</span>；<span class="math inline">\(g(n, k)\)</span> 是方程 <span class="math inline">\(x_1 + x_2 + \dots + x_k = n\)</span> 的正整数解的乘积之和，即 <span class="math display">\[
+g(n, k) := \sum_{\substack{x_1 + \dots + x_k = n\\x_1, \dots, x_k \in \Z_{\ge 1}}} x_1 x_2 \dots x_k
 \]</span></p>
-<p>现在来解释 <span class="math inline">\(|C| g(|C|, k) / k\)</span>
-这个结果。先删一条边，把环 <span class="math inline">\(C\)</span>
-变成一条链，然后从这条链中删除 <span class="math inline">\(k -
-1\)</span> 条边，把这条链分成 <span class="math inline">\(k\)</span>
-条链；这样问题就转化为上述关于方程 <span class="math inline">\(x_1 +
-\dots + x_k = |C|\)</span>
-的正整数解的计数问题。不妨先区别删的第一条边是哪一条，得到 <span class="math inline">\(|C| g(|C|, k)\)</span>，其中每个方法都被重复计算了
-<span class="math inline">\(k\)</span> 次。</p>
-<p>用隔板法可以得出 <span class="math inline">\(g(n, k) = {n + k - 1
-\choose 2k - 1}\)</span>，详见<a href=/posts/delimiter-method>隔板法应用一例</a>。</p>
-<p>于是我们得到 <span class="math inline">\(f(t) = |C| g(|C|, |C| - t) /
-(|C| - t) = |C| {2|C| - t - 1 \choose t} / (|C| - t)\)</span>。</p>
-<h1 id=注>注</h1>
-<p>这篇题解是按<a href=https://atcoder.jp/contests/abc214/editorial/2448>官方题解</a>写的，最后的
-<span class="math inline">\(|C| g(|C|, k) / k\)</span>
-是我自己想出的。</p>
-<ul class=pa0>
+<p>现在来解释 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 这个结果。先删一条边，把环 <span class="math inline">\(C\)</span> 变成一条链，然后从这条链中删除 <span class="math inline">\(k - 1\)</span> 条边，把这条链分成 <span class="math inline">\(k\)</span> 条链；这样问题就转化为上述关于方程 <span class="math inline">\(x_1 + \dots + x_k = |C|\)</span> 的正整数解的计数问题。不妨先区别删的第一条边是哪一条，得到 <span class="math inline">\(|C| g(|C|, k)\)</span>，其中每个方法都被重复计算了 <span class="math inline">\(k\)</span> 次。</p>
+<p>用隔板法可以得出 <span class="math inline">\(g(n, k) = {n + k - 1 \choose 2k - 1}\)</span>，详见<a href="/posts/delimiter-method">隔板法应用一例</a>。</p>
+<p>于是我们得到 <span class="math inline">\(f(t) = |C| g(|C|, |C| - t) / (|C| - t) = |C| {2|C| - t - 1 \choose t} / (|C| - t)\)</span>。</p>
+<h1 id="注">注</h1>
+<p>这篇题解是按<a href="https://atcoder.jp/contests/abc214/editorial/2448">官方题解</a>写的，最后的 <span class="math inline">\(|C| g(|C|, k) / k\)</span> 是我自己想出的。</p>
+<ul class="pa0">
+  
 </ul>
 <div class="mt6 instapaper_ignoref">
-</div>
-</div>
-<aside class="w-30-l mt6-l">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
 </aside>
-</article>
-</main>
-<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
-<div class="flex justify-between">
-<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href>
-&copy; Algorithm Notes 2022
-</a>
-<div>
-<div class=ananke-socials>
-</div></div>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="" >
+    &copy;  Algorithm Notes 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
+  </div>
 </footer>
-</body>
+
+  </body>
 </html>
