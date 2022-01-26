@@ -128,9 +128,9 @@ G(S, i) = G(S, i - 1) \sqcup G(S \setminus i, i - 1), \quad \text{if $i
     F[s] = f[s];
 
 for (int i = 0; i &lt; n; i++)
-    for (int s = 0; s &lt; 1 &lt;&lt; n; s++)
-        if (s &gt;&gt; i &amp; 1)
-            F[s] += F[s ^ (1 &lt;&lt; i)];</code></pre>
+  for (int s = 0; s &lt; 1 &lt;&lt; n; s++)
+    if (s &gt;&gt; i &amp; 1)
+      F[s] += F[s ^ (1 &lt;&lt; i)];</code></pre>
 <h1 id=references>References</h1>
 <ul>
 <li>https://codeforces.com/blog/entry/45223</li>
