@@ -1,0 +1,86 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>[TTPC2019 Task I] I Hate P | Algorithm Notes</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="一个初等数论问题的巧妙解法。"><meta name=generator content="Hugo 0.152.2"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon><link rel=canonical href=/upsolve/ttpc2019_i_i_hate_p/><meta property="og:url" content="/upsolve/ttpc2019_i_i_hate_p/"><meta property="og:site_name" content="Algorithm Notes"><meta property="og:title" content="[TTPC2019 Task I] I Hate P"><meta property="og:description" content="一个初等数论问题的巧妙解法。"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="upsolve"><meta property="article:published_time" content="2025-11-26T16:18:27+08:00"><meta property="article:modified_time" content="2025-11-26T16:18:27+08:00"><meta itemprop=name content="[TTPC2019 Task I] I Hate P"><meta itemprop=description content="一个初等数论问题的巧妙解法。"><meta itemprop=datePublished content="2025-11-26T16:18:27+08:00"><meta itemprop=dateModified content="2025-11-26T16:18:27+08:00"><meta itemprop=wordCount content="489"><meta name=twitter:card content="summary"><meta name=twitter:title content="[TTPC2019 Task I] I Hate P"><meta name=twitter:description content="一个初等数论问题的巧妙解法。"><script>MathJax={loader:{load:["[tex]/physics"]},tex:{inlineMath:[["$","$"],["\\(","\\)"]],packages:{"[+]":["xypic","physics"]},macros:{RR:"{\\bf R}",bm:["{\\bf #1}",1],floor:["\\left \\lfloor #1 \\right \\rfloor",1],ceil:["\\left \\lceil #1 \\right \\rceil",1],dif:"\\mathop{}\\!\\mathrm{d}",mathlarger:["{\\large #1}",1],dsone:"\\unicode{x1D7D9}",sub:"\\subset",sube:"\\subseteq",subne:"\\subsetneq",sse:"\\subseteq",spe:"\\supseteq",qed:"\\tag*{$\\blacksquare$}",xor:"\\oplus",Z:"\\mathbb{Z}",N:"\\mathbb{N}",F:"\\mathbb{F}",tran:"^{\\mkern-1.5mu\\mathsf{T}}",lcm:["\\operatorname{lcm}"],lpd:["\\operatorname{lpd}"],lpf:["\\operatorname{lpf}"],rank:["\\operatorname{rank}"],init:["\\operatorname{init}"],ter:["\\operatorname{ter}"],nil:"\\emptyset",iso:"\\simeq",Bar:"\\overline",ffact:["{#1}^{\\underline{#2}}",2],R:"\\mathbb{R}",O:"\\emptyset",xto:["\\xrightarrow{#1}",1],xor:"\\oplus"},tags:"ams"},chtml:{mtextInheritFont:!0}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js></script><script>hljs.highlightAll()</script></head><body class="ma0 avenir bg-near-white production"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">Algorithm Notes</a><div class="flex-l items-center"><ul class="pl0 mr3"><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/cpp/ title="C++ page">C++</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/gt/ title="Graph Theory page">Graph Theory</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/la/ title="Linear Algebra page">Linear Algebra</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/posts/ title="Posts page">Posts</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/tutorials/ title="Tutorials page">Tutorials</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/upsolve/ title="Upsolve page">Upsolve</a></li></ul><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">Upsolves</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">[TTPC2019 Task I] I Hate P</h1><time class="f6 mv4 dib tracked" datetime=2025-11-26T16:18:27+08:00>November 26, 2025</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>题目出自東京工業大学プログラミングコンテスト2019（TTPC2019）</p><p>题目链接 https://atcoder.jp/contests/ttpc2019/tasks/ttpc2019_i</p><h1 id=题意>题意</h1><p>对于正整数 <span class="math inline">\(x\)</span> 定义函数 <span class="math display">\[
+f(x) := \begin{cases}
+f(\frac{x}{P}) \quad & \text{if $x \equiv 0 \pmod{P}$} \\
+x & \text{otherwise}
+\end{cases}
+\]</span></p><p>给你整数 <span class="math inline">\(P, Q, L,
+R\)</span>，输出下列式子的值 <span class="math display">\[
+\left(\prod_{i=L}^{R} f(i) \right) \bmod Q
+\]</span></p><h2 id=限制>限制</h2><ul><li><span class="math inline">\(2 \le P, Q \le 10^7\)</span></li><li><span class="math inline">\(1 \le L \le R \le 10^{18}\)</span></li></ul><h1 id=解法>解法</h1><p>思路：把 <span class="math inline">\(L\)</span> 到 <span class="math inline">\(R\)</span> 的整数分成两类</p><ul><li>能被 <span class="math inline">\(P\)</span> 整除的</li><li>不能被 <span class="math inline">\(P\)</span> 整除的</li></ul><p>前者对答案的贡献归结为 <span class="math inline">\(\left(\prod_{i =
+\ceil{L/P}}^{\floor{R/P}} f(i)\right) \bmod
+Q\)</span>，可以<strong>递归</strong>处理。</p><p>后者对答案的贡献就是它们的乘积除以 <span class="math inline">\(Q\)</span> 的余数。自然地，我们考虑以 <span class="math inline">\(Q\)</span> 为周期来处理 <span class="math inline">\(L, \dots, R\)</span> 中不能被 <span class="math inline">\(P\)</span>
+整除的那些整数。问题在于，一般来说，每个周期内能被 <span class="math inline">\(P\)</span> 整除的那些数并不都是同一批。</p><p>实际上，我们需要把周期扩大到 <span class="math inline">\(\lcm(P,
+Q)\)</span>。</p><p>解决这个困难需要一个关键的观察：</p><p>当 <span class="math inline">\(\lcm(P, Q)\)</span> 大于 <span class="math inline">\(Q\)</span> 时，也就是 <span class="math inline">\(P\)</span> 不能整除 <span class="math inline">\(Q\)</span> 时，如果 <span class="math inline">\(L,
+\dots, R\)</span> 中有两个相邻的 <span class="math inline">\(Q\)</span>
+的倍数，<span class="math inline">\(nQ\)</span> 和 <span class="math inline">\((n+1)Q\)</span>，那么这两个数不都能被 <span class="math inline">\(P\)</span> 整除。</p><p>若不然就有二者的差，也就是 <span class="math inline">\(Q\)</span>，能被 <span class="math inline">\(P\)</span> 整除。矛盾。</p><p>这时，乘积 <span class="math inline">\(\prod_{i=L}^{R} f(i)\)</span>
+是 <span class="math inline">\(P\)</span> 的倍数。</p><p>注意到：</p><p>连续 <span class="math inline">\(2Q\)</span> 个整数中至少有两个是
+<span class="math inline">\(Q\)</span> 的倍数。</p><p>因此当 <span class="math inline">\(P\)</span> 不能整除 <span class="math inline">\(Q\)</span> 且 <span class="math inline">\(R - L +
+1 \ge 2Q\)</span> 时，答案是 <span class="math inline">\(0\)</span>。</p><p>当 <span class="math inline">\(P\)</span> 整除 <span class="math inline">\(Q\)</span> 时，我们就能以 <span class="math inline">\(Q\)</span> 为周期来处理 <span class="math inline">\(L, \dots, R\)</span> 中不能被 <span class="math inline">\(P\)</span> 整除的数。</p><h2 id=代码>代码</h2><pre class=cpp><code>int P, Q;
+
+long long f(long long x) {
+    while (x % P == 0)
+        x /= P;
+    return x;
+}
+
+long long power(long long x, long long n) { // 快速幂
+    long long ans = 1;
+    while (n &gt; 0) {
+        if (n &amp; 1)
+            ans = ans * x % Q;
+        x = x * x % Q;
+        n &gt;&gt;= 1;
+    }
+    return ans;
+}
+
+vector&lt;long long&gt; suff, pref;
+
+long long solve(long long l, long long r) { // [l, r)
+    if (r - l &lt; Q) {
+        long long ans = 1;
+        for (long long i = l; i &lt; r; i++) {
+            ans = ans * (f(i) % Q) % Q;
+        }
+        return ans;
+    }
+    long long lp = (l - 1) / Q + 1, rp = r / Q;
+    return solve((l + P - 1) / P, (r + P - 1) / P) * power(pref[Q], rp - lp) % Q * suff[l % Q] % Q * pref[r % Q] % Q;
+}
+
+int main() {
+    long long L, R;
+    cin &gt;&gt; P &gt;&gt; Q &gt;&gt; L &gt;&gt; R;
+    R++; // 采用左闭右开的方式表示区间
+    
+    if (Q % P) {
+        long long ans = 0;
+        if (R - L &lt; 2 * Q) { // 暴力计算
+            ans = 1;
+            for (long long x = L; x &lt; R; x++) {
+                ans = ans * (f(x) % Q) % Q; // ans * f(x) 可能爆 long long
+            }
+        }
+        cout &lt;&lt; ans &lt;&lt; &#39;\n&#39;;
+        return 0;
+    }
+
+    pref.assign(Q + 1, 1); // pref[i]: 0,...,i-1 中不能被 P 整除的数的乘积，模 Q
+    for (int i = 0; i &lt; Q; i++) {
+        if (i % P) {
+            pref[i + 1] = pref[i] * i % Q;
+        } else {
+            pref[i + 1] = pref[i];
+        }
+    }
+
+    suff.assign(Q, 1);
+    long long t = 1;
+    for (int i = Q - 1; i &gt;= 1; i--) {
+        if (i % P) {
+            t = t * i % Q;
+        }
+        suff[i] = t;
+    }
+    cout &lt;&lt; solve(L, R) &lt;&lt; &#39;\n&#39;;
+}</code></pre><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=/>&copy; Algorithm Notes 2025</a><div><div class=ananke-socials></div></div></div></footer></body></html>
