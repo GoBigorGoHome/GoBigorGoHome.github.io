@@ -1,15 +1,13 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>arc133_d Range XOR | Algorithm Notes</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A typical pair-counting problem."><meta name=generator content="Hugo 0.163.3"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon><link rel=canonical href=/upsolve/arc133_d_range_xor/><meta property="og:url" content="/upsolve/arc133_d_range_xor/"><meta property="og:site_name" content="Algorithm Notes"><meta property="og:title" content="arc133_d Range XOR"><meta property="og:description" content="A typical pair-counting problem."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="upsolve"><meta property="article:published_time" content="2022-02-11T11:55:38+08:00"><meta property="article:modified_time" content="2022-02-11T11:55:38+08:00"><meta itemprop=name content="arc133_d Range XOR"><meta itemprop=description content="A typical pair-counting problem."><meta itemprop=datePublished content="2022-02-11T11:55:38+08:00"><meta itemprop=dateModified content="2022-02-11T11:55:38+08:00"><meta itemprop=wordCount content="617"><meta name=twitter:card content="summary"><meta name=twitter:title content="arc133_d Range XOR"><meta name=twitter:description content="A typical pair-counting problem."><script>MathJax={loader:{load:["[tex]/physics"]},tex:{inlineMath:[["$","$"],["\\(","\\)"]],packages:{"[+]":["xypic","physics"]},macros:{RR:"{\\bf R}",bm:["{\\bf #1}",1],floor:["\\left \\lfloor #1 \\right \\rfloor",1],ceil:["\\left \\lceil #1 \\right \\rceil",1],dif:"\\mathop{}\\!\\mathrm{d}",mathlarger:["{\\large #1}",1],dsone:"\\unicode{x1D7D9}",sub:"\\subset",sube:"\\subseteq",subne:"\\subsetneq",sse:"\\subseteq",spe:"\\supseteq",qed:"\\tag*{$\\blacksquare$}",xor:"\\oplus",Z:"\\mathbb{Z}",N:"\\mathbb{N}",F:"\\mathbb{F}",tran:"^{\\mkern-1.5mu\\mathsf{T}}",lcm:["\\operatorname{lcm}"],lpd:["\\operatorname{lpd}"],lpf:["\\operatorname{lpf}"],rank:["\\operatorname{rank}"],init:["\\operatorname{init}"],ter:["\\operatorname{ter}"],nil:"\\emptyset",iso:"\\simeq",Bar:"\\overline",ffact:["{#1}^{\\underline{#2}}",2],R:"\\mathbb{R}",O:"\\emptyset",xto:["\\xrightarrow{#1}",1],xor:"\\oplus"},tags:"ams"},chtml:{mtextInheritFont:!0}}</script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js></script><script>hljs.highlightAll()</script></head><body class="ma0 avenir bg-near-white production"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">Algorithm Notes</a><div class="flex-l items-center"><ul class="pl0 mr3"><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/cpp/ title="C++ page">C++</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/gt/ title="Graph Theory page">Graph Theory</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/la/ title="Linear Algebra page">Linear Algebra</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/posts/ title="Posts page">Posts</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/tutorials/ title="Tutorials page">Tutorials</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/upsolve/ title="Upsolve page">Upsolve</a></li></ul><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">Upsolves</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">arc133_d Range XOR</h1><time class="f6 mv4 dib tracked" datetime=2022-02-11T11:55:38+08:00>February 11, 2022</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id=转化>转化</h1><p>Let <span class="math inline">\(s(n) = 0 \xor 1 \xor 2 \xor \dots
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>arc133_d Range XOR | Algorithm Notes</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A typical pair-counting problem."><meta name=generator content="Hugo 0.170.1"><meta name=robots content="index, follow"><link rel=stylesheet href=/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin=anonymous><link rel=stylesheet href=/css/custom.css><script>(function(){"use strict";function t(){for(var t=document.querySelectorAll(".code-block .code-copy[hidden]"),e=0;e<t.length;e++)t[e].hidden=!1}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t();function e(e){var t=e.querySelector(".code-copy-label"),n=t?t.textContent:null;e.classList.add("is-copied"),t&&(t.textContent="Copied"),window.setTimeout(function(){e.classList.remove("is-copied"),t&&n!==null&&(t.textContent=n)},2e3)}function n(e){var n,t=document.createElement("textarea");t.value=e,t.setAttribute("readonly",""),t.style.position="absolute",t.style.left="-9999px",document.body.appendChild(t),t.select(),n=!1;try{n=document.execCommand("copy")}catch{n=!1}return document.body.removeChild(t),n}function s(t){var s,o,a,i=t.closest(".code-block");if(!i)return;if(s=i.querySelector("pre"),!s)return;a=s.querySelector("code")||s,o=a.innerText,navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(o).then(function(){e(t)},function(){n(o)&&e(t)}):n(o)&&e(t)}document.addEventListener("click",function(e){var t=e.target.closest(".code-copy");t&&s(t)})})()</script><link rel="shortcut icon" href=/favicon/android-chrome-192x192.png type=image/x-icon><link rel=canonical href=https://gobigorgohome.github.io/upsolve/arc133_d_range_xor/><meta property="og:url" content="https://gobigorgohome.github.io/upsolve/arc133_d_range_xor/"><meta property="og:site_name" content="Algorithm Notes"><meta property="og:title" content="arc133_d Range XOR"><meta property="og:description" content="A typical pair-counting problem."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="upsolve"><meta property="article:published_time" content="2022-02-11T11:55:38+08:00"><meta property="article:modified_time" content="2022-02-11T11:55:38+08:00"><meta itemprop=name content="arc133_d Range XOR"><meta itemprop=description content="A typical pair-counting problem."><meta itemprop=datePublished content="2022-02-11T11:55:38+08:00"><meta itemprop=dateModified content="2022-02-11T11:55:38+08:00"><meta itemprop=wordCount content="615"><meta name=twitter:card content="summary"><meta name=twitter:title content="arc133_d Range XOR"><meta name=twitter:description content="A typical pair-counting problem."><script>MathJax={loader:{load:["[tex]/physics"]},tex:{inlineMath:[["$","$"],["\\(","\\)"]],packages:{"[+]":["xypic","physics"]},macros:{RR:"{\\bf R}",bm:["{\\bf #1}",1],floor:["\\left \\lfloor #1 \\right \\rfloor",1],ceil:["\\left \\lceil #1 \\right \\rceil",1],dif:"\\mathop{}\\!\\mathrm{d}",mathlarger:["{\\large #1}",1],dsone:"\\unicode{x1D7D9}",sub:"\\subset",sube:"\\subseteq",subne:"\\subsetneq",sse:"\\subseteq",spe:"\\supseteq",qed:"\\tag*{$\\blacksquare$}",xor:"\\oplus",Z:"\\mathbb{Z}",N:"\\mathbb{N}",F:"\\mathbb{F}",tran:"^{\\mkern-1.5mu\\mathsf{T}}",lcm:["\\operatorname{lcm}"],lpd:["\\operatorname{lpd}"],lpf:["\\operatorname{lpf}"],rank:["\\operatorname{rank}"],init:["\\operatorname{init}"],ter:["\\operatorname{ter}"],nil:"\\emptyset",iso:"\\simeq",Bar:"\\overline",ffact:["{#1}^{\\underline{#2}}",2],R:"\\mathbb{R}",O:"\\emptyset",xto:["\\xrightarrow{#1}",1],xor:"\\oplus"},tags:"ams"},chtml:{mtextInheritFont:!0}}</script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js></script><script>hljs.highlightAll()</script></head><body class="ma0 avenir bg-near-white production is-page is-page page-arc133_d_range_xor"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l center items-center justify-between"><a href=/ class="f3 fw2 hover-white white-90 dib no-underline">Algorithm Notes</a><div class="flex-l items-center"><ul class="pl0 mr3"><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/cpp/ title="C++ page">C++</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/gt/ title="Graph Theory page">Graph Theory</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/la/ title="Linear Algebra page">Linear Algebra</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/posts/ title="Posts page">Posts</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/tutorials/ title="Tutorials page">Tutorials</a></li><li class="list f5 f4-ns fw4 dib pr3"><a class="hover-white white-90 no-underline" href=/upsolve/ title="Upsolve page">Upsolve</a></li></ul><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="page-arc133_d_range_xor flex-l mw7 center ph3 flex-wrap justify-between"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu"><a class="link dim" href=https://gobigorgohome.github.io/upsolve/>Upsolves</a></aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">arc133_d Range XOR</h1><time class="f6 mv4 dib tracked" datetime=2022-02-11T11:55:38+08:00>February 11, 2022</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><h1 id=转化>转化</h1><p>Let <span class="math inline">\(s(n) = 0 \xor 1 \xor 2 \xor \dots
 \xor n\)</span>, then <span class="math inline">\(l \xor \dots \xor r =
 V\)</span> is equivalent to <span class="math inline">\(s(r) \xor s(l -
 1) = V\)</span>. Following the fact <span class="math inline">\(2n \xor
-(2n + 1) = 1\)</span>, it is not hard to see that <span class="math display">\[
-\begin{aligned}
+(2n + 1) = 1\)</span>, it is not hard to see that <span class="math display">\[\begin{aligned}
 s(4k) &= 4k \\
 s(4k + 1) &= 1 \\
 s(4k + 2) &= 4k + 3 \\
 s(4k + 3) &= 0
-\end{aligned}
-\]</span></p><p>The problem can be rephrased as</p><blockquote><p>Find the number of pairs of integers <span class="math inline">\((l,
+\end{aligned}\]</span></p><p>The problem can be rephrased as</p><blockquote><p>Find the number of pairs of integers <span class="math inline">\((l,
 r)\)</span> such that <span class="math inline">\(L - 1 \le l &lt; r \le
 R\)</span> and <span class="math inline">\(s(l) \xor s(r) =
 V\)</span>.</p></blockquote><p>We now relax the <span class="math inline">\(l &lt; r\)</span>
@@ -25,69 +23,96 @@ answer.</p><p>One can verify that <span class="math inline">\(f(A, B) = g(B, B) 
 g(A - 1, B) - g(B, A - 1) + g(A - 1, A - 1)\)</span>. Now let’s focus on
 <span class="math inline">\(g(M, N)\)</span>. How can we compute <span class="math inline">\(g(M, N)\)</span> efficiently? We divide all pairs
 <span class="math inline">\((m, n)\)</span> such that <span class="math inline">\(0 \le m \le M\)</span> and <span class="math inline">\(0 \le n \le N\)</span> by <span class="math inline">\((m \bmod 4, n \bmod 4)\)</span> into <span class="math inline">\(16\)</span> classes. Now the problem becomes</p><blockquote><p>Find the number of pairs <span class="math inline">\((l, r)\)</span>
-that satisfy the following conditions</p><ul><li><span class="math inline">\(0 \le l \le M\)</span></li><li><span class="math inline">\(0 \le r \le N\)</span></li><li><span class="math inline">\(l \equiv k_1 \pmod{4}\)</span></li><li><span class="math inline">\(r \equiv k_2 \pmod{4}\)</span></li><li><span class="math inline">\(s(l) \xor s(r) = V\)</span></li></ul></blockquote><p>This problem can be solved by bit DP in <span class="math inline">\(O(\log(\max(M, N, V)))\)</span> time.</p><h1 id=code>Code</h1><pre class=cpp><code>#include &lt;utils.hpp&gt;
-#include &lt;m3.hpp&gt;
+that satisfy the following conditions</p><ul><li><span class="math inline">\(0 \le l \le M\)</span></li><li><span class="math inline">\(0 \le r \le N\)</span></li><li><span class="math inline">\(l \equiv k_1 \pmod{4}\)</span></li><li><span class="math inline">\(r \equiv k_2 \pmod{4}\)</span></li><li><span class="math inline">\(s(l) \xor s(r) = V\)</span></li></ul></blockquote><p>This problem can be solved by bit DP in <span class="math inline">\(O(\log(\max(M, N, V)))\)</span> time.</p><h1 id=code>Code</h1><div class=sourceCode id=cb1><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id=cb1-1><a href=#cb1-1 aria-hidden=true tabindex=-1></a><span class=pp>#include </span><span class=im>&lt;utils.hpp&gt;</span></span>
+<span id=cb1-2><a href=#cb1-2 aria-hidden=true tabindex=-1></a><span class=pp>#include </span><span class=im>&lt;m3.hpp&gt;</span></span>
+<span id=cb1-3><a href=#cb1-3 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-4><a href=#cb1-4 aria-hidden=true tabindex=-1></a><span class=dt>void</span> solve<span class=op>()</span> <span class=op>{</span></span>
+<span id=cb1-5><a href=#cb1-5 aria-hidden=true tabindex=-1></a>  <span class=co>// s(4k) = 4k</span></span>
+<span id=cb1-6><a href=#cb1-6 aria-hidden=true tabindex=-1></a>  <span class=co>// s(4k + 1) = 1</span></span>
+<span id=cb1-7><a href=#cb1-7 aria-hidden=true tabindex=-1></a>  <span class=co>// s(4k + 2) = 4k + 3</span></span>
+<span id=cb1-8><a href=#cb1-8 aria-hidden=true tabindex=-1></a>  <span class=co>// s(4k + 3) = 0</span></span>
+<span id=cb1-9><a href=#cb1-9 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-10><a href=#cb1-10 aria-hidden=true tabindex=-1></a>  <span class=kw>auto</span> bit <span class=op>=</span> <span class=op>[](</span><span class=dt>int</span> i<span class=op>,</span> <span class=dt>int</span> b<span class=op>,</span> <span class=dt>int</span> rem<span class=op>)</span> <span class=op>-&gt;</span> <span class=dt>int</span> <span class=op>{</span></span>
+<span id=cb1-11><a href=#cb1-11 aria-hidden=true tabindex=-1></a>    <span class=cf>if</span> <span class=op>(</span>rem <span class=op>==</span> <span class=dv>0</span><span class=op>)</span></span>
+<span id=cb1-12><a href=#cb1-12 aria-hidden=true tabindex=-1></a>      <span class=cf>return</span> b<span class=op>;</span></span>
+<span id=cb1-13><a href=#cb1-13 aria-hidden=true tabindex=-1></a>    <span class=cf>if</span> <span class=op>(</span>rem <span class=op>==</span> <span class=dv>1</span><span class=op>)</span></span>
+<span id=cb1-14><a href=#cb1-14 aria-hidden=true tabindex=-1></a>      <span class=cf>return</span> i <span class=op>==</span> <span class=dv>0</span><span class=op>;</span></span>
+<span id=cb1-15><a href=#cb1-15 aria-hidden=true tabindex=-1></a>    <span class=cf>if</span> <span class=op>(</span>rem <span class=op>==</span> <span class=dv>2</span><span class=op>)</span></span>
+<span id=cb1-16><a href=#cb1-16 aria-hidden=true tabindex=-1></a>      <span class=cf>return</span> i <span class=op>==</span> <span class=dv>0</span> <span class=op>?</span> <span class=dv>1</span> <span class=op>:</span> b<span class=op>;</span></span>
+<span id=cb1-17><a href=#cb1-17 aria-hidden=true tabindex=-1></a>    <span class=cf>return</span> <span class=dv>0</span><span class=op>;</span></span>
+<span id=cb1-18><a href=#cb1-18 aria-hidden=true tabindex=-1></a>  <span class=op>};</span></span>
+<span id=cb1-19><a href=#cb1-19 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-20><a href=#cb1-20 aria-hidden=true tabindex=-1></a>  LL<span class=op>(</span>L<span class=op>,</span> R<span class=op>,</span> V<span class=op>);</span></span>
+<span id=cb1-21><a href=#cb1-21 aria-hidden=true tabindex=-1></a>  <span class=op>--</span>L<span class=op>;</span></span>
+<span id=cb1-22><a href=#cb1-22 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-23><a href=#cb1-23 aria-hidden=true tabindex=-1></a>  <span class=kw>auto</span> count <span class=op>=</span> <span class=op>[&amp;](</span>ll A<span class=op>,</span> ll B<span class=op>)</span> <span class=op>{</span></span>
+<span id=cb1-24><a href=#cb1-24 aria-hidden=true tabindex=-1></a>    <span class=cf>if</span> <span class=op>(</span>A <span class=op>&lt;</span> <span class=dv>0</span> <span class=kw>or</span> B <span class=op>&lt;</span> <span class=dv>0</span><span class=op>)</span></span>
+<span id=cb1-25><a href=#cb1-25 aria-hidden=true tabindex=-1></a>      <span class=cf>return</span> <span class=dv>0</span><span class=op>_m;</span></span>
+<span id=cb1-26><a href=#cb1-26 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-27><a href=#cb1-27 aria-hidden=true tabindex=-1></a>    mint ans <span class=op>=</span> <span class=dv>0</span><span class=op>;</span></span>
+<span id=cb1-28><a href=#cb1-28 aria-hidden=true tabindex=-1></a>    rng <span class=op>(</span>rem1<span class=op>,</span> <span class=dv>4</span><span class=op>)</span></span>
+<span id=cb1-29><a href=#cb1-29 aria-hidden=true tabindex=-1></a>      rng <span class=op>(</span>rem2<span class=op>,</span> <span class=dv>4</span><span class=op>)</span> <span class=op>{</span></span>
+<span id=cb1-30><a href=#cb1-30 aria-hidden=true tabindex=-1></a>        vv<span class=op>&lt;</span>mint<span class=op>&gt;</span> dp<span class=op>(</span><span class=dv>2</span><span class=op>,</span> <span class=dv>2</span><span class=op>);</span><span class=co>// 0: equal, 1: less</span></span>
+<span id=cb1-31><a href=#cb1-31 aria-hidden=true tabindex=-1></a>        dp<span class=op>[</span><span class=dv>0</span><span class=op>][</span><span class=dv>0</span><span class=op>]</span> <span class=op>=</span> <span class=dv>1</span><span class=op>;</span></span>
+<span id=cb1-32><a href=#cb1-32 aria-hidden=true tabindex=-1></a>        down <span class=op>(</span>i<span class=op>,</span> <span class=dv>59</span><span class=op>,</span> <span class=dv>0</span><span class=op>)</span> <span class=op>{</span></span>
+<span id=cb1-33><a href=#cb1-33 aria-hidden=true tabindex=-1></a>          vv<span class=op>&lt;</span>mint<span class=op>&gt;</span> new_dp<span class=op>(</span><span class=dv>2</span><span class=op>,</span> <span class=dv>2</span><span class=op>);</span></span>
+<span id=cb1-34><a href=#cb1-34 aria-hidden=true tabindex=-1></a>          ll bit_A <span class=op>=</span> A <span class=op>&gt;&gt;</span> i <span class=op>&amp;</span> <span class=dv>1</span><span class=op>;</span></span>
+<span id=cb1-35><a href=#cb1-35 aria-hidden=true tabindex=-1></a>          ll bit_B <span class=op>=</span> B <span class=op>&gt;&gt;</span> i <span class=op>&amp;</span> <span class=dv>1</span><span class=op>;</span></span>
+<span id=cb1-36><a href=#cb1-36 aria-hidden=true tabindex=-1></a>          ll bit_V <span class=op>=</span> V <span class=op>&gt;&gt;</span> i <span class=op>&amp;</span> <span class=dv>1</span><span class=op>;</span></span>
+<span id=cb1-37><a href=#cb1-37 aria-hidden=true tabindex=-1></a>          up <span class=op>(</span>x1<span class=op>,</span> <span class=dv>0</span><span class=op>,</span> <span class=dv>1</span><span class=op>)</span></span>
+<span id=cb1-38><a href=#cb1-38 aria-hidden=true tabindex=-1></a>            up <span class=op>(</span>x2<span class=op>,</span> <span class=dv>0</span><span class=op>,</span> <span class=dv>1</span><span class=op>)</span></span>
+<span id=cb1-39><a href=#cb1-39 aria-hidden=true tabindex=-1></a>              up <span class=op>(</span>b1<span class=op>,</span> <span class=dv>0</span><span class=op>,</span> <span class=dv>1</span><span class=op>)</span></span>
+<span id=cb1-40><a href=#cb1-40 aria-hidden=true tabindex=-1></a>                up <span class=op>(</span>b2<span class=op>,</span> <span class=dv>0</span><span class=op>,</span> <span class=dv>1</span><span class=op>)</span> <span class=op>{</span></span>
+<span id=cb1-41><a href=#cb1-41 aria-hidden=true tabindex=-1></a>                  <span class=cf>if</span> <span class=op>(</span>i <span class=op>==</span> <span class=dv>1</span> <span class=kw>and</span> <span class=op>(</span>b1 <span class=op>!=</span> rem1 <span class=op>/</span> <span class=dv>2</span> <span class=kw>or</span> b2 <span class=op>!=</span> rem2 <span class=op>/</span> <span class=dv>2</span><span class=op>))</span></span>
+<span id=cb1-42><a href=#cb1-42 aria-hidden=true tabindex=-1></a>                    <span class=cf>continue</span><span class=op>;</span></span>
+<span id=cb1-43><a href=#cb1-43 aria-hidden=true tabindex=-1></a>                  <span class=cf>if</span> <span class=op>(</span>i <span class=op>==</span> <span class=dv>0</span> <span class=kw>and</span> <span class=op>(</span>b1 <span class=op>!=</span> rem1 <span class=op>%</span> <span class=dv>2</span> <span class=kw>or</span> b2 <span class=op>!=</span> rem2 <span class=op>%</span> <span class=dv>2</span><span class=op>))</span></span>
+<span id=cb1-44><a href=#cb1-44 aria-hidden=true tabindex=-1></a>                    <span class=cf>continue</span><span class=op>;</span></span>
+<span id=cb1-45><a href=#cb1-45 aria-hidden=true tabindex=-1></a>                  <span class=cf>if</span> <span class=op>(</span>x1 <span class=op>==</span> <span class=dv>0</span> <span class=kw>and</span> b1 <span class=op>&gt;</span> bit_A <span class=kw>or</span> x2 <span class=op>==</span> <span class=dv>0</span> <span class=kw>and</span> b2 <span class=op>&gt;</span> bit_B<span class=op>)</span></span>
+<span id=cb1-46><a href=#cb1-46 aria-hidden=true tabindex=-1></a>                    <span class=cf>continue</span><span class=op>;</span></span>
+<span id=cb1-47><a href=#cb1-47 aria-hidden=true tabindex=-1></a>                  <span class=cf>if</span> <span class=op>((</span>bit<span class=op>(</span>i<span class=op>,</span> b1<span class=op>,</span> rem1<span class=op>)</span> <span class=kw>xor</span> bit<span class=op>(</span>i<span class=op>,</span> b2<span class=op>,</span> rem2<span class=op>))</span> <span class=op>!=</span> bit_V<span class=op>)</span></span>
+<span id=cb1-48><a href=#cb1-48 aria-hidden=true tabindex=-1></a>                    <span class=cf>continue</span><span class=op>;</span></span>
+<span id=cb1-49><a href=#cb1-49 aria-hidden=true tabindex=-1></a>                  <span class=dt>int</span> new_x1 <span class=op>=</span> x1 <span class=kw>or</span> b1 <span class=op>&lt;</span> bit_A<span class=op>;</span></span>
+<span id=cb1-50><a href=#cb1-50 aria-hidden=true tabindex=-1></a>                  <span class=dt>int</span> new_x2 <span class=op>=</span> x2 <span class=kw>or</span> b2 <span class=op>&lt;</span> bit_B<span class=op>;</span></span>
+<span id=cb1-51><a href=#cb1-51 aria-hidden=true tabindex=-1></a>                  new_dp<span class=op>[</span>new_x1<span class=op>][</span>new_x2<span class=op>]</span> <span class=op>+=</span> dp<span class=op>[</span>x1<span class=op>][</span>x2<span class=op>];</span></span>
+<span id=cb1-52><a href=#cb1-52 aria-hidden=true tabindex=-1></a>                <span class=op>}</span></span>
+<span id=cb1-53><a href=#cb1-53 aria-hidden=true tabindex=-1></a>          swap<span class=op>(</span>dp<span class=op>,</span> new_dp<span class=op>);</span></span>
+<span id=cb1-54><a href=#cb1-54 aria-hidden=true tabindex=-1></a>        <span class=op>}</span></span>
+<span id=cb1-55><a href=#cb1-55 aria-hidden=true tabindex=-1></a>        up <span class=op>(</span>x1<span class=op>,</span> <span class=dv>0</span><span class=op>,</span> <span class=dv>1</span><span class=op>)</span></span>
+<span id=cb1-56><a href=#cb1-56 aria-hidden=true tabindex=-1></a>          up <span class=op>(</span>x2<span class=op>,</span> <span class=dv>0</span><span class=op>,</span> <span class=dv>1</span><span class=op>)</span></span>
+<span id=cb1-57><a href=#cb1-57 aria-hidden=true tabindex=-1></a>            ans <span class=op>+=</span> dp<span class=op>[</span>x1<span class=op>][</span>x2<span class=op>];</span></span>
+<span id=cb1-58><a href=#cb1-58 aria-hidden=true tabindex=-1></a>      <span class=op>}</span></span>
+<span id=cb1-59><a href=#cb1-59 aria-hidden=true tabindex=-1></a>    <span class=cf>return</span> ans<span class=op>;</span></span>
+<span id=cb1-60><a href=#cb1-60 aria-hidden=true tabindex=-1></a>  <span class=op>};</span></span>
+<span id=cb1-61><a href=#cb1-61 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-62><a href=#cb1-62 aria-hidden=true tabindex=-1></a>  mint ans <span class=op>=</span> count<span class=op>(</span>R<span class=op>,</span> R<span class=op>)</span> <span class=op>-</span> <span class=dv>2</span> <span class=op>*</span> count<span class=op>(</span>L <span class=op>-</span> <span class=dv>1</span><span class=op>,</span> R<span class=op>)</span> <span class=op>+</span> count<span class=op>(</span>L <span class=op>-</span> <span class=dv>1</span><span class=op>,</span> L <span class=op>-</span> <span class=dv>1</span><span class=op>);</span></span>
+<span id=cb1-63><a href=#cb1-63 aria-hidden=true tabindex=-1></a>  <span class=cf>if</span> <span class=op>(</span>V <span class=op>==</span> <span class=dv>0</span><span class=op>)</span></span>
+<span id=cb1-64><a href=#cb1-64 aria-hidden=true tabindex=-1></a>    ans <span class=op>-=</span> R <span class=op>-</span> L <span class=op>+</span> <span class=dv>1</span><span class=op>;</span></span>
+<span id=cb1-65><a href=#cb1-65 aria-hidden=true tabindex=-1></a>  pl<span class=op>(</span>ans <span class=op>/</span> <span class=dv>2</span><span class=op>);</span></span>
+<span id=cb1-66><a href=#cb1-66 aria-hidden=true tabindex=-1></a><span class=op>}</span></span></code></pre></div><h1 id=references>References</h1><p>https://atcoder.jp/contests/arc133/submissions/28688903</p><ul class=pa0></ul><ul class=pa0></ul></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=https://gobigorgohome.github.io/>&copy; Algorithm Notes 2026</a><div><div class=ananke-socials></div></div></div></footer></body></html>
 
-void solve() {
-  // s(4k) = 4k
-  // s(4k + 1) = 1
-  // s(4k + 2) = 4k + 3
-  // s(4k + 3) = 0
 
-  auto bit = [](int i, int b, int rem) -&gt; int {
-    if (rem == 0)
-      return b;
-    if (rem == 1)
-      return i == 0;
-    if (rem == 2)
-      return i == 0 ? 1 : b;
-    return 0;
-  };
 
-  LL(L, R, V);
-  --L;
 
-  auto count = [&amp;](ll A, ll B) {
-    if (A &lt; 0 or B &lt; 0)
-      return 0_m;
 
-    mint ans = 0;
-    rng (rem1, 4)
-      rng (rem2, 4) {
-        vv&lt;mint&gt; dp(2, 2);// 0: equal, 1: less
-        dp[0][0] = 1;
-        down (i, 59, 0) {
-          vv&lt;mint&gt; new_dp(2, 2);
-          ll bit_A = A &gt;&gt; i &amp; 1;
-          ll bit_B = B &gt;&gt; i &amp; 1;
-          ll bit_V = V &gt;&gt; i &amp; 1;
-          up (x1, 0, 1)
-            up (x2, 0, 1)
-              up (b1, 0, 1)
-                up (b2, 0, 1) {
-                  if (i == 1 and (b1 != rem1 / 2 or b2 != rem2 / 2))
-                    continue;
-                  if (i == 0 and (b1 != rem1 % 2 or b2 != rem2 % 2))
-                    continue;
-                  if (x1 == 0 and b1 &gt; bit_A or x2 == 0 and b2 &gt; bit_B)
-                    continue;
-                  if ((bit(i, b1, rem1) xor bit(i, b2, rem2)) != bit_V)
-                    continue;
-                  int new_x1 = x1 or b1 &lt; bit_A;
-                  int new_x2 = x2 or b2 &lt; bit_B;
-                  new_dp[new_x1][new_x2] += dp[x1][x2];
-                }
-          swap(dp, new_dp);
-        }
-        up (x1, 0, 1)
-          up (x2, 0, 1)
-            ans += dp[x1][x2];
-      }
-    return ans;
-  };
 
-  mint ans = count(R, R) - 2 * count(L - 1, R) + count(L - 1, L - 1);
-  if (V == 0)
-    ans -= R - L + 1;
-  pl(ans / 2);
-}</code></pre><h1 id=references>References</h1><p>https://atcoder.jp/contests/arc133/submissions/28688903</p><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href=/>&copy; Algorithm Notes 2026</a><div><div class=ananke-socials></div></div></div></footer></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
